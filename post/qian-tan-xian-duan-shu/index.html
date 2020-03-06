@@ -1,22 +1,90 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://Lewis-Li-lyf.github.io</id>
-    <title>LewisLi的博客 | I AK IOI</title>
-    <updated>2020-03-06T14:24:02.019Z</updated>
-    <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://Lewis-Li-lyf.github.io"/>
-    <link rel="self" href="https://Lewis-Li-lyf.github.io/atom.xml"/>
-    <subtitle>Aho-Corasick automaton的fail树上dfs序建可持久化线段树也很棒呢~</subtitle>
-    <logo>https://Lewis-Li-lyf.github.io/images/avatar.png</logo>
-    <icon>https://Lewis-Li-lyf.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, LewisLi的博客 | I AK IOI</rights>
-    <entry>
-        <title type="html"><![CDATA[浅谈线段树]]></title>
-        <id>https://Lewis-Li-lyf.github.io/post/qian-tan-xian-duan-shu/</id>
-        <link href="https://Lewis-Li-lyf.github.io/post/qian-tan-xian-duan-shu/">
-        </link>
-        <updated>2020-03-06T13:22:02.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="介绍">介绍</h1>
+<!DOCTYPE html>
+<html lang="zh-CN">
+ <head>
+     <meta charset="utf-8" />
+  <title>浅谈线段树 | LewisLi的博客 | I AK IOI</title>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <link rel="stylesheet" href="https://Lewis-Li-lyf.github.io/styles/main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+   <script src="https://cdn.staticfile.org/highlight.js/9.15.9/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+ </head>
+ <body>
+     <div class="sidebar animated fadeInDown">
+   <div class="logo-title">
+    <div class="title">
+     <img src="https://Lewis-Li-lyf.github.io/images/avatar.png?v=1583504636373" style="width:127px;" />
+
+     <h3 title=""><a href="/">LewisLi</a></h3>
+
+     <div class="description">
+      <p>Aho-Corasick automaton的fail树上dfs序建可持久化线段树也很棒呢~</p>
+     </div>
+    </div>
+   </div>
+   <ul class="social-links">
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+   </ul>
+   <div class="footer">
+    <div class="by_farbox">
+   Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+<canvasid="c_n9"width="1920"height="990"style="position: fixed; top: 0px; left: 0px; z-index: -1; opacity: 0.5;"></canvas>
+<script src="https://files.cnblogs.com/files/siwuxie095/canvas-nest.min.js" defer></script>
+    </div>
+    
+
+    </div>
+   </div>
+  </div>
+  <div class="main">
+     <div class="page-top animated fadeInDown">
+    <div class="nav">
+    
+     <li><a  href="/">首页</a></li>
+
+     <li><a  href="/archives">归档</a></li>
+
+     <li><a  href="/tags">标签</a></li>
+
+     <li><a  href="/post/about">关于</a></li>
+
+    </div>
+    <div class="information">
+     <div class="back_btn">
+      <li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li>
+     </div>
+    </div>
+   </div>
+   <div class="autopagerize_page_element">
+    <div class="content">
+     <div class="post-page">
+      <div class="post animated fadeInDown">
+       <div class="post-title">
+        <h3><a>浅谈线段树</a></h3>
+       </div>
+       <div class="post-content">
+        <h1 id="介绍">介绍</h1>
 <p>线段树是一种二叉搜索树，与区间树相似，它将一个区间划分成一些单元区间，每个单元区间对应线段树中的一个叶结点。它的时间复杂度为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>l</mi><mi>o</mi><mi>g</mi><mi>N</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(logN)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span>。而未优化的空间复杂度为2N，实际应用时一般还要开4N的数组以免越界。</p>
 <p>使用线段树可以快速的查找某一个节点在若干条线段中出现的次数。</p>
 <h1 id="结构与建立">结构与建立</h1>
@@ -93,32 +161,49 @@ void build(int k,int l,int r){
 	return query(k&lt;&lt;1,l,mid)+query(k&lt;&lt;1|1,mid+1,r);//左右都有，分别像两边搜索
 }
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[数学公式尝试]]></title>
-        <id>https://Lewis-Li-lyf.github.io/post/shu-xue-gong-shi-chang-shi/</id>
-        <link href="https://Lewis-Li-lyf.github.io/post/shu-xue-gong-shi-chang-shi/">
-        </link>
-        <updated>2020-03-06T07:30:55.000Z</updated>
-        <content type="html"><![CDATA[<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>E</mi><mo>=</mo><mi>m</mi><msup><mi>c</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">E = mc^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord mathdefault">m</span><span class="mord"><span class="mord mathdefault">c</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2020-03-06-创建博客der庆祝]]></title>
-        <id>https://Lewis-Li-lyf.github.io/post/chuang-jian-bo-ke-qing-zhu/</id>
-        <link href="https://Lewis-Li-lyf.github.io/post/chuang-jian-bo-ke-qing-zhu/">
-        </link>
-        <updated>2020-03-06T04:56:26.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="终于搭完了">终于搭完了</h2>
-<p>总算是搞好这个 GitHub pages 博客了，之前一直都用的洛谷，但是我想要一个<strong>自己的</strong>博客,所以就找到了 GitHub pages 。</p>
-<p>感谢两位大佬：<br>
-<a href="https://rainbomsea.xyz/">大佬1</a><br>
-<a href="http://qiubaiying.vip/">大佬2</a></p>
-<h2 id="经验总结">经验总结</h2>
-<p>这次博客的搭建，让我明白了一个 <strong>GitHub desktop</strong> 的重要性。之前一度弄到怀疑人生，又没办法珂学上网，死活上传不上去。用了 GitHub pages 以后，花点时间 clone 下来，上传修改的时候快到飞起。</p>
-<p>然后是迅雷。</p>
-<p>我在下载 GitHub desktop 的时候，被这个下载速度所折服。直到我用了迅雷——<strong>5秒真男人</strong>。</p>
-]]></content>
-    </entry>
-</feed>
+
+       </div>
+       <div class="post-footer">
+        <div class="meta">
+         <div class="info">
+          <i class="fa fa-sun-o"></i>
+          <span class="date">2020-03-06</span>
+          <i class="fa fa-tag"></i>
+          
+          <a class="tag" href="https://Lewis-Li-lyf.github.io/tag/lkI9ZNq5F/" title="算法">算法 </a>
+          
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="share">
+       <div class="evernote">
+        <a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a>
+       </div>
+       <div class="weibo">
+        <a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a>
+       </div>
+       <div class="twitter">
+        <a class="fa fa-twitter" href="http://twitter.com/home?status=,https://Lewis-Li-lyf.github.io/post/qian-tan-xian-duan-shu/,;"></a>
+       </div>
+      </div>
+      <div class="pagination">
+       <ul class="clearfix">
+
+        
+        <li class="next pagbuttons"><a class="btn" role="navigation" href="https://Lewis-Li-lyf.github.io/post/shu-xue-gong-shi-chang-shi/" title=" 数学公式尝试">下一篇</a></li>
+        
+       </ul>
+      </div>
+        
+     </div>
+    </div>
+   </div>
+  </div>
+  <script src="https://Lewis-Li-lyf.github.io/media/scripts/jquery.js"></script>
+  <script src="https://Lewis-Li-lyf.github.io/media/scripts/jquery-migrate-1.2.1.min.js"></script>
+  <script src="https://Lewis-Li-lyf.github.io/media/scripts/jquery.appear.js"></script>
+
+
+ </body>
+</html>
