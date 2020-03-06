@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://Lewis-Li-lyf.github.io</id>
+    <title>Gridea</title>
+    <updated>2020-03-06T06:32:46.432Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://Lewis-Li-lyf.github.io"/>
+    <link rel="self" href="https://Lewis-Li-lyf.github.io/atom.xml"/>
+    <subtitle>温故而知新</subtitle>
+    <logo>https://Lewis-Li-lyf.github.io/images/avatar.png</logo>
+    <icon>https://Lewis-Li-lyf.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2020, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[2020-03-06-创建博客der庆祝]]></title>
+        <id>https://Lewis-Li-lyf.github.io/post/chuang-jian-bo-ke-qing-zhu/</id>
+        <link href="https://Lewis-Li-lyf.github.io/post/chuang-jian-bo-ke-qing-zhu/">
+        </link>
+        <updated>2020-03-06T04:56:26.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="终于搭完了">终于搭完了</h2>
+<p>总算是搞好这个 GitHub pages 博客了，之前一直都用的洛谷，但是我想要一个<strong>自己的</strong>博客,所以就找到了 GitHub pages 。</p>
+<p>感谢两位大佬：<br>
+<a href="https://rainbomsea.xyz/">大佬1</a><br>
+<a href="http://qiubaiying.vip/">大佬2</a></p>
+<h2 id="经验总结">经验总结</h2>
+<p>这次博客的搭建，让我明白了一个 <strong>GitHub desktop</strong> 的重要性。之前一度弄到怀疑人生，又没办法珂学上网，死活上传不上去。用了 GitHub pages 以后，花点时间 clone 下来，上传修改的时候快到飞起。</p>
+<p>然后是迅雷。</p>
+<p>我在下载 GitHub desktop 的时候，被这个下载速度所折服。直到我用了迅雷——<strong>5秒真男人</strong>。</p>
+]]></content>
+    </entry>
+</feed>
