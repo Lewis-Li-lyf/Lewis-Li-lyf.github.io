@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Lewis-Li-lyf.github.io</id>
     <title>LewisLi 的 博客</title>
-    <updated>2020-03-06T06:51:46.400Z</updated>
+    <updated>2020-03-06T06:52:40.948Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Lewis-Li-lyf.github.io"/>
     <link rel="self" href="https://Lewis-Li-lyf.github.io/atom.xml"/>
-    <subtitle>温故而知新</subtitle>
+    <subtitle>Aho-Corasick automaton的fail树上dfs序建可持久化线段树也很棒呢~</subtitle>
     <logo>https://Lewis-Li-lyf.github.io/images/avatar.png</logo>
     <icon>https://Lewis-Li-lyf.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, LewisLi 的 博客</rights>
