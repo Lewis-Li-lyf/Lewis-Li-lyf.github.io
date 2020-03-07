@@ -1,98 +1,103 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
- <head>
-     <meta charset="utf-8" />
-  <title>浅谈线段树 | LewisLi的博客 | I AK IOI</title>
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
-  <link rel="stylesheet" href="https://Lewis-Li-lyf.github.io/styles/main.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-   <script src="https://cdn.staticfile.org/highlight.js/9.15.9/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
- </head>
- <body>
-     <div class="sidebar animated fadeInDown">
-   <div class="logo-title">
-    <div class="title">
-     <img src="https://Lewis-Li-lyf.github.io/images/avatar.png?v=1583584307631" style="width:127px;" />
-
-     <h3 title=""><a href="/">LewisLi</a></h3>
-
-     <div class="description">
-      <p>Aho-Corasick automaton的fail树上dfs序建可持久化线段树也很棒呢~</p>
-     </div>
-    </div>
-   </div>
-   <ul class="social-links">
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>浅谈线段树 | LewisLi的博客 | I AK IOI</title>
+<link rel="shortcut icon" href="https://Lewis-Li-lyf.github.io/favicon.ico?v=1583589163705">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://Lewis-Li-lyf.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="浅谈线段树 | LewisLi的博客 | I AK IOI - Atom Feed" href="https://Lewis-Li-lyf.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
+
+    <meta name="description" content="介绍
+线段树是一种二叉搜索树，与区间树相似，它将一个区间划分成一些单元区间，每个单元区间对应线段树中的一个叶结点。它的时间复杂度为 O(logN)O(logN)O(logN)。而未优化的空间复杂度为2N，实际应用时一般还要开4N的数组以免越..." />
+    <meta name="keywords" content="算法" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://Lewis-Li-lyf.github.io">
+  <img class="avatar" src="https://Lewis-Li-lyf.github.io/images/avatar.png?v=1583589163705" alt="">
+  </a>
+  <h1 class="site-title">
+    LewisLi的博客 | I AK IOI
+  </h1>
+  <p class="site-description">
+    Aho-Corasick automaton的fail树上dfs序建可持久化线段树也很棒呢~
+  </p>
+  <div class="menu-container">
     
-
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
     
-
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
     
-
-    <li><a href="https://github.com/Lewis-Li-lyf"><i class="fa fa-github"></i></a></li>
- 
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
     
-
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
     
-
-    
-
-    
-
-    
-
-    <li><a href="85528116"><i class="fa fa-qq"></i></a></li>
- 
-    
-
-    
-
-   </ul>
-   <div class="footer">
-    <div class="by_farbox">
-   Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
-<script type="text/javascript" color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
-<script type="text/javascript"> 
- 
-!function (e, t, a) {function r() {for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");requestAnimationFrame(r)}function n() {var t = "function" == typeof e.onclick && e.onclick;e.onclick = function (e) {t && t(), o(e)}}function o(e) {var a = t.createElement("div");a.className = "heart", s.push({el: a,x: e.clientX - 5,y: e.clientY - 5,scale: 1,alpha: 1,color: c()}), t.body.appendChild(a)}function i(e) {var a = t.createElement("style");a.type = "text/css";try {a.appendChild(t.createTextNode(e))} catch (t) {a.styleSheet.cssText = e}t.getElementsByTagName("head")[0].appendChild(a)}function c() {return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"}var s = [];e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {setTimeout(e, 1e3 / 60)}, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()}(window, document);
- 
-</script>
-    </div>
-    
-
-    </div>
-   </div>
   </div>
-  <div class="main">
-     <div class="page-top animated fadeInDown">
-    <div class="nav">
+  <div class="social-container">
     
-     <li><a  href="/">首页</a></li>
+      
+        <a href="https://github.com/Lewis-Li-lyf" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
 
-     <li><a  href="/archives">归档</a></li>
-
-     <li><a  href="/tags">标签</a></li>
-
-     <li><a  href="/post/about">关于</a></li>
-
-    </div>
-    <div class="information">
-     <div class="back_btn">
-      <li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li>
-     </div>
-    </div>
-   </div>
-   <div class="autopagerize_page_element">
-    <div class="content">
-     <div class="post-page">
-      <div class="post animated fadeInDown">
-       <div class="post-title">
-        <h3><a>浅谈线段树</a></h3>
-       </div>
-       <div class="post-content">
-        <h1 id="介绍">介绍</h1>
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              浅谈线段树
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-03-06
+              </span>
+              <span>
+                6 min read
+              </span>
+              
+                <a href="https://Lewis-Li-lyf.github.io/tag/lkI9ZNq5F/" class="post-tag">
+                  # 算法
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h1 id="介绍">介绍</h1>
 <p>线段树是一种二叉搜索树，与区间树相似，它将一个区间划分成一些单元区间，每个单元区间对应线段树中的一个叶结点。它的时间复杂度为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>l</mi><mi>o</mi><mi>g</mi><mi>N</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(logN)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span>。而未优化的空间复杂度为2N，实际应用时一般还要开4N的数组以免越界。</p>
 <p>使用线段树可以快速的查找某一个节点在若干条线段中出现的次数。</p>
 <h1 id="结构与建立">结构与建立</h1>
@@ -170,50 +175,87 @@ void build(int k,int l,int r){
 }
 </code></pre>
 
-       </div>
-       <div class="post-footer">
-        <div class="meta">
-         <div class="info">
-          <i class="fa fa-sun-o"></i>
-          <span class="date">2020-03-06</span>
-          <i class="fa fa-tag"></i>
-          
-          <a class="tag" href="https://Lewis-Li-lyf.github.io/tag/lkI9ZNq5F/" title="算法">算法 </a>
-          
-         </div>
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#%E4%BB%8B%E7%BB%8D">介绍</a></li>
+<li><a href="#%E7%BB%93%E6%9E%84%E4%B8%8E%E5%BB%BA%E7%AB%8B">结构与建立</a></li>
+<li><a href="#%E5%8C%BA%E9%97%B4%E4%BF%AE%E6%94%B9%E5%8C%BA%E9%97%B4%E6%9F%A5%E8%AF%A2">区间修改，区间查询</a></li>
+</ul>
+
+              </div>
+            </div>
+          </article>
         </div>
-       </div>
-      </div>
-      <div class="share">
-       <div class="evernote">
-        <a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a>
-       </div>
-       <div class="weibo">
-        <a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a>
-       </div>
-       <div class="twitter">
-        <a class="fa fa-twitter" href="http://twitter.com/home?status=,https://Lewis-Li-lyf.github.io/post/qian-tan-xian-duan-shu/,;"></a>
-       </div>
-      </div>
-      <div class="pagination">
-       <ul class="clearfix">
 
-        <li class="pre pagbuttons"><a class="btn" role="navigation" href="https://Lewis-Li-lyf.github.io/post/iostream-shu-ru-shu-chu-liu/" title="iostream 输入输出流">上一篇</a></li>
-         
         
-        <li class="next pagbuttons"><a class="btn" role="navigation" href="https://Lewis-Li-lyf.github.io/post/shu-xue-gong-shi-chang-shi/" title=" 数学公式尝试">下一篇</a></li>
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://Lewis-Li-lyf.github.io/post/shu-xue-gong-shi-chang-shi/">
+              <h3 class="post-title">
+                数学公式尝试
+              </h3>
+            </a>
+          </div>
         
-       </ul>
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+<script type="text/javascript" color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
+<script type="text/javascript"> 
+ 
+!function (e, t, a) {function r() {for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");requestAnimationFrame(r)}function n() {var t = "function" == typeof e.onclick && e.onclick;e.onclick = function (e) {t && t(), o(e)}}function o(e) {var a = t.createElement("div");a.className = "heart", s.push({el: a,x: e.clientX - 5,y: e.clientY - 5,scale: 1,alpha: 1,color: c()}), t.body.appendChild(a)}function i(e) {var a = t.createElement("style");a.type = "text/css";try {a.appendChild(t.createTextNode(e))} catch (t) {a.styleSheet.cssText = e}t.getElementsByTagName("head")[0].appendChild(a)}function c() {return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"}var s = [];e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {setTimeout(e, 1e3 / 60)}, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()}(window, document);
+ 
+</script>
+  <a class="rss" href="https://Lewis-Li-lyf.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
       </div>
-        
-     </div>
     </div>
-   </div>
-  </div>
-  <script src="https://Lewis-Li-lyf.github.io/media/scripts/jquery.js"></script>
-  <script src="https://Lewis-Li-lyf.github.io/media/scripts/jquery-migrate-1.2.1.min.js"></script>
-  <script src="https://Lewis-Li-lyf.github.io/media/scripts/jquery.appear.js"></script>
 
+    <script>
+      hljs.initHighlightingOnLoad()
 
- </body>
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
 </html>
