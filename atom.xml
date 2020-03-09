@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Lewis-Li-lyf.github.io</id>
     <title>LewisLi的博客 | I AK IOI</title>
-    <updated>2020-03-08T11:55:24.533Z</updated>
+    <updated>2020-03-09T14:55:56.095Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Lewis-Li-lyf.github.io"/>
     <link rel="self" href="https://Lewis-Li-lyf.github.io/atom.xml"/>
@@ -10,6 +10,34 @@
     <logo>https://Lewis-Li-lyf.github.io/images/avatar.png</logo>
     <icon>https://Lewis-Li-lyf.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, LewisLi的博客 | I AK IOI</rights>
+    <entry>
+        <title type="html"><![CDATA[About Me]]></title>
+        <id>https://Lewis-Li-lyf.github.io/post/about-me/</id>
+        <link href="https://Lewis-Li-lyf.github.io/post/about-me/">
+        </link>
+        <updated>2020-03-09T14:35:59.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>临兵斗者，皆阵列在前！</p>
+</blockquote>
+<p><strong><a href="https://lewis-li-lyf.github.io">My Blog</a></strong></p>
+<p><strong>n 年 OI 一场空，不开 long long 见祖宗</strong><br>
+<strong>暴力出奇迹，骗分过样例</strong><br>
+<strong>暴搜挂着机，打表出省一</strong><br>
+---- 共勉</p>
+<p><strong>金句</strong></p>
+<p>AC=Answer Confusing=疑惑的答案<br>
+WA=Wonderful Answer=好答案<br>
+TLE=Time Limit Enough=时间充裕<br>
+MLE=Memory Limit Enough=内存充裕<br>
+OLE: Output Limit Enough=输出充裕<br>
+CE=Compile Easily=轻松编译<br>
+RE=Run Excellently=完美运行<br>
+UKE=Unbelievable Keeping Excellent=难以置信的保持优秀<br>
+AU=All Unaccepted=全都不正确<br>
+PE=Pretty Excellent 十分优秀<br>
+——转自<a href="https://www.luogu.com.cn/user/228471">奆佬cyr</a></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[iostream 输入输出流]]></title>
         <id>https://Lewis-Li-lyf.github.io/post/iostream-shu-ru-shu-chu-liu/</id>
@@ -47,7 +75,7 @@
 <p>线段树是建立在线段的基础上，每一个节点代表了一条线段<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>a</mi><mo separator="true">,</mo><mi>b</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(a,b)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">b</span><span class="mclose">)</span></span></span></span>的长度。若一个节点代表<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>a</mi><mo separator="true">,</mo><mi>b</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(a,b)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">b</span><span class="mclose">)</span></span></span></span>，则它的 2 个儿子分别代表<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>a</mi><mo separator="true">,</mo><mo>(</mo><mi>a</mi><mo>+</mo><mi>b</mi><mo>)</mo><mo>÷</mo><mn>2</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">(a,(a+b) \div 2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mopen">(</span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">b</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">÷</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mclose">)</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mo>(</mo><mi>a</mi><mo>+</mo><mi>b</mi><mo>)</mo><mo>÷</mo><mn>2</mn><mo>+</mo><mn>1</mn><mo separator="true">,</mo><mi>b</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">((a+b) \div 2+1,b)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mopen">(</span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">b</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">÷</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">b</span><span class="mclose">)</span></span></span></span> 。若一个节点的编号为 i ，那么它的 2 个儿子的编号分别为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">i  \times 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo>×</mo><mn>2</mn><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">i \times 2+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>。用位运算优化后就是 i&lt;&lt;1，i&lt;&lt;1|1 。</p>
 <p>建立时，从根节点向下遍历。如果它是一个叶节点，则对其赋值并返回，如果不是，分别像两边延展，返回时计算其值。<br>
 本文中<code>k</code>都表示节点编号，<code>l</code>，<code>r</code>代表<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>l</mi><mo separator="true">,</mo><mi>r</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(l,r)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mclose">)</span></span></span></span>。</p>
-<pre><code>const int maxn = 100010;
+<pre><code class="language-cpp">const int maxn = 100010;
 int a[maxn];
 struct node{
 	int l,r;//左区间和右区间
@@ -78,7 +106,7 @@ void build(int k,int l,int r){
 我们从 mid 切开，发现 2 个区间就都刚好对应了。分别向 2 个区间递归即可。<br>
 那么我们怎么去修改它们呢？肯定不能像建树那样遍历，所以我们引进一个<strong>新的，高大上</strong>的东西——<strong>lazytage懒标记</strong>。在修改的时候，先对这个区间修改，之后对其子节点打上懒标记。等到需要的时候，再进行修改。<br>
 那么就涉及到一个懒标记下传的问题。这个操作叫做 pushdown。在修改和查询的时候，一定不能忘记。</p>
-<pre><code>void Pushdown(int k){
+<pre><code class="language-cpp">void Pushdown(int k){
 	if(t[k].l==t[k].r){
 		t[k].lz=0;
 		return ;
@@ -91,7 +119,7 @@ void build(int k,int l,int r){
 	return ;
 }
 </code></pre>
-<pre><code>void update(int k,int l,int r,int x){//x指要增加的值
+<pre><code class="language-cpp">void update(int k,int l,int r,int x){//x指要增加的值
 	if(l==t[k].l &amp;&amp; r==t[k].r){
 		t[k].sum+=(r-l+1)*x;
 		t[k].lz+=x;//找到匹配区间，打上懒标记
@@ -108,7 +136,7 @@ void build(int k,int l,int r){
 </code></pre>
 <p>接下来是查询。<br>
 查询很简单，就是向下搜索。如果找到了刚好匹配的区间，就返回它。如果不是，则继续向下搜索。</p>
-<pre><code>int query(int k,int l,int r){
+<pre><code class="language-cpp">int query(int k,int l,int r){
 	if(l==t[k].l &amp;&amp; r==t[k].r) return t[k].sum;//匹配区间
 	Pushdown(k);
 	int mid=(t[k].l+t[k].r)&gt;&gt;1;
