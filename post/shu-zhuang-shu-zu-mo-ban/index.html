@@ -1,0 +1,339 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>树状数组模版 | LewisLi的博客 | I AK IOI</title>
+<link rel="shortcut icon" href="https://Lewis-Li-lyf.github.io/favicon.ico?v=1584949674341">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://Lewis-Li-lyf.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="树状数组模版 | LewisLi的博客 | I AK IOI - Atom Feed" href="https://Lewis-Li-lyf.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="说白了，这篇文章就是两个模版。
+模版题：
+传送门一
+传送门二
+Lowbit
+介绍一下lowbit：
+lowbit(i)lowbit(i)lowbit(i) 是指 2k2^k2k，其中 kkk 指 iii 用二进制表示时末尾0的个数，如8（1..." />
+    <meta name="keywords" content="算法" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://Lewis-Li-lyf.github.io">
+  <img class="avatar" src="https://Lewis-Li-lyf.github.io/images/avatar.png?v=1584949674341" alt="">
+  </a>
+  <h1 class="site-title">
+    LewisLi的博客 | I AK IOI
+  </h1>
+  <p class="site-description">
+    临兵斗者，皆阵列在前！
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="https://Lewis-Li-lyf.github.io/post/about-me" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/Lewis-Li-lyf" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              树状数组模版
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-03-23
+              </span>
+              <span>
+                4 min read
+              </span>
+              
+                <a href="https://Lewis-Li-lyf.github.io/tag/lkI9ZNq5F/" class="post-tag">
+                  # 算法
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>说白了，这篇文章就是两个模版。</p>
+<p>模版题：<br>
+<a href="https://www.luogu.com.cn/problem/P3374">传送门一</a><br>
+<a href="https://www.luogu.com.cn/problem/P3368">传送门二</a></p>
+<h1 id="lowbit">Lowbit</h1>
+<p>介绍一下lowbit：<br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>o</mi><mi>w</mi><mi>b</mi><mi>i</mi><mi>t</mi><mo>(</mo><mi>i</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">lowbit(i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mord mathdefault">b</span><span class="mord mathdefault">i</span><span class="mord mathdefault">t</span><span class="mopen">(</span><span class="mord mathdefault">i</span><span class="mclose">)</span></span></span></span> 是指 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>k</mi></msup></mrow><annotation encoding="application/x-tex">2^k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.849108em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span></span></span></span></span></span></span></span>，其中 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> 指 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span> 用二进制表示时末尾0的个数，如8（1000）的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>就是3，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>o</mi><mi>w</mi><mi>b</mi><mi>i</mi><mi>t</mi><mo>(</mo><mn>8</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">lowbit(8)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mord mathdefault">b</span><span class="mord mathdefault">i</span><span class="mord mathdefault">t</span><span class="mopen">(</span><span class="mord">8</span><span class="mclose">)</span></span></span></span>就是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>3</mn></msup><mo>=</mo><mn>8</mn></mrow><annotation encoding="application/x-tex">2^3=8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">8</span></span></span></span>。</p>
+<p>对于每一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mo>[</mo><mi>i</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">C[ i ]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span></span></span></span>，与之连接的下一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span></span>为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mo>[</mo><mi>i</mi><mo>+</mo><mi>l</mi><mi>o</mi><mi>w</mi><mi>b</mi><mi>i</mi><mi>t</mi><mo>(</mo><mi>i</mi><mo>)</mo><mo>]</mo></mrow><annotation encoding="application/x-tex">C[ i + lowbit(i) ]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mord mathdefault">b</span><span class="mord mathdefault">i</span><span class="mord mathdefault">t</span><span class="mopen">(</span><span class="mord mathdefault">i</span><span class="mclose">)</span><span class="mclose">]</span></span></span></span>。</p>
+<p>同样，求和公式：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mi>U</mi><mi>M</mi><mi>i</mi><mo>=</mo><mi>C</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>+</mo><mi>C</mi><mo>[</mo><mi>i</mi><mo>−</mo><msup><mn>2</mn><mrow><mi>k</mi><mn>1</mn></mrow></msup><mo>]</mo><mo>+</mo><mi>C</mi><mo>[</mo><mo>(</mo><mi>i</mi><mo>−</mo><msup><mn>2</mn><mrow><mi>k</mi><mn>1</mn></mrow></msup><mo>)</mo><mo>−</mo><msup><mn>2</mn><mrow><mi>k</mi><mn>2</mn></mrow></msup><mo>]</mo><mo>+</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">SUMi = C[i] + C[i-2^{k1}] + C[(i - 2^{k1}) - 2^{k2}] + .....</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault" style="margin-right:0.10903em;">U</span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.099108em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mopen">[</span><span class="mopen">(</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.099108em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.099108em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span><span class="mord mtight">2</span></span></span></span></span></span></span></span></span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.10556em;vertical-align:0em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span></span></span></span></p>
+<p>所以直接上代码吧</p>
+<h1 id="单点修改区间查询">单点修改，区间查询</h1>
+<pre><code class="language-cpp">#include&lt;cstdio&gt;
+using namespace std;
+
+const int N=5*1e5;
+
+int n,m,a[N+1],c[N+1],x,y,z;
+int lowbit(int x){
+	return x &amp; (-x);
+} 
+void add(int pos,int k){
+	while(pos &lt;= n){
+		c[pos] += k;
+		pos += lowbit(pos);
+	}
+	return ;
+}
+int sum(int i){
+	int res = 0;
+	while(i &gt; 0){
+		res += c[i];
+		i -= lowbit(i);
+	}
+	return res;
+}
+int main(){
+	//freopen(&quot;putin.txt&quot;,&quot;r&quot;,stdin);
+	//freopen(&quot;putout.txt&quot;,&quot;w&quot;,stdout);
+	scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+	for(int i=1;i&lt;=n;i++){
+		scanf(&quot;%d&quot;,&amp;a[i]);
+		add(i,a[i]);
+	}
+	for(int i=1;i&lt;=m;i++){
+		scanf(&quot;%d%d%d&quot;,&amp;z,&amp;x,&amp;y);
+		if(z == 1) add(x,y);
+		if(z == 2){
+			printf(&quot;%d\n&quot;,sum(y)-sum(x-1));//前缀和相减
+		}
+	}
+	return 0;
+}
+</code></pre>
+<h1 id="区间修改单点查询">区间修改，单点查询</h1>
+<pre><code class="language-cpp">#include&lt;cstdio&gt;
+using namespace std;
+
+const int N=5*1e5;
+
+int n,m,a[N+1],c[N+1];
+int lowbit(int x){
+	return x &amp; (-x);
+} 
+void add(int pos,int k){
+	while(pos &lt;= n){
+		c[pos] += k;
+		pos += lowbit(pos);
+	}
+	return ;
+}
+int getsum(int i){
+	int res = 0;
+	while(i &gt; 0){
+		res += c[i];
+		i -= lowbit(i);
+	}
+	return res;
+}
+int main(){
+	//freopen(&quot;putin.txt&quot;,&quot;r&quot;,stdin);
+	//freopen(&quot;putout.txt&quot;,&quot;w&quot;,stdout);
+	scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+	for(int i=1;i&lt;=n;i++){
+		scanf(&quot;%d&quot;,&amp;a[i]);
+		add(i,a[i] - a[i-1]);//差分
+	}
+	for(int i=1;i&lt;=m;i++){
+		int z;
+		scanf(&quot;%d&quot;,&amp;z);
+		if(z == 1){
+			int x,y,k;
+			scanf(&quot;%d%d%d&quot;,&amp;x,&amp;y,&amp;k);
+			add(x,k); 
+			add(y+1,-k);//利用差分进行区间修改
+		}
+		if(z == 2){
+			int s;
+			scanf(&quot;%d&quot;,&amp;s);
+			printf(&quot;%d\n&quot;,getsum(s));
+		}
+	}
+	return 0;
+}
+</code></pre>
+<p>附：关于树状数组的一篇文章，真的超详细。<br>
+<a href="https://www.cnblogs.com/xenny/p/9739600.html">戳这里</a></p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#lowbit">Lowbit</a></li>
+<li><a href="#%E5%8D%95%E7%82%B9%E4%BF%AE%E6%94%B9%E5%8C%BA%E9%97%B4%E6%9F%A5%E8%AF%A2">单点修改，区间查询</a></li>
+<li><a href="#%E5%8C%BA%E9%97%B4%E4%BF%AE%E6%94%B9%E5%8D%95%E7%82%B9%E6%9F%A5%E8%AF%A2">区间修改，单点查询</a></li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://Lewis-Li-lyf.github.io/post/qian-tan-lcazui-jin-gong-gong-zu-xian/">
+              <h3 class="post-title">
+                浅谈 LCA（最近公共祖先）
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '69f5ad5fbcf93f9cc9d6',
+    clientSecret: '61a7c29e2ca8a20c7c9bd34d002e625033ccd557',
+    repo: 'Lewis-Li-lyf.github.io',
+    owner: 'Lewis-Li-lyf',
+    admin: ['Lewis-Li-lyf'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  Powered by<a href="https://github.com/getgridea/gridea" target="_blank">Gridea </a>
+<div class="site-footer">
+  <span id="timeDate">载入天数...载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("03/05/2020 00:00:00");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "我的博客已安全运行 "+dnum+" 天 " + hnum + " 小时 " + mnum + " 分 " + snum + " 秒";  
+    } 
+setInterval("createtime()",250);
+</script>
+
+<script type="text/javascript" color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
+<script type="text/javascript"> 
+ 
+!function (e, t, a) {function r() {for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");requestAnimationFrame(r)}function n() {var t = "function" == typeof e.onclick && e.onclick;e.onclick = function (e) {t && t(), o(e)}}function o(e) {var a = t.createElement("div");a.className = "heart", s.push({el: a,x: e.clientX - 5,y: e.clientY - 5,scale: 1,alpha: 1,color: c()}), t.body.appendChild(a)}function i(e) {var a = t.createElement("style");a.type = "text/css";try {a.appendChild(t.createTextNode(e))} catch (t) {a.styleSheet.cssText = e}t.getElementsByTagName("head")[0].appendChild(a)}function c() {return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"}var s = [];e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {setTimeout(e, 1e3 / 60)}, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()}(window, document);
+ 
+</script>
+  <a class="rss" href="https://Lewis-Li-lyf.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

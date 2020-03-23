@@ -1,0 +1,260 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>浅谈ST表 | LewisLi的博客 | I AK IOI</title>
+<link rel="shortcut icon" href="https://Lewis-Li-lyf.github.io/favicon.ico?v=1584949674341">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://Lewis-Li-lyf.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="浅谈ST表 | LewisLi的博客 | I AK IOI - Atom Feed" href="https://Lewis-Li-lyf.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="ST表类似树状数组，线段树这两种算法，是一种用于解决RMQ(Range Minimum/Maximum Query,即区间最值查询)问题的离线算法
+与线段树相比，预处理复杂度同为O(nlogn),查询时间上，ST表为O(1),线段树为O(l..." />
+    <meta name="keywords" content="算法" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://Lewis-Li-lyf.github.io">
+  <img class="avatar" src="https://Lewis-Li-lyf.github.io/images/avatar.png?v=1584949674341" alt="">
+  </a>
+  <h1 class="site-title">
+    LewisLi的博客 | I AK IOI
+  </h1>
+  <p class="site-description">
+    临兵斗者，皆阵列在前！
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="https://Lewis-Li-lyf.github.io/post/about-me" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/Lewis-Li-lyf" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              浅谈ST表
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-03-23
+              </span>
+              <span>
+                3 min read
+              </span>
+              
+                <a href="https://Lewis-Li-lyf.github.io/tag/lkI9ZNq5F/" class="post-tag">
+                  # 算法
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>ST表类似树状数组，线段树这两种算法，是一种用于解决RMQ(Range Minimum/Maximum Query,即区间最值查询)问题的离线算法<br>
+与线段树相比，预处理复杂度同为O(nlogn),查询时间上，ST表为O(1),线段树为O(logn)<br>
+说白了，就是静态的求区间最大值。</p>
+<p>st表的主体是一个二维数组<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>t</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">st[i][j]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span></span></span></span>，表示起始点为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>，长度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>j</mi></msup></mrow><annotation encoding="application/x-tex">2^j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.824664em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span></span></span></span></span></span></span>的一段的最值，本文以最大值为例。<br>
+ST表使用的是倍增的思想。</p>
+<p>已知的是每一个以<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>为起始，长度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>0</mn></msup></mrow><annotation encoding="application/x-tex">2^0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span></span></span></span></span></span></span></span>的区间最值为这个数本身，由此可以推出以<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>为起始，长度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>1</mn></msup></mrow><annotation encoding="application/x-tex">2^1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span>的最值是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>t</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>[</mo><mn>1</mn><mo>]</mo></mrow><annotation encoding="application/x-tex">st[i][1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord">1</span><span class="mclose">]</span></span></span></span>与<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>t</mi><mo>[</mo><mi>i</mi><mo>+</mo><mn>1</mn><mo>]</mo><mo>[</mo><mn>1</mn><mo>]</mo></mrow><annotation encoding="application/x-tex">st[i+1][1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord">1</span><span class="mclose">]</span></span></span></span>的最值。<br>
+以此类推。<br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="monospace">s</mi><mi mathvariant="monospace">t</mi><mo>[</mo><mi mathvariant="monospace">i</mi><mo>]</mo><mo>[</mo><mi mathvariant="monospace">j</mi><mo>]</mo><mo>=</mo><mi>max</mi><mo>⁡</mo><mo>(</mo><mrow><mi mathvariant="monospace">s</mi><mi mathvariant="monospace">t</mi><mo>[</mo><mi mathvariant="monospace">i</mi><mo>]</mo><mo>[</mo><mi mathvariant="monospace">j</mi><mo>−</mo><mn mathvariant="monospace">1</mn><mo>]</mo><mo separator="true">,</mo><mrow><mi mathvariant="monospace">s</mi><mi mathvariant="monospace">t</mi><mo>[</mo><mi mathvariant="monospace">i</mi><mo>+</mo><msup><mn mathvariant="monospace">2</mn><mrow><mi mathvariant="monospace">j</mi><mo>−</mo><mn mathvariant="monospace">1</mn></mrow></msup><mo>]</mo><mo>[</mo><mi mathvariant="monospace">j</mi><mo>−</mo><mn mathvariant="monospace">1</mn><mo>]</mo><mo>)</mo></mrow></mrow></mrow><annotation encoding="application/x-tex">\tt st[i][j] = \max(\tt st[i][j-1],\tt st[i+2^{j-1}][j-1])</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.040777em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathtt">s</span><span class="mord mathtt">t</span><span class="mopen">[</span><span class="mord mathtt">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathtt">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mop">max</span><span class="mopen">(</span><span class="mord"><span class="mord mathtt">s</span><span class="mord mathtt">t</span><span class="mopen">[</span><span class="mord mathtt">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathtt">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathtt">1</span><span class="mclose">]</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathtt">s</span><span class="mord mathtt">t</span><span class="mopen">[</span><span class="mord mathtt">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathtt">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7907770000000001em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathtt mtight">j</span><span class="mbin mtight">−</span><span class="mord mathtt mtight">1</span></span></span></span></span></span></span></span></span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathtt">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathtt">1</span><span class="mclose">]</span><span class="mclose">)</span></span></span></span></span></span></span><br>
+那就可以直接上代码了：</p>
+<pre><code class="language-cpp">#include&lt;cstdio&gt;
+#define N 1e5+5
+using namespace std;
+int zz[N][20]//我一般开20，别问我为什么名字不是st，当时学的时候用的zz
+int main(){
+    int n,m;
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+    for(int i=1;i&lt;=n;i++){
+	scanf(&quot;%d&quot;,&amp;num);
+	zz[i][0] = num;
+    }
+    for(int j=1;j&lt;=19;j++){
+    	for (int i=1;i&lt;=n-(1&lt;&lt;j)+1;i++){
+    		zz[i][j]=max(zz[i][j-1],zz[i+(1&lt;&lt;(j-1))][j-1]);
+		}
+	}
+</code></pre>
+<p>在取<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">[x,y]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">]</span></span></span></span>区间的最值时，需要找到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>t</mi><mo>[</mo><mi>x</mi><mo>]</mo><mo>[</mo><mi>e</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">st[x][e]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span><span class="mopen">[</span><span class="mord mathdefault">x</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault">e</span><span class="mclose">]</span></span></span></span>与<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>t</mi><mo>[</mo><mi>y</mi><mo>−</mo><msup><mn>2</mn><mi>e</mi></msup><mo>+</mo><mn>1</mn><mo>]</mo><mo>[</mo><mi>e</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">st[y-2^e+1][e]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.747722em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">e</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault">e</span><span class="mclose">]</span></span></span></span>的最值并比较。<br>
+e是小于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi><mo>−</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">y-x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7777700000000001em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>的最大2的幂的指数，也就是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>o</mi><mi>g</mi><mn>2</mn><mo>(</mo><mi>y</mi><mo>−</mo><mi>x</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">log2(y-x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord">2</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">x</span><span class="mclose">)</span></span></span></span>。<br>
+具体为什么自己想一想。<br>
+于是就出来了：</p>
+<pre><code class="language-cpp">for(int i=1;i&lt;=m;i++){
+	scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
+	int e=log2(y-x);
+	printf(&quot;%d\n&quot;,max(zz[x][e],zz[y-(1&lt;&lt;e)+1][e]));
+}
+</code></pre>
+<p><s>我之前把log2写成了log</s></p>
+
+              </div>
+              <div class="toc-container">
+                
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://Lewis-Li-lyf.github.io/post/shu-zhuang-shu-zu-mo-ban/">
+              <h3 class="post-title">
+                树状数组模版
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '69f5ad5fbcf93f9cc9d6',
+    clientSecret: '61a7c29e2ca8a20c7c9bd34d002e625033ccd557',
+    repo: 'Lewis-Li-lyf.github.io',
+    owner: 'Lewis-Li-lyf',
+    admin: ['Lewis-Li-lyf'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  Powered by<a href="https://github.com/getgridea/gridea" target="_blank">Gridea </a>
+<div class="site-footer">
+  <span id="timeDate">载入天数...载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("03/05/2020 00:00:00");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "我的博客已安全运行 "+dnum+" 天 " + hnum + " 小时 " + mnum + " 分 " + snum + " 秒";  
+    } 
+setInterval("createtime()",250);
+</script>
+
+<script type="text/javascript" color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
+<script type="text/javascript"> 
+ 
+!function (e, t, a) {function r() {for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");requestAnimationFrame(r)}function n() {var t = "function" == typeof e.onclick && e.onclick;e.onclick = function (e) {t && t(), o(e)}}function o(e) {var a = t.createElement("div");a.className = "heart", s.push({el: a,x: e.clientX - 5,y: e.clientY - 5,scale: 1,alpha: 1,color: c()}), t.body.appendChild(a)}function i(e) {var a = t.createElement("style");a.type = "text/css";try {a.appendChild(t.createTextNode(e))} catch (t) {a.styleSheet.cssText = e}t.getElementsByTagName("head")[0].appendChild(a)}function c() {return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"}var s = [];e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {setTimeout(e, 1e3 / 60)}, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()}(window, document);
+ 
+</script>
+  <a class="rss" href="https://Lewis-Li-lyf.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

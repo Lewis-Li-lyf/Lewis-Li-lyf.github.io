@@ -1,0 +1,258 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>最短路：Floyd算法 | LewisLi的博客 | I AK IOI</title>
+<link rel="shortcut icon" href="https://Lewis-Li-lyf.github.io/favicon.ico?v=1584949674341">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://Lewis-Li-lyf.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="最短路：Floyd算法 | LewisLi的博客 | I AK IOI - Atom Feed" href="https://Lewis-Li-lyf.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="在某位奆佬的指导下，我开始啃图论。
+所以我来写一下 Floyd 算法。
+什么是 Floyd ?
+
+Floyd算法又称为插点法，是一种利用动态规划的思想寻找给定的加权图中多源点之间最短路径的算法，与Dijkstra算法类似。该算法名称以创始人..." />
+    <meta name="keywords" content="算法" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://Lewis-Li-lyf.github.io">
+  <img class="avatar" src="https://Lewis-Li-lyf.github.io/images/avatar.png?v=1584949674341" alt="">
+  </a>
+  <h1 class="site-title">
+    LewisLi的博客 | I AK IOI
+  </h1>
+  <p class="site-description">
+    临兵斗者，皆阵列在前！
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="https://Lewis-Li-lyf.github.io/post/about-me" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/Lewis-Li-lyf" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              最短路：Floyd算法
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-03-23
+              </span>
+              <span>
+                2 min read
+              </span>
+              
+                <a href="https://Lewis-Li-lyf.github.io/tag/lkI9ZNq5F/" class="post-tag">
+                  # 算法
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>在某位奆佬的指导下，我开始啃图论。<br>
+所以我来写一下 <code>Floyd</code> 算法。</p>
+<h1 id="什么是-floyd">什么是 Floyd ?</h1>
+<blockquote>
+<p><em>Floyd算法又称为插点法，是一种利用动态规划的思想寻找给定的加权图中多源点之间最短路径的算法，与Dijkstra算法类似。该算法名称以创始人之一、1978年图灵奖获得者、斯坦福大学计算机科学系教授罗伯特·弗洛伊德命名。 ——某度某科</em></p>
+</blockquote>
+<p><s>跟没说一样</s></p>
+<p>Floyd 是一种用于解决多源最短路径的题，使用的是动态规划的思想。它的时间复杂度是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>3</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></p>
+<h1 id="floyd-的思想及怎样写">Floyd 的思想及怎样写</h1>
+<p>还是看个图：</p>
+<figure data-type="image" tabindex="1"><img src="data:image/png;base64,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" alt="" loading="lazy"></figure>
+<p>Floyd 算法会在图中取一个中间点，然后枚举起点和终点，如果从起点到中间点再到终点的权值 大于 从起点直接去到终点的权值，那么就用前者去替换后者。<br>
+我们令 <code>dis[ i ][ j ]</code> 表示 <code>i</code> 到 <code>j</code> 的最短路径。<br>
+首先将dis全部赋值为极大值，然后输入距离。<br>
+之后3个<code>for</code>循环：</p>
+<pre><code class="language-cpp">for(int k=1;k&lt;=n;k++){//枚举中间点
+   	for(int i=1;i&lt;=n;i++){//起点
+   		for(int j=1;j&lt;=n;j++){//终点
+   			if(dis[i][j] &gt; dis[i][k] + dis[k][j]){//替换距离
+   				dis[i][j] = dis[i][k] + dis[k][j];
+   			}
+   		}
+   	}
+   }
+</code></pre>
+<p>比如图中4-1-3 的 8 大于 4-3 的15，就用 8 去替换15。<br>
+<strong>注意：k 的那一层（枚举中间点）必须放在最外面。</strong><br>
+循环结束后，<code>dis[ i ][ j ]</code> 即为<code>x</code>到<code>y</code>的最短路径，算法结束。</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF-floyd">什么是 Floyd ?</a></li>
+<li><a href="#floyd-%E7%9A%84%E6%80%9D%E6%83%B3%E5%8F%8A%E6%80%8E%E6%A0%B7%E5%86%99">Floyd 的思想及怎样写</a></li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://Lewis-Li-lyf.github.io/post/qian-tan-st-biao/">
+              <h3 class="post-title">
+                浅谈ST表
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '69f5ad5fbcf93f9cc9d6',
+    clientSecret: '61a7c29e2ca8a20c7c9bd34d002e625033ccd557',
+    repo: 'Lewis-Li-lyf.github.io',
+    owner: 'Lewis-Li-lyf',
+    admin: ['Lewis-Li-lyf'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  Powered by<a href="https://github.com/getgridea/gridea" target="_blank">Gridea </a>
+<div class="site-footer">
+  <span id="timeDate">载入天数...载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("03/05/2020 00:00:00");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "我的博客已安全运行 "+dnum+" 天 " + hnum + " 小时 " + mnum + " 分 " + snum + " 秒";  
+    } 
+setInterval("createtime()",250);
+</script>
+
+<script type="text/javascript" color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
+<script type="text/javascript"> 
+ 
+!function (e, t, a) {function r() {for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");requestAnimationFrame(r)}function n() {var t = "function" == typeof e.onclick && e.onclick;e.onclick = function (e) {t && t(), o(e)}}function o(e) {var a = t.createElement("div");a.className = "heart", s.push({el: a,x: e.clientX - 5,y: e.clientY - 5,scale: 1,alpha: 1,color: c()}), t.body.appendChild(a)}function i(e) {var a = t.createElement("style");a.type = "text/css";try {a.appendChild(t.createTextNode(e))} catch (t) {a.styleSheet.cssText = e}t.getElementsByTagName("head")[0].appendChild(a)}function c() {return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"}var s = [];e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {setTimeout(e, 1e3 / 60)}, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()}(window, document);
+ 
+</script>
+  <a class="rss" href="https://Lewis-Li-lyf.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
