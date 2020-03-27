@@ -2,27 +2,25 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>About Me | LewisLi的博客 | I AK IOI</title>
+<title>Trie 树 | LewisLi的博客 | I AK IOI</title>
 <link rel="shortcut icon" href="https://Lewis-Li-lyf.github.io/favicon.ico?v=1585289960717">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://Lewis-Li-lyf.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="About Me | LewisLi的博客 | I AK IOI - Atom Feed" href="https://Lewis-Li-lyf.github.io/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="Trie 树 | LewisLi的博客 | I AK IOI - Atom Feed" href="https://Lewis-Li-lyf.github.io/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="
-临兵斗者，皆阵列在前！
+    <meta name="description" content="好久没写博客了呢~
+所以，
+我这个蒟蒻终于啃掉了AC自动机——
+但我要讲的是
+Trie 树
+踹树
+那么 踹树 Trie 树是什么？
 
-My Blog
-n 年 OI 一场空，不开 long long 见祖宗
-暴力出奇迹，骗分过样例
-暴搜挂着机，打表出省一
----- 共勉
-金句
-AC=Answer Confusing=疑惑的答案
-WA=Wonder..." />
-    <meta name="keywords" content="" />
+字典树，又称单词查找树，Trie树，是一种树形结构，是一种哈希树的变种。典型应用是用于统计，排序和保存大量..." />
+    <meta name="keywords" content="C++,数据结构,算法" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
@@ -88,49 +86,122 @@ WA=Wonder..." />
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              About Me
+              Trie 树
             </h2>
             <div class="post-info">
               <span>
-                2020-03-09
+                2020-03-27
               </span>
               <span>
-                1 min read
+                4 min read
               </span>
+              
+                <a href="https://Lewis-Li-lyf.github.io/tag/1Zvs2DC7H/" class="post-tag">
+                  # C++
+                </a>
+              
+                <a href="https://Lewis-Li-lyf.github.io/tag/2stjY5rc2B/" class="post-tag">
+                  # 数据结构
+                </a>
+              
+                <a href="https://Lewis-Li-lyf.github.io/tag/lkI9ZNq5F/" class="post-tag">
+                  # 算法
+                </a>
               
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <blockquote>
-<p>临兵斗者，皆阵列在前！</p>
+                <p>好久没写博客了呢~</p>
+<p>所以，<br>
+我这个蒟蒻终于啃掉了AC自动机——</p>
+<p>但我要讲的是</p>
+<h1 id="trie-树">Trie 树</h1>
+<p><s>踹树</s><br>
+那么 <s>踹树</s> Trie 树是什么？</p>
+<blockquote>
+<p><em>字典树，又称单词查找树，Trie树，是一种树形结构，是一种哈希树的变种。典型应用是用于统计，排序和保存大量的字符串（但不仅限于字符串），所以经常被搜索引擎系统用于文本词频统计。它的优点是：利用字符串的公共前缀来减少查询时间，最大限度地减少无谓的字符串比较，查询效率比哈希树高。</em> —— <em>某度某科</em><br>
+<em>在计算机科学中，Trie，又称前缀树或字典树，是一种有序树，用于保存关联数组，其中的键通常是字符串。与二叉查找树不同，键不是直接保存在节点中，而是由节点在树中的位置决定。一个节点的所有子孙都有相同的前缀，也就是这个节点对应的字符串，而根节点对应空字符串。一般情况下，不是所有的节点都有对应的值，只有叶子节点和部分内部节点所对应的键才有相关的值。  —— 维基百科</em></p>
 </blockquote>
-<p><strong><a href="https://lewis-li-lyf.github.io">My Blog</a></strong></p>
-<p><strong>n 年 OI 一场空，不开 long long 见祖宗</strong><br>
-<strong>暴力出奇迹，骗分过样例</strong><br>
-<strong>暴搜挂着机，打表出省一</strong><br>
----- 共勉</p>
-<p><strong>金句</strong></p>
-<p>AC=Answer Confusing=疑惑的答案<br>
-WA=Wonderful Answer=好答案<br>
-TLE=Time Limit Enough=时间充裕<br>
-MLE=Memory Limit Enough=内存充裕<br>
-OLE: Output Limit Enough=输出充裕<br>
-CE=Compile Easily=轻松编译<br>
-RE=Run Excellently=完美运行<br>
-UKE=Unbelievable Keeping Excellent=难以置信的保持优秀<br>
-AU=All Unaccepted=全都不正确<br>
-PE=Pretty Excellent 十分优秀<br>
-——转自<a href="https://www.luogu.com.cn/user/228471">奆佬cyr</a></p>
+<p><s>从上面可以看出，Trie 树是用来做字符串查找题的</s></p>
+<p>Trie 树是一种典型的<br>
+<strong>用空间换时间的算法</strong><br>
+它快，是因为单词之间拥有<strong>公共前缀</strong>。</p>
+<p>来看一张我画的图：<br>
+<img src="https://cdn.luogu.com.cn/upload/image_hosting/8xrb9nip.png" alt="" loading="lazy"></p>
+<p>从根节点开始，每个节点都最多 有26个分支，也就是说，Trie 树是一个26叉树。<br>
+那么图中有几个单词呢？ ——4个，分别是ab,b,zc,zd。<br>
+标红点代表有一个单词。</p>
+<h1 id="怎样插入单词呢">怎样插入单词呢？</h1>
+<p>我们要插入一个单词，需要逐位分析。</p>
+<p>比如插入单词 bc。<br>
+从根节点出发，发现当前有第一个字母b，继续找<br>
+第二个字母 c，发现当前没有 c，于是新建一条。<br>
+因为这是单词末尾，所以打上标记 =&gt; 红色。</p>
+<p>于是，我们就可以踹树了（手动滑稽）</p>
+<p>建立：</p>
+<pre><code class="language-cpp">struct node{
+	int ch[26];
+	bool have;
+}t[800000];
+</code></pre>
+<p>插入</p>
+<pre><code class="language-cpp">int num = 0;
+void insert(string s){
+	int u=0,len=s.size();
+	for(int i=0;i&lt;len;i++){
+		int v=s[i]-'a';//统一大小写
+		if(!t[u].ch[v]){
+			t[u].ch[v]=++num;
+		}
+		u=t[u].ch[v];
+	}
+	t[u].have=true;//打标记
+	return ;
+}
+</code></pre>
+<h1 id="查询">查询</h1>
+<p>再放一下图</p>
+<figure data-type="image" tabindex="1"><img src="https://cdn.luogu.com.cn/upload/image_hosting/8xrb9nip.png" alt="" loading="lazy"></figure>
+<p>假如我们现在要查 zc 这个单词。<br>
+从根出发，有节点 z，那么顺着这条向下走。<br>
+有节点 c 。因为 c 是最后一位，所以查看这里的标记——有标记。说明有 zc 这个单词。<br>
+而查询 bc 的时候，b 下面没有 c，所以没有 bc 。</p>
+<pre><code class="language-cpp">int query(string s){
+	int u=0,len=s.size();
+	for(int i=0;i&lt;len;i++){
+		int v=s[i]-'a';
+		if(!t[u].ch[v]) return false;//没有单词，直接返回false
+		u=t[u].ch[v];
+	}
+	return t[u].have;//如果有标记，返回true，否则false；
+}
+</code></pre>
+<p><s>踹树真好</s></p>
+<p>Trie 树在字符串方面运用的很广泛，一般来说，主要运用于字符串的储存。AC自动机就是使用 Trie 树来储存的。</p>
 
               </div>
               <div class="toc-container">
-                
+                <ul class="markdownIt-TOC">
+<li><a href="#trie-%E6%A0%91">Trie 树</a></li>
+<li><a href="#%E6%80%8E%E6%A0%B7%E6%8F%92%E5%85%A5%E5%8D%95%E8%AF%8D%E5%91%A2">怎样插入单词呢？</a></li>
+<li><a href="#%E6%9F%A5%E8%AF%A2">查询</a></li>
+</ul>
+
               </div>
             </div>
           </article>
         </div>
 
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://Lewis-Li-lyf.github.io/post/zi-you-de-zhao-huan/">
+              <h3 class="post-title">
+                自由的召唤
+              </h3>
+            </a>
+          </div>
         
 
         
