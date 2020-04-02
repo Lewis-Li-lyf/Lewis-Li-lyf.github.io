@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Lewis-Li-lyf.github.io</id>
     <title>LewisLi的博客 | I AK IOI</title>
-    <updated>2020-03-27T08:27:02.984Z</updated>
+    <updated>2020-04-02T15:17:06.038Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Lewis-Li-lyf.github.io"/>
     <link rel="self" href="https://Lewis-Li-lyf.github.io/atom.xml"/>
@@ -10,6 +10,67 @@
     <logo>https://Lewis-Li-lyf.github.io/images/avatar.png</logo>
     <icon>https://Lewis-Li-lyf.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, LewisLi的博客 | I AK IOI</rights>
+    <entry>
+        <title type="html"><![CDATA[转载：CSP]]></title>
+        <id>https://Lewis-Li-lyf.github.io/post/zhuan-zai-csp/</id>
+        <link href="https://Lewis-Li-lyf.github.io/post/zhuan-zai-csp/">
+        </link>
+        <updated>2020-04-02T14:49:58.000Z</updated>
+        <content type="html"><![CDATA[<p>盼望着，盼望着，模拟赛来了，CSP的脚步近了。</p>
+<p>一切都像刚WA的样子，欣欣然重构代码。代码复杂度朗润起来了，时间复杂度涨起来了，CE的标志红起来了。</p>
+<p>毒瘤数据偷偷地从土里钻出来，嫩嫩的，绿绿的。洛谷里，CODE FORCE里，瞧去，一大片一大片满是的。坐着，躺着，写两个for，码几脚while，跑几趟dfs，搜几回暴力。TLE轻悄悄的，MLE软绵绵的。</p>
+<p>POJ、HDU、51nod，你不让我，我不让你，都开满了WA赶趟儿。红的像火，粉的像霞，白的像雪。WA里带着RE；闭了眼，评测界面仿佛已经满是UKE、ERR、OLE。花下成千成百的蜜蜂嗡嗡地闹着，大小的蝴蝶飞来飞去。0分遍地是：杂样儿，DP没初始化的，数学公式写错的，散在评测机里，像眼睛，像星星，还眨呀眨的。</p>
+<p>“吹面不寒AK风”，不错的，像CCF主席的手抚摸着你。风里带来些新翻的AC的气息，混着打表味儿，还有各种骗分的香，都在微微润湿的AK里酝酿。模拟将巢安在长篇文章当中，高兴起来了，呼朋引伴地卖弄超过200行的代码，唱出宛转的AC音乐，与轻风流水应和着。IOI通过的短笛，这时候也成天嘹亮地响着。</p>
+<p>Debug是最寻常的，一调就是三两天。可别恼。看，像无限循环，像scanf不写&amp;，像数组越界，密密地斜织着，人家exe上全笼着一层01串。大佬的评测却AC得发亮，蒟蒻的评测也青蛙得逼你的眼。傍晚时候，上灯了，一点点算法错误的光，烘托出一片贪心错误的夜。在乡下，小路上，石桥边，有撑起伞慢慢走了1e18秒的人。还有地里工作的码农，披着电源戴着黑帽子的。他们的电脑，稀稀疏疏的在调试里静默着。</p>
+<p>天上AKNOI渐渐多了，地上AKIOI也多了。俄国中国，克罗地亚，波罗的海，也赶趟儿似的，一个个都出来了。AKAK CSPJ，AKAK CSPS，各AK各的一份事去。“一年之计在于CSP”，刚起头儿，有的是爆零，有的是RE。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[数据结构：堆]]></title>
+        <id>https://Lewis-Li-lyf.github.io/post/shu-ju-jie-gou-dui/</id>
+        <link href="https://Lewis-Li-lyf.github.io/post/shu-ju-jie-gou-dui/">
+        </link>
+        <updated>2020-04-02T04:05:58.000Z</updated>
+        <content type="html"><![CDATA[<p>在众多数据结构中，有一种数据结构很强大。它的时间复杂度很小，使他能够高效地进行运算。它就是——堆。</p>
+<h1 id="堆是什么">堆是什么</h1>
+<p>堆（英语：heap)是计算机科学中一类特殊的数据结构的统称。堆通常是一个可以被看做一棵树的数组对象。堆总是满足下列性质：</p>
+<ul>
+<li>堆中某个节点的值总是不大于或不小于其父节点的值；</li>
+<li>堆总是一棵完全二叉树</li>
+</ul>
+<p>堆的定义如下：n个元素的序列<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>k</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>k</mi><mn>2</mn></msub><mo separator="true">,</mo><msub><mi>k</mi><mi>i</mi></msub><mo separator="true">,</mo><mo>…</mo><mo separator="true">,</mo><msub><mi>k</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">{k_1,k_2,k_i,…,k_n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03148em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03148em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03148em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.03148em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span>当且仅当满足下关系时，称之为堆。<br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><msub><mi>k</mi><mi>i</mi></msub><mo>⩽</mo><msub><mi>k</mi><mrow><mn>2</mn><mo>⋅</mo><mi>i</mi></mrow></msub><mo separator="true">,</mo><msub><mi>k</mi><mi>i</mi></msub><mo>⩽</mo><msub><mi>k</mi><mrow><mn>2</mn><mo>⋅</mo><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">(k_i \leqslant k_{2 \cdot i},k_i \leqslant k_{2 \cdot i+1})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03148em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel amsrm">⩽</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03148em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mbin mtight">⋅</span><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03148em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel amsrm">⩽</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.03148em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mbin mtight">⋅</span><span class="mord mathdefault mtight">i</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>或者<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><msub><mi>k</mi><mi>i</mi></msub><mo>⩾</mo><msub><mi>k</mi><mrow><mn>2</mn><mo>⋅</mo><mi>i</mi></mrow></msub><mo separator="true">,</mo><msub><mi>k</mi><mi>i</mi></msub><mo>⩾</mo><msub><mi>k</mi><mrow><mn>2</mn><mo>⋅</mo><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">(k_i \geqslant k_{2 \cdot i},k_i \geqslant k_{2 \cdot i+1})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03148em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel amsrm">⩾</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03148em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mbin mtight">⋅</span><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03148em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel amsrm">⩾</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.03148em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mbin mtight">⋅</span><span class="mord mathdefault mtight">i</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>i</mi><mo>=</mo><mn>1</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mn>3</mn><mo separator="true">,</mo><mn>4...</mn><mfrac><mi>n</mi><mn>2</mn></mfrac><mo>)</mo></mrow><annotation encoding="application/x-tex">(i = 1,2,3,4... \dfrac{n}{2})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.7935600000000003em;vertical-align:-0.686em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">4</span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.10756em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">)</span></span></span></span></p>
+<p>前者我们称作小根堆（小顶堆），后者我们称作大根堆（大顶堆）。</p>
+<h1 id="堆支持的操作">堆支持的操作</h1>
+<p>堆都支持什么操作呢？</p>
+<ol>
+<li><code>Push</code>向堆中插入一个元素</li>
+<li><code>Pop</code>删除并返回堆中的一个元素（根节点）</li>
+<li>堆排序</li>
+</ol>
+<p>要构建一个二叉堆，我们只需要进行若干次插入操作即可。<br>
+在进行操作之前，我们要先定义一个<code>size</code>，表示当前堆的节点个数。<br>
+下面以小根堆为例。</p>
+<h1 id="插入操作">插入操作</h1>
+<p>我们把要插入的数<code>tmp</code>插入到堆尾，再通过若干次调整使得它满足堆的性质。如果它比它的父节点小，则交换两个节点，一直到不可交换为止。<br>
+<img src="https://i.loli.net/2020/04/02/5SzNq8nK7614Lkm.png" alt="not-named.png" loading="lazy"><br>
+现在，我们要向堆中插入一个<code>1</code>：<br>
+先将1插入到堆尾，随后把它与它的父亲6做对比，交换这两个数。随后再将1和4进行对比，再交换。现在，它的父亲是1，不需要再上浮了。至此，我们的插入操作就完成了。因为在插入之前，上面的永远比下面小，所以不会出现交换之后不满足性质的情况。</p>
+<pre><code>void push(int d){//小根堆 
+    int now,next;
+    heap[++siz] = d;//siz表示堆的大小，即二叉树的节点个数
+    now = siz;//现在的节点
+    while(now &gt; 1){
+        next = now &gt;&gt; 1;//父节点
+        if(heap[now] &gt;= heap[next])//满足堆的性质，直接返回
+            return ;
+        swap(heap[now],heap[next]);//不满足性质，交换
+        now = next;//“子继父业”
+    }
+}
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Trie 树]]></title>
         <id>https://Lewis-Li-lyf.github.io/post/trie-shu/</id>
@@ -86,7 +147,7 @@ void insert(string s){
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[自由的召唤]]></title>
+        <title type="html"><![CDATA[转载：自由的召唤]]></title>
         <id>https://Lewis-Li-lyf.github.io/post/zi-you-de-zhao-huan/</id>
         <link href="https://Lewis-Li-lyf.github.io/post/zi-you-de-zhao-huan/">
         </link>
@@ -494,7 +555,7 @@ int main(){
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[iostream 输入输出流]]></title>
+        <title type="html"><![CDATA[转载：iostream 输入输出流]]></title>
         <id>https://Lewis-Li-lyf.github.io/post/iostream-shu-ru-shu-chu-liu/</id>
         <link href="https://Lewis-Li-lyf.github.io/post/iostream-shu-ru-shu-chu-liu/">
         </link>
@@ -600,23 +661,6 @@ void build(int k,int l,int r){
 	return query(k&lt;&lt;1,l,mid)+query(k&lt;&lt;1|1,mid+1,r);//左右都有，分别像两边搜索
 }
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2020-03-06-创建博客der庆祝]]></title>
-        <id>https://Lewis-Li-lyf.github.io/post/chuang-jian-bo-ke-qing-zhu/</id>
-        <link href="https://Lewis-Li-lyf.github.io/post/chuang-jian-bo-ke-qing-zhu/">
-        </link>
-        <updated>2020-03-06T04:56:26.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="终于搭完了">终于搭完了</h2>
-<p>总算是搞好这个 GitHub pages 博客了，之前一直都用的洛谷，但是我想要一个<strong>自己的</strong>博客,所以就找到了 GitHub pages 。</p>
-<p>感谢两位大佬：<br>
-<a href="https://rainbomsea.xyz/">大佬1</a><br>
-<a href="http://qiubaiying.vip/">大佬2</a></p>
-<h2 id="经验总结">经验总结</h2>
-<p>这次博客的搭建，让我明白了一个 <strong>GitHub desktop</strong> 的重要性。之前一度弄到怀疑人生，又没办法珂学上网，死活上传不上去。用了 GitHub pages 以后，花点时间 clone 下来，上传修改的时候快到飞起。</p>
-<p>然后是迅雷。</p>
-<p>我在下载 GitHub desktop 的时候，被这个下载速度所折服。直到我用了迅雷——<strong>5秒真男人</strong>。</p>
 ]]></content>
     </entry>
 </feed>
