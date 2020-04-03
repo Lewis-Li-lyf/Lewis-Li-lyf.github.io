@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Lewis-Li-lyf.github.io</id>
     <title>LewisLi的博客 | I AK IOI</title>
-    <updated>2020-04-02T15:17:06.038Z</updated>
+    <updated>2020-04-03T10:41:19.743Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Lewis-Li-lyf.github.io"/>
     <link rel="self" href="https://Lewis-Li-lyf.github.io/atom.xml"/>
@@ -32,6 +32,7 @@
         </link>
         <updated>2020-04-02T04:05:58.000Z</updated>
         <content type="html"><![CDATA[<p>在众多数据结构中，有一种数据结构很强大。它的时间复杂度很小，使他能够高效地进行运算。它就是——堆。</p>
+<p>本文资料来源于《信息学奥赛一本通》和百度百科。</p>
 <h1 id="堆是什么">堆是什么</h1>
 <p>堆（英语：heap)是计算机科学中一类特殊的数据结构的统称。堆通常是一个可以被看做一棵树的数组对象。堆总是满足下列性质：</p>
 <ul>
@@ -56,7 +57,7 @@
 <img src="https://i.loli.net/2020/04/02/5SzNq8nK7614Lkm.png" alt="not-named.png" loading="lazy"><br>
 现在，我们要向堆中插入一个<code>1</code>：<br>
 先将1插入到堆尾，随后把它与它的父亲6做对比，交换这两个数。随后再将1和4进行对比，再交换。现在，它的父亲是1，不需要再上浮了。至此，我们的插入操作就完成了。因为在插入之前，上面的永远比下面小，所以不会出现交换之后不满足性质的情况。</p>
-<pre><code>void push(int d){//小根堆 
+<pre><code class="language-cpp">void push(int d){//小根堆 
     int now,next;
     heap[++siz] = d;//siz表示堆的大小，即二叉树的节点个数
     now = siz;//现在的节点
@@ -65,10 +66,54 @@
         if(heap[now] &gt;= heap[next])//满足堆的性质，直接返回
             return ;
         swap(heap[now],heap[next]);//不满足性质，交换
-        now = next;//“子继父业”
+        now = next;//“代代相传”
     }
 }
 </code></pre>
+<h1 id="删除操作">删除操作</h1>
+<p>我们的删除操作会按以下步骤进行：</p>
+<ol>
+<li>取出堆的根节点的值</li>
+<li>把这个堆的最后一个节点放在根节点的地方来覆盖根节点，同时将size-1。</li>
+<li>将根节点设置为当前父节点。</li>
+<li>如果无儿子，则直接return。否则选出这个父节点的两个儿子中<strong>较大/小的那个</strong>，与父节点比较。不满足堆的性质就交换。</li>
+<li>重复执行3，4。</li>
+</ol>
+<p>这样，我们就成功删除并返回了堆顶的元素。</p>
+<pre><code class="language-cpp">void pop(){
+    int now,next,res;//见上
+    res = heap[siz];
+    heap[1] = heap[siz--];//覆盖根
+    now = 1;
+    while(now&lt;&lt;1 &lt;= siz){
+        next = now &lt;&lt; 1;
+        if(next &lt; siz &amp;&amp; heap[next+1] &lt; heap[next])//开始比较
+            next++;
+        if(heap[now] &lt;= heap[next])
+            return ;
+        swap(heap[now],heap[next]);//交换
+        now = next;//“子继父业”
+    }
+    return res;
+}
+</code></pre>
+<p>至此，我们的手写小根堆就完成了。</p>
+<p>#STL版本（priority queue优先队列版本）<br>
+为什么不用STL自带的heap？因为写起来太麻烦了。<br>
+首先，我们需要一个头文件<code>#include&lt;queue&gt;</code><br>
+之后，我们来定义：</p>
+<pre><code class="language-cpp">#include&lt;queue&gt;
+priority_queue&lt;int&gt;q;//这是一个大根堆
+priority_queue&lt;int,vectot&lt;int&gt;,greater&lt;int&gt; &gt;q;//这是小根堆，主要这里后面要有空格 ，以免编译器看成运算符&gt;&gt;
+</code></pre>
+<p>它支持的操作有：</p>
+<pre><code class="language-cpp">q.top()//取得堆顶元素，并不会弹出
+q.pop()//弹出堆顶元素
+q.push()//往堆里面插入一个元素
+q.empty()//查询堆是否为空，为空则返回1否则返回0
+q.size()//查询堆内元素数量
+</code></pre>
+<p>综合来看，STL版本的堆完爆手写堆，毕竟难度差距不是一般的大。</p>
 ]]></content>
     </entry>
     <entry>
