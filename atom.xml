@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Lewis-Li-lyf.github.io</id>
     <title>LewisLi的博客 | I AK IOI</title>
-    <updated>2020-04-03T10:42:25.728Z</updated>
+    <updated>2020-04-04T01:55:33.656Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Lewis-Li-lyf.github.io"/>
     <link rel="self" href="https://Lewis-Li-lyf.github.io/atom.xml"/>
@@ -10,6 +10,26 @@
     <logo>https://Lewis-Li-lyf.github.io/images/avatar.png</logo>
     <icon>https://Lewis-Li-lyf.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, LewisLi的博客 | I AK IOI</rights>
+    <entry>
+        <title type="html"><![CDATA[致敬：向那些为抗击疫情而牺牲的烈士]]></title>
+        <id>https://Lewis-Li-lyf.github.io/post/zhi-jing-xiang-na-xie-wei-kang-ji-yi-qing-er-xi-sheng-de-lie-shi/</id>
+        <link href="https://Lewis-Li-lyf.github.io/post/zhi-jing-xiang-na-xie-wei-kang-ji-yi-qing-er-xi-sheng-de-lie-shi/">
+        </link>
+        <updated>2020-04-04T01:48:20.000Z</updated>
+        <content type="html"><![CDATA[<p>我相信，这个冬天给了我们太多。可能是悲伤的记忆，可能是告别亲人的不舍，可能是千千万万前线战士带给我们的感动，也可能是坚定抗争中生命的顽强与不屈。</p>
+<p>一个个逝去的生命，他们带着我们的目光，他们带着千千万万人民的悲伤，轻轻的离开了我们。在白衣战士面前，在全国十三亿人民面前，在全世界七十亿的朋友面前，他们没有多言，带着一个无怨无艾的笑，离开。</p>
+<p>但是，我们不会被轻易击垮。严冬过后，便是温暖的阳光，便是蓬勃的春草，便是绚烂的夏花。</p>
+<p>清明，在阴雨绵绵间，来了。</p>
+<p>我们总可以说，这个刚刚过去的冬天，是分外漫长的。他太沉重了，这样一个寒冬不足以承受这样的重量——这是亲人的离别，这是生命的消逝，这也是一个民族的哀伤。</p>
+<p>我们见证了太多，我们也面对了太多，但是，在今天，我们无需多言，真正值得我们做的，是认真的想想我们得到的一切，和逝者失去的一切。</p>
+<p>愿，所有的人都可以得到属于自己的完满，所有的告别都不再悲伤。</p>
+<p>也许单薄的语言无法慰藉任何的悲伤，但是，我总是还是希望，在博客的一篇文章，在讨论的一段话，总可以让悲伤的人多一丝温暖的希望。</p>
+<blockquote>
+<p>燃一缕思念的烛火，愿逝者安息；带着思念前行，愿生者坚强。</p>
+</blockquote>
+<p>默哀。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[转载：CSP]]></title>
         <id>https://Lewis-Li-lyf.github.io/post/zhuan-zai-csp/</id>
@@ -621,91 +641,6 @@ int main(){
 <p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">m</mi></mrow><annotation encoding="application/x-tex">\rm{iostream}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66786em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">i</span><span class="mord mathrm">o</span><span class="mord mathrm">s</span><span class="mord mathrm">t</span><span class="mord mathrm">r</span><span class="mord mathrm">e</span><span class="mord mathrm">a</span><span class="mord mathrm">m</span></span></span></span></span></span></p>
 <p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>I</mi><mo>+</mo><mi>O</mi><mo>+</mo><mi>S</mi><mo>+</mo><mi>T</mi><mo>+</mo><mi>R</mi><mo>+</mo><mi>E</mi><mo>+</mo><mi>A</mi><mo>+</mo><mi>M</mi><mo>=</mo><mn>9</mn><mo>+</mo><mn>15</mn><mo>+</mo><mn>19</mn><mo>+</mo><mn>20</mn><mo>+</mo><mn>18</mn><mo>+</mo><mn>5</mn><mo>+</mo><mn>1</mn><mo>+</mo><mn>13</mn><mo>=</mo><mn>100</mn><mi mathvariant="normal">%</mi></mrow><annotation encoding="application/x-tex">I+O+S+T+R+E+A+M=9+15+19+20+18+5+1+13=100\%</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">9</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mord">9</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mord">8</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">3</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.80556em;vertical-align:-0.05556em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mord">%</span></span></span></span>。</p>
 <p>所以坚持写代码吧……</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[浅谈线段树]]></title>
-        <id>https://Lewis-Li-lyf.github.io/post/qian-tan-xian-duan-shu/</id>
-        <link href="https://Lewis-Li-lyf.github.io/post/qian-tan-xian-duan-shu/">
-        </link>
-        <updated>2020-03-06T13:22:02.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="介绍">介绍</h1>
-<p>线段树是一种二叉搜索树，与区间树相似，它将一个区间划分成一些单元区间，每个单元区间对应线段树中的一个叶结点。它的时间复杂度为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>l</mi><mi>o</mi><mi>g</mi><mi>N</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(logN)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span>。而未优化的空间复杂度为2N，实际应用时一般还要开4N的数组以免越界。</p>
-<p>使用线段树可以快速的查找某一个节点在若干条线段中出现的次数。</p>
-<h1 id="结构与建立">结构与建立</h1>
-<p>线段树是建立在线段的基础上，每一个节点代表了一条线段<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>a</mi><mo separator="true">,</mo><mi>b</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(a,b)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">b</span><span class="mclose">)</span></span></span></span>的长度。若一个节点代表<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>a</mi><mo separator="true">,</mo><mi>b</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(a,b)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">b</span><span class="mclose">)</span></span></span></span>，则它的 2 个儿子分别代表<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>a</mi><mo separator="true">,</mo><mo>(</mo><mi>a</mi><mo>+</mo><mi>b</mi><mo>)</mo><mo>÷</mo><mn>2</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">(a,(a+b) \div 2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mopen">(</span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">b</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">÷</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mclose">)</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mo>(</mo><mi>a</mi><mo>+</mo><mi>b</mi><mo>)</mo><mo>÷</mo><mn>2</mn><mo>+</mo><mn>1</mn><mo separator="true">,</mo><mi>b</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">((a+b) \div 2+1,b)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mopen">(</span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">b</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">÷</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">b</span><span class="mclose">)</span></span></span></span> 。若一个节点的编号为 i ，那么它的 2 个儿子的编号分别为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">i  \times 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo>×</mo><mn>2</mn><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">i \times 2+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>。用位运算优化后就是 i&lt;&lt;1，i&lt;&lt;1|1 。</p>
-<p>建立时，从根节点向下遍历。如果它是一个叶节点，则对其赋值并返回，如果不是，分别像两边延展，返回时计算其值。<br>
-本文中<code>k</code>都表示节点编号，<code>l</code>，<code>r</code>代表<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>l</mi><mo separator="true">,</mo><mi>r</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(l,r)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mclose">)</span></span></span></span>。</p>
-<pre><code class="language-cpp">const int maxn = 100010;
-int a[maxn];
-struct node{
-	int l,r;//左区间和右区间
-	int sum,lz;//节点的值和 lazytage，用于区间修改和查询
-}t[maxn*4+2];
-
-void build(int k,int l,int r){
-	t[k].l=l , t[k].r=r;
-	if(l==r){//是叶节点
-		t[k].sum=a[l];
-		return ;
-	}
-	int mid=(l+r)&gt;&gt;1;
-	build(k&lt;&lt;1,l,mid) , build(k&lt;&lt;1|1,mid+1,r);//向两侧递归
-	t[k].sum=t[k&lt;&lt;1].sum+t[k&lt;&lt;1|1].sum;//计算节点的值
-	return ;
-}
-</code></pre>
-<h1 id="区间修改区间查询">区间修改，区间查询</h1>
-<p>这里就不讲单点的那些了，不然你为什么要用线段树，树状数组不香吗？</p>
-<p>先来解决第一步：<br>
-我们先从根节点出发（根节点一定包含所有的点，包括被修改区间），一直往下走，直到当前区间中的元素全部都是被修改元素。<br>
-当左区间包含整个被修改区间时，我们就递归到左区间；<br>
-当右区间包含整个被修改区间时，我们就递归到右区间；<br>
-但是，我们似乎漏了一种情况：<br>
-<img src="https://img-blog.csdn.net/20180820161515555?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h1YW5nemloYW9hbA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="" loading="lazy"><br>
-这样该怎么办呢？<br>
-我们从 mid 切开，发现 2 个区间就都刚好对应了。分别向 2 个区间递归即可。<br>
-那么我们怎么去修改它们呢？肯定不能像建树那样遍历，所以我们引进一个<strong>新的，高大上</strong>的东西——<strong>lazytage懒标记</strong>。在修改的时候，先对这个区间修改，之后对其子节点打上懒标记。等到需要的时候，再进行修改。<br>
-那么就涉及到一个懒标记下传的问题。这个操作叫做 pushdown。在修改和查询的时候，一定不能忘记。</p>
-<pre><code class="language-cpp">void Pushdown(int k){
-	if(t[k].l==t[k].r){
-		t[k].lz=0;
-		return ;
-	}
-	t[k&lt;&lt;1].sum+=t[k].lz*(t[k&lt;&lt;1].r-t[k&lt;&lt;1].l+1);
-	t[k&lt;&lt;1|1].sum+=t[k].lz*(t[k&lt;&lt;1|1].r-t[k&lt;&lt;1|1].l+1);
-	t[k&lt;&lt;1].lz+=t[k].lz;//下传
-	t[k&lt;&lt;1|1].lz+=t[k].lz;
-	t[k].lz=0;//记得懒标记打完时候清零
-	return ;
-}
-</code></pre>
-<pre><code class="language-cpp">void update(int k,int l,int r,int x){//x指要增加的值
-	if(l==t[k].l &amp;&amp; r==t[k].r){
-		t[k].sum+=(r-l+1)*x;
-		t[k].lz+=x;//找到匹配区间，打上懒标记
-		return ;
-	}
-	Pushdown(k);//一定不能忘！！！
-	int mid=(t[k].l+t[k].r)&gt;&gt;1;
-	if(r&lt;=mid) update(k&lt;&lt;1,l,r,x);//左儿子
-	else if(l&gt;mid) update(k&lt;&lt;1|1,l,r,x);//右儿子
-	else update(k&lt;&lt;1,l,mid,x),update(k&lt;&lt;1|1,mid+1,r,x);//从中间切开
-	t[k].sum=t[k&lt;&lt;1].sum+t[k&lt;&lt;1|1].sum;//更新
-	return ;
-}
-</code></pre>
-<p>接下来是查询。<br>
-查询很简单，就是向下搜索。如果找到了刚好匹配的区间，就返回它。如果不是，则继续向下搜索。</p>
-<pre><code class="language-cpp">int query(int k,int l,int r){
-	if(l==t[k].l &amp;&amp; r==t[k].r) return t[k].sum;//匹配区间
-	Pushdown(k);
-	int mid=(t[k].l+t[k].r)&gt;&gt;1;
-	if(r&lt;=mid) return query(k&lt;&lt;1,l,r);//完全处于左儿子
-	if(l&gt;mid) return query(k&lt;&lt;1|1,l,r);//完全处于右儿子
-	return query(k&lt;&lt;1,l,mid)+query(k&lt;&lt;1|1,mid+1,r);//左右都有，分别像两边搜索
-}
-</code></pre>
 ]]></content>
     </entry>
 </feed>
