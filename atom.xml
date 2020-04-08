@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Lewis-Li-lyf.github.io</id>
     <title>LewisLi的博客 | I AK IOI</title>
-    <updated>2020-04-07T09:23:48.974Z</updated>
+    <updated>2020-04-08T11:25:41.348Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Lewis-Li-lyf.github.io"/>
     <link rel="self" href="https://Lewis-Li-lyf.github.io/atom.xml"/>
@@ -124,7 +124,7 @@
 之后，我们来定义：</p>
 <pre><code class="language-cpp">#include&lt;queue&gt;
 priority_queue&lt;int&gt;q;//这是一个大根堆
-priority_queue&lt;int,vectot&lt;int&gt;,greater&lt;int&gt; &gt;q;//这是小根堆，主要这里后面要有空格 ，以免编译器看成运算符&gt;&gt;
+priority_queue&lt;int,vectot&lt;int&gt;,greater&lt;int&gt; &gt;q;//这是小根堆，注意这里后面要有空格 ，以免编译器看成运算符&gt;&gt;
 </code></pre>
 <p>它支持的操作有：</p>
 <pre><code class="language-cpp">q.top()//取得堆顶元素，并不会弹出
