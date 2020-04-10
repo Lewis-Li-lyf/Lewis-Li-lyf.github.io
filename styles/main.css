@@ -1002,4 +1002,8 @@ td {
 h1{
   border-bottom: 5px solid purple;
 }
+code{
+  font-style: oblique;
+  font-size: 20px
+}
     
