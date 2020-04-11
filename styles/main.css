@@ -1976,10 +1976,10 @@ blockquote {
   font-weight: bold;
 }
 body {
-      background-color: #e9ecef;
+      background-color: #eee;
     }
     .nav-toggle .line {
-      background-color: #e9ecef !important;
+      background-color: #eee !important;
     }.header {
         width: 960px;
         margin: 0 auto;
@@ -2083,7 +2083,7 @@ body {
       color: #fc6423;
       border-bottom-color: #fc6423;
     }.bg-color {
-      background-color: #e9eceffe;
+      background-color: #FFFFFFfe;
     }
       .site-meta {
         background: #000 !important;
