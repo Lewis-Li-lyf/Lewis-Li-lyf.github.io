@@ -1,7 +1,6 @@
 .pagination-ul {
   padding: 10px 0;
 }
-
 .box-shadow-wrapper {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.06), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 -1px 0.5px 0 rgba(0, 0, 0, 0.09);
 }
@@ -12,7 +11,7 @@
 
 .section {
   min-height: 700px;
-  border-radius: initial;
+  border-radius: 16px;
   box-sizing: border-box;
 }
 
@@ -46,7 +45,7 @@
   width: 22px;
   height: 2px;
   background-color: rgb(206, 204, 204);
-  border-radius: 1px;
+  border-radius: 16px;
   transition: all .3s linear;
 }
 
@@ -104,7 +103,7 @@
 
 .sidebar-wrapper {
   color: #555;
-  border-radius: initial;
+  border-radius: 16px;
   padding: 20px 10px;
   box-sizing: border-box;
   width: 240px;
@@ -215,7 +214,7 @@
   right: 15px;
   width: 6px;
   height: 6px;
-  border-radius: 50%;
+  border-radius: 16px%;
   background-color: #bbb;
   color: rgba(0, 0, 0, 0.98);
 }
@@ -353,7 +352,7 @@
   .blog-header {
     position: relative !important;
     width: auto !important;
-    border-radius: initial !important;
+    border-radius: 16px !important;
   }
 
   .nav-toggle {

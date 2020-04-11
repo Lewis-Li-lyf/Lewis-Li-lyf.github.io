@@ -1976,10 +1976,10 @@ blockquote {
   font-weight: bold;
 }
 body {
-      background-color: #eee;
+      background-color: #e9ecef;
     }
     .nav-toggle .line {
-      background-color: #eee !important;
+      background-color: #e9ecef !important;
     }.header {
         width: 960px;
         margin: 0 auto;
@@ -2083,7 +2083,7 @@ body {
       color: #fc6423;
       border-bottom-color: #fc6423;
     }.bg-color {
-      background-color: #fffffffe;
+      background-color: #e9eceffe;
     }
       .site-meta {
         background: #000 !important;
@@ -2101,6 +2101,8 @@ body {
       background: #FFFFFFfe;
     }strong{
   color:red;
-}.box-shadow-wrapper {
+}.box-scale > #landlord {
+      transform: scale(0.5);
+    }.box-shadow-wrapper {
       box-shadow: none !important;
     }
