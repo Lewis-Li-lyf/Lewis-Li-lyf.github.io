@@ -7,7 +7,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="临兵斗者，皆阵列在前！">
 <meta name="theme-color" content="#000">
-<title>2020-03-06-创建博客der庆祝 | LewisLi的博客 | I AK IOI</title>
+<title>浅谈 LCA（最近公共祖先） | LewisLi的博客 | I AK IOI</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1586701616786">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/gemini.css">
@@ -27,8 +27,8 @@
 
 
 
-    <meta name="description" content="2020-03-06-创建博客der庆祝" />
-    <meta name="keywords" content="闲谈" />
+    <meta name="description" content="浅谈 LCA（最近公共祖先）" />
+    <meta name="keywords" content="C++,算法" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -214,10 +214,16 @@
               <div class="toc-box right-motion">
   <div class="toc-wrapper auto-number auto" id="toc_wrapper">
     <ul class="markdownIt-TOC">
-<li>
+<li><a href="#%E6%9C%B4%E7%B4%A0%E7%AE%97%E6%B3%95">朴素算法</a></li>
+<li><a href="#%E5%80%8D%E5%A2%9E%E7%AE%97%E6%B3%95">倍增算法</a>
 <ul>
-<li><a href="#%E7%BB%88%E4%BA%8E%E6%90%AD%E5%AE%8C%E4%BA%86">终于搭完了</a></li>
-<li><a href="#%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93">经验总结</a></li>
+<li><a href="#%E7%AE%97%E6%B3%95%E6%80%9D%E6%83%B3">算法思想</a></li>
+<li><a href="#%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0">算法实现</a>
+<ul>
+<li><a href="#dep%E6%95%B0%E7%BB%84%E5%92%8Cdp%E6%95%B0%E7%BB%84">dep数组和dp数组</a></li>
+<li><a href="#%E6%9F%A5%E8%AF%A2">查询</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -484,8 +490,8 @@ window.addEventListener('load', function() {
             <div class="section bg-color post post-page">
               <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://Lewis-Li-lyf.github.io/post/chuang-jian-bo-ke-qing-zhu/">
-      2020-03-06-创建博客der庆祝
+    <a class="post-title-link" href="https://Lewis-Li-lyf.github.io/post/LCA/">
+      浅谈 LCA（最近公共祖先）
     </a>
   </h1>
   <div class="post-meta">
@@ -493,7 +499,7 @@ window.addEventListener('load', function() {
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2020-03-06</span>
+      <span>2020-03-20</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -502,8 +508,14 @@ window.addEventListener('load', function() {
         <span class="pc-show">分类于</span>
         
           
-            <a href="https://Lewis-Li-lyf.github.io/tag/2W5bJqZQL/">
-              <span>闲谈</span>
+            <a href="https://Lewis-Li-lyf.github.io/tag/1Zvs2DC7H/">
+              <span>C++</span>
+            </a>、
+          
+        
+          
+            <a href="https://Lewis-Li-lyf.github.io/tag/lkI9ZNq5F/">
+              <span>算法</span>
             </a>
           
         
@@ -512,26 +524,157 @@ window.addEventListener('load', function() {
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>1分钟</span>
+      <span>7分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>167<span class="pc-show">字数</span></span>
+      <span>1538<span class="pc-show">字数</span></span>
     </span>
     
   </div>
 </header>
               <div class="post-body next-md-body" id="post_body">
-                <h2 id="终于搭完了">终于搭完了</h2>
-<p>总算是搞好这个 GitHub pages 博客了，之前一直都用的洛谷，但是我想要一个<strong>自己的</strong>博客,所以就找到了 GitHub pages 。</p>
-<p>感谢两位大佬：<br>
-<a href="https://rainbomsea.xyz/">大佬1</a><br>
-<a href="http://qiubaiying.vip/">大佬2</a></p>
-<h2 id="经验总结">经验总结</h2>
-<p>这次博客的搭建，让我明白了一个 <strong>GitHub desktop</strong> 的重要性。之前一度弄到怀疑人生，又没办法珂学上网，死活上传不上去。用了 GitHub pages 以后，花点时间 clone 下来，上传修改的时候快到飞起。</p>
-<p>然后是迅雷。</p>
-<p>我在下载 GitHub desktop 的时候，被这个下载速度所折服。直到我用了迅雷——<strong>5秒真男人</strong>。</p>
+                <p>关于 LCA 是什么，我就不再叙述了。请出门右转自行百度。<br>
+如果本文介绍的不是很清楚，请移步至<a href="https://blog.csdn.net/Q_M_X_D_D_/article/details/89924963">这篇文章</a>。</p>
+<p><strong>寻找 LCA 的方法：</strong></p>
+<h1 id="朴素算法">朴素算法</h1>
+<p>这是最简单的 LCA 算法，也是学习倍增算法前重要的一环。<br>
+<img src="https://img-blog.csdn.net/20170310105229935?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjkyODMyNA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="来看一下这张图" loading="lazy"><br>
+假如我们现在要求两个点的 LCA，我们可以这样做：<br>
+求 LCA，最直接的就是让他们一步一步向上“爬”，当他们相交时，这个交点便是这两个点的 LCA<s>给爷爪巴</s>。<br>
+但是，在向上爬的时候，我们要保证一件事情，那就是，我们必须让两个点处在同一深度。否则，这两个点永远不会相交。因为，既然他们不在同一深度上，他们在爬的过程中始终有深度差，那怎么会相交呢？<br>
+这种算法很好写也很好理解，只需要进行一次深搜，记录每个点的父节点和它的深度，就可以进行查询了。<br>
+但是有一个问题：<br>
+太慢了！<br>
+于是，我们可以用<strong>倍增</strong>来优化</p>
+<h1 id="倍增算法">倍增算法</h1>
+<h2 id="算法思想">算法思想</h2>
+<p>既然一次跳一步太慢了，我们就一次跳多步。<br>
+跳多少步呢？<br>
+我们可以跳<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>k</mi></msup></mrow><annotation encoding="application/x-tex">2^k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.849108em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span></span></span></span></span></span></span></span>步。<br>
+我们看这个序列：</p>
+<blockquote>
+<p>1,2,4,8,16,32,……</p>
+</blockquote>
+<p>我们可以用这个序列中的数字表示每一个正整数。<br>
+而且，每个数字只用1次。<br>
+这是倍增算法的第一个关键理论。<br>
+第二个关键理论是：</p>
+<blockquote>
+<p>如果c是a和b的LCA，那么c的所有祖先同样也是a和b的公共祖先，但不是最近的。</p>
+</blockquote>
+<p>也就是说，我们可以步步逼近这个 LCA 。如果走这一步重合了，我们就知道这是他们的公共祖先。如果没重合，就往上爬。最后两个点会爬到 LCA 的下一层。他们的父亲节点即是 LCA 。</p>
+<h2 id="算法实现">算法实现</h2>
+<h3 id="dep数组和dp数组">dep数组和dp数组</h3>
+<p>这里有一个很重要的东西，就是我们要知道一个点上<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>k</mi></msup></mrow><annotation encoding="application/x-tex">2^k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.849108em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span></span></span></span></span></span></span></span>层的祖先是谁。这里我们引入一个 DP 数组 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">D</mi><mi mathvariant="normal">P</mi><mo>[</mo><mi mathvariant="normal">i</mi><mo>]</mo><mo>[</mo><mi mathvariant="normal">j</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">\rm{DP[i][j]}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">D</span><span class="mord mathrm">P</span><span class="mopen">[</span><span class="mord mathrm">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathrm">j</span><span class="mclose">]</span></span></span></span></span></span>，表示节点 i 上 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>j</mi></msup></mrow><annotation encoding="application/x-tex">2^j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.824664em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span></span></span></span></span></span></span> 层的祖先，<strong>j 为 0 时即代表它的父亲</strong>。如：DP[F][0]是 D，DP[H][1]是 D，DP[I][2]是 A。当然，在题目中这些字母将替换成数字。<br>
+那么我们怎么求出这个<s>玄学的</s> DP 数组呢？<br>
+我们先 dfs 求出每个节点的父节点，然后，得出以下递推式：</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">D</mi><mi mathvariant="normal">P</mi><mo>[</mo><mi mathvariant="normal">i</mi><mo>]</mo><mo>[</mo><mi mathvariant="normal">j</mi><mo>]</mo><mo>=</mo><mi mathvariant="normal">D</mi><mi mathvariant="normal">P</mi><mo>[</mo><mi mathvariant="normal">D</mi><mi mathvariant="normal">P</mi><mo>[</mo><mi mathvariant="normal">i</mi><mo>]</mo><mo>[</mo><mi mathvariant="normal">j</mi><mo>−</mo><mn>1</mn><mo>]</mo><mo>]</mo><mo>[</mo><mi mathvariant="normal">j</mi><mo>−</mo><mn>1</mn><mo>]</mo></mrow><annotation encoding="application/x-tex">\rm{DP[i][j] = DP[DP[i][j-1]][j-1]}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">D</span><span class="mord mathrm">P</span><span class="mopen">[</span><span class="mord mathrm">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathrm">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathrm">D</span><span class="mord mathrm">P</span><span class="mopen">[</span><span class="mord mathrm">D</span><span class="mord mathrm">P</span><span class="mopen">[</span><span class="mord mathrm">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathrm">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathrm">1</span><span class="mclose">]</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathrm">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathrm">1</span><span class="mclose">]</span></span></span></span></span></span></p>
+<p>这个式子不难理解，表示的是 i 节点上<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>j</mi></msup></mrow><annotation encoding="application/x-tex">2^j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.824664em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span></span></span></span></span></span></span>的祖先为 i 节点上<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mrow><mi>j</mi><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">2^{j-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.824664em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span></span>的祖先的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mrow><mi>j</mi><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">2^{j-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.824664em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span></span>的祖先。<s>（真拗口）</s><br>
+结合代码理解一下：</p>
+<pre><code class="language-cpp">void dfs(int x,int pre){//x代表节点，pre代表前驱结点（即父节点）
+    dep[x] = dep[pre] + 1;//确定深度
+    dp[x][0] = pre;//确定父亲
+    for(int i=1;(1&lt;&lt;i)&lt;=dep[x];i++){
+        dp[x][i] = dp[dp[x][i-1]][i-1];//确定DP数组。因为是向下搜索，所以不会出问题。可以直接推一下
+    }
+    for(int i=head[x];i!=-1;i=edge[i].next){//链式前向星存图
+        if(edge[i].to != pre){
+            dfs(edge[i].to,x);
+        }
+    }
+}
+</code></pre>
+<h3 id="查询">查询</h3>
+<p>有了 DP 数组，查询就很容易理解了，与朴素算法差不多，具体在代码中解释：</p>
+<pre><code class="language-cpp">int LCA(int a,int b){
+    if(dep[a] &lt; dep[b]){//保证a的深度大于b的深度，可以理解为“不妨设节点a的深度大于节点b的深度”
+        swap(a,b);
+    }
+    for(int i=20;i&gt;=0;i--){//让两节点处于同一深度
+        if(dep[a] - (1 &lt;&lt; i) &gt;= dep[b])
+            a = dp[a][i];
+    }
+    if(a == b){//如果相同，说明重合了，直接返回
+        return a;
+    }
+    for(int i=20;i&gt;=0;i--){//向上“爬”
+        if(dp[a][i] != dp[b][i]){//如果相等，说明这个节点是他们的公共祖先，只不过不一定是最近的。
+            a = dp[a][i],b = dp[b][i];
+        }
+    }//最后会爬到LCA的下一层，a、b都是LCA的儿子，他们的父亲即是LCA。
+    return dp[a][0];
+}
+</code></pre>
+<p>至此，整个倍增求解 LCA 就完成了。<br>
+放上完整代码：</p>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+using namespace std;
+
+const int maxn = 500005;
+int n,m,s;//n个节点，m个询问，根为s
+int dep[maxn],dp[maxn][21];
+//链式前向星
+int head[maxn];
+struct node{
+    int to,next;
+}edge[maxn*2];//无向图，开两倍
+int cnt = 0;
+void add(int from,int t){
+    edge[cnt].to = t;
+    edge[cnt].next = head[from];
+    head[from] = cnt++;
+}
+
+void dfs(int x,int pre){//x代表节点，pre代表前驱结点（即父节点）
+    dep[x] = dep[pre] + 1;//确定深度
+    dp[x][0] = pre;//确定父亲
+    for(int i=1;(1&lt;&lt;i)&lt;=dep[x];i++){
+        dp[x][i] = dp[dp[x][i-1]][i-1];//确定DP数组。因为是向下搜索，所以不会出问题。可以直接推一下
+    }
+    for(int i=head[x];i!=-1;i=edge[i].next){//链式前向星存图
+        if(edge[i].to != pre){
+            dfs(edge[i].to,x);
+        }
+    }
+}
+int LCA(int a,int b){
+    if(dep[a] &lt; dep[b]){//保证a的深度大于b的深度，可以理解为“不妨设节点a的深度大于节点b的深度”
+        swap(a,b);
+    }
+    for(int i=20;i&gt;=0;i--){//让两节点处于同一深度
+        if(dep[a] - (1 &lt;&lt; i) &gt;= dep[b])
+            a = dp[a][i];
+    }
+    if(a == b){//如果相同，说明重合了，直接返回
+        return a;
+    }
+    for(int i=20;i&gt;=0;i--){//向上“爬”
+        if(dp[a][i] != dp[b][i]){//如果相等，说明这个节点是他们的公共祖先，只不过不一定是最近的。
+            a = dp[a][i],b = dp[b][i];
+        }
+    }//最后会爬到LCA的下一层，a、b都是LCA的儿子，他们的父亲即是LCA。
+    return dp[a][0];
+}
+int main(){
+    memset(head,-1,sizeof(head));
+    scanf(&quot;%d%d%d&quot;,&amp;n,&amp;m,&amp;s);
+    for(int i=1;i&lt;n;i++){
+        int x,y;
+        scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
+        add(x,y),add(y,x);//无向图，存两次
+    }
+    dfs(s,0);
+    for(int i=1;i&lt;=m;i++){//查询
+        int x,y;
+        scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
+        printf(&quot;%d\n&quot;,LCA(x,y));
+    }
+    return 0;
+}</code></pre>
 
               </div>
               <div class="post-footer">
@@ -542,7 +685,7 @@ window.addEventListener('load', function() {
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://Lewis-Li-lyf.github.io/post/chuang-jian-bo-ke-qing-zhu/" title="2020-03-06-创建博客der庆祝">2020-03-06-创建博客der庆祝</a>
+      <a href="https://Lewis-Li-lyf.github.io/post/LCA/" title="浅谈 LCA（最近公共祖先）">浅谈 LCA（最近公共祖先）</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -551,18 +694,24 @@ window.addEventListener('load', function() {
   </ul>
   <div class="tags">
     
-      <a href="https://Lewis-Li-lyf.github.io/tag/2W5bJqZQL/"># 闲谈</a>
+      <a href="https://Lewis-Li-lyf.github.io/tag/1Zvs2DC7H/"># C++</a>
+    
+      <a href="https://Lewis-Li-lyf.github.io/tag/lkI9ZNq5F/"># 算法</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
         <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="浅谈线段树" href="https://Lewis-Li-lyf.github.io/post/Segment-Tree/">浅谈线段树</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="浅谈线段树" href="https://Lewis-Li-lyf.github.io/post/Segment-Tree/">上一篇</a>
+        <a class="nav-pc-next" title="树状数组模版" href="https://Lewis-Li-lyf.github.io/post/shu-zhuang-shu-zu-mo-ban/">树状数组模版</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="树状数组模版" href="https://Lewis-Li-lyf.github.io/post/shu-zhuang-shu-zu-mo-ban/">上一篇</a>
       
     </div>
     <div class="nav-next">
+      
+        <a class="nav-pc-next" title="转载：iostream 输入输出流" href="https://Lewis-Li-lyf.github.io/post/iostream/">转载：iostream 输入输出流</a>
+        <a class="nav-mobile-next" title="转载：iostream 输入输出流" href="https://Lewis-Li-lyf.github.io/post/iostream/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
       
     </div>
   </div>

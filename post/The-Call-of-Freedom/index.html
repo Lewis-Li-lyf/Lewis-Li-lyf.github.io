@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <meta charset="UTF-8"/>
+    <meta charset="UTF-8"/>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="临兵斗者，皆阵列在前！">
 <meta name="theme-color" content="#000">
-<title>LewisLi的博客 | I AK IOI</title>
+<title>转载：自由的召唤 | LewisLi的博客 | I AK IOI</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1586701616786">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/gemini.css">
@@ -27,6 +27,8 @@
 
 
 
+    <meta name="description" content="转载：自由的召唤" />
+    <meta name="keywords" content="闲谈" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -150,10 +152,25 @@
     </div>
     <div class="main-continer">
       
-      <div class="section-layout  gemini">
+      <div class="section-layout gemini ">
         <div class="section-layout-wrapper">
-          <div id="sidebarMeta" class="sidebar">
-    
+          
+
+<div class="sidebar">
+  
+    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
+      
+        <div class="post-list-sidebar">
+          <div class="sidebar-title">
+            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active">文章目录</span>
+            <span id="metaSideBar" class="sidebar-title-item">站点概览</span>
+          </div>
+        </div>
+      
+      <div class="sidebar-body gemini" id="sidebar_body">
+        
+          
+            
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -191,190 +208,253 @@
 
 
 </div>
+          
+        
+      </div>
+    </div>
+  
 </div>
 <script>
-  let sidebarMeta = document.querySelector('#sidebarMeta');
-  let scheme = 'gemini';
-  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
-  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
-    document.addEventListener('scroll', function(e) {
-      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
-        sidebarWrapper.classList.add('home-sidebar-fixed')
-      } else {
-        sidebarWrapper.classList.remove('home-sidebar-fixed')
+  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
+  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
+  const SLIDE_UP_IN = 'slide-up-in';
+
+  let sidebar = document.querySelector('#sidebar'),
+  tocSideBar = document.querySelector('#tocSideBar'),
+  metaSideBar = document.querySelector('#metaSideBar'),
+  postToc = document.querySelector('#post_toc'),
+  postSiteMeta = document.querySelector('#post_side_meta'),
+  sidebarTitle = document.querySelector('.sidebar-title'),
+  sidebarBody = document.querySelector('#sidebar_body');
+
+  tocSideBar && tocSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  metaSideBar && metaSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  function toggleSidebar(e) {
+    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
+    if (currentTitle == e.srcElement) {
+      return ;
+    }
+    let current, showElement, hideElement;
+    if (e.srcElement == metaSideBar) {
+      showElement = postSiteMeta;
+      hideElement = postToc;
+    } else if (e.srcElement == tocSideBar){
+      showElement = postToc;
+      hideElement = postSiteMeta;
+    }
+    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
+    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
+
+    window.Velocity(hideElement, 'stop');
+    window.Velocity(hideElement, 'transition.slideUpOut', {
+      display: 'none',
+      duration: 200,
+      complete: function () {
+        window.Velocity(showElement, 'transition.slideDownIn', {
+          duration: 200
+        });
       }
-    });
+    })
+    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
+    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
   }
-  </script>
-            <div class="section-box tag-line">
-              <div class="box-shadow-wrapper">
-                <div class="bg-color">
-                  <section class="section posts-expand">
-                    <div class="padding-wrapper">
-  <div class="tag-timeline-box">
-    <div class="tag-timeline-wrapper">
-      <div class="tag-timeline-title">
-        <h2>
-          算法
-          <small>标签</small>
-        </h2>
-      </div>
-      
+
+  postToc && postToc.addEventListener('transitionend', function() {
+    this.classList.remove(SLIDE_UP_IN);
+  });
+
+  if (sidebarBody) {
+    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
+      let hasFix = false;
+      let scrollEl = document.querySelector('.main-continer');
+      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
+      window.addEventListener('scroll', function(e) {
+        if (document.scrollingElement.scrollTop >= limitTop) {
+          if (!hasFix) {
+            sidebar.classList.add('sidebar-fixed');
+            hasFix = true;
+          }
+        } else {
+          if (hasFix) {
+            sidebar.classList.remove('sidebar-fixed');
+            hasFix = false;
+          }
+        }
+      });
+    }
+  }
+  
+</script>
+          <div class="section-box box-shadow-wrapper">
+            <div class="section bg-color post post-page">
+              <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://Lewis-Li-lyf.github.io/post/The-Call-of-Freedom/">
+      转载：自由的召唤
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span>发布于</span>
+      <span>2020-03-24</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+      <span class="meta-item">
+        <i class="fa fa-folder-o"></i>
+        <span class="pc-show">分类于</span>
         
           
-        
-          
-            <a href="https://Lewis-Li-lyf.github.io/post/BFS/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    04-12
-                    <small>广度优先搜索BFS</small>
-                  </h1>
-                </div>  
-              </div>
+            <a href="https://Lewis-Li-lyf.github.io/tag/2W5bJqZQL/">
+              <span>闲谈</span>
             </a>
           
         
-      
-        
-      
-        
-          
-        
-      
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-            <a href="https://Lewis-Li-lyf.github.io/post/Trie/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    03-27
-                    <small>Trie 树</small>
-                  </h1>
-                </div>  
+      </span>
+      <span class="post-meta-divider">|</span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>2分钟</span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>495<span class="pc-show">字数</span></span>
+    </span>
+    
+  </div>
+</header>
+              <div class="post-body next-md-body" id="post_body">
+                <p>镜头前，一个男人在舞蹈着。</p>
+<p>他身上并没有多少衣物，一个红色头巾，一个遮住关键部位的短裤。</p>
+<p>他舞蹈着。</p>
+<p>但是仔细看，会觉得这个舞蹈缺少了什么。</p>
+<p>是什么呢？</p>
+<p>他的动作……似乎有些拘束。</p>
+<p>但这也能理解。毕竟，一个男人衣着寸缕，在镜头前……</p>
+<p>但这样的舞蹈是没有灵魂的。</p>
+<p>他似乎也意识到了这个问题，尽力地想要克服这种拘束。</p>
+<p>却总是差那么一步。</p>
+<p>我到底在干什么啊？他很迷茫。</p>
+<p>突然，一个低头的动作，让他愣住了。</p>
+<p>短裤上，印着美利坚的国旗。</p>
+<p>他不禁想到了自己的初衷。</p>
+<p>他的初衷……</p>
+<p>那天，他走在街上。</p>
+<p>他看着来往的人们，</p>
+<p>有些压抑。</p>
+<p>这些人们，都是面无表情，行色匆匆。</p>
+<p>他们被拘束了。</p>
+<p>他们缺少自由。</p>
+<p>于是，他决定，</p>
+<p>要改变这个世界，</p>
+<p>让这个世界，这些人们，</p>
+<p>拥有自由。</p>
+<p>他要让美利坚，</p>
+<p>拥有自由！</p>
+<p>他深呼吸，</p>
+<p>身体内的一个闸门似乎被打开了。</p>
+<p>他的动作，变得更加有力量。</p>
+<p>他的表情，更加放荡不羁。</p>
+<p>他的一举一动，都充分地诠释了——</p>
+<p>自由。</p>
+<p>他要通过自己的舞蹈，</p>
+<p>向人们，</p>
+<p>向美利坚，</p>
+<p>乃至整个世界，</p>
+<p>展示着自由，</p>
+<p>证明着自由，</p>
+<p>诠释着自由。</p>
+<p>无论有多少人能理解他的舞蹈，</p>
+<p>他都不在乎。</p>
+<p>因为，这就是自由！</p>
+<p>自由，是没有边界的。</p>
+<p>是没有限制的。</p>
+<p>更没有人们的世俗眼光。</p>
+<p>一段舞蹈结束，</p>
+<p>他的脸上带着微笑。</p>
+<p>因为，他做到了</p>
+<p>他成功了。</p>
+<p>他不知道他的舞蹈会给别人带来什么影响，</p>
+<p>他只知道，</p>
+<p>他享受的仅仅是这个过程。</p>
+<p>这个传递自由的过程。</p>
+<p>他来自美利坚。</p>
+<p>他是那个象征着自由的男人。</p>
+<p>香蕉君。</p>
+
               </div>
-            </a>
-          
-        
+              <div class="post-footer">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      LewisLi的博客 | I AK IOI
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://Lewis-Li-lyf.github.io/post/The-Call-of-Freedom/" title="转载：自由的召唤">转载：自由的召唤</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，转载请注明出处！
+    </li>
+  </ul>
+  <div class="tags">
+    
+      <a href="https://Lewis-Li-lyf.github.io/tag/2W5bJqZQL/"># 闲谈</a>
+    
+  </div>
+  <div class="nav">
+    <div class="nav-prev">
       
-        
-          
-        
+        <i class="fa fa-chevron-left"></i>
+        <a class="nav-pc-next" title="Trie 树" href="https://Lewis-Li-lyf.github.io/post/Trie/">Trie 树</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="Trie 树" href="https://Lewis-Li-lyf.github.io/post/Trie/">上一篇</a>
       
-        
-          
-        
-          
-            <a href="https://Lewis-Li-lyf.github.io/post/Floyd/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    03-23
-                    <small>最短路：Floyd算法</small>
-                  </h1>
-                </div>  
-              </div>
-            </a>
-          
-        
+    </div>
+    <div class="nav-next">
       
-        
-          
-        
-          
-            <a href="https://Lewis-Li-lyf.github.io/post/RMQ-ST/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    03-23
-                    <small>浅谈ST表</small>
-                  </h1>
-                </div>  
-              </div>
-            </a>
-          
-        
-      
-        
-          
-        
-          
-            <a href="https://Lewis-Li-lyf.github.io/post/shu-zhuang-shu-zu-mo-ban/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    03-23
-                    <small>树状数组模版</small>
-                  </h1>
-                </div>  
-              </div>
-            </a>
-          
-        
-      
-        
-          
-        
-          
-            <a href="https://Lewis-Li-lyf.github.io/post/LCA/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    03-20
-                    <small>浅谈 LCA（最近公共祖先）</small>
-                  </h1>
-                </div>  
-              </div>
-            </a>
-          
-        
-      
-        
-      
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-            <a href="https://Lewis-Li-lyf.github.io/post/Segment-Tree/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    03-06
-                    <small>浅谈线段树</small>
-                  </h1>
-                </div>  
-              </div>
-            </a>
-          
-        
-      
-        
-          
-        
+        <a class="nav-pc-next" title="最短路：Floyd算法" href="https://Lewis-Li-lyf.github.io/post/Floyd/">最短路：Floyd算法</a>
+        <a class="nav-mobile-next" title="最短路：Floyd算法" href="https://Lewis-Li-lyf.github.io/post/Floyd/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
       
     </div>
   </div>
 </div>
-                  </section>
-                </div>
-              </div>
+              
+  
+    
+      <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '69f5ad5fbcf93f9cc9d6',
+    clientSecret: '61a7c29e2ca8a20c7c9bd34d002e625033ccd557',
+    repo: 'Lewis-Li-lyf.github.io',
+    owner: 'Lewis-Li-lyf',
+    admin: ['Lewis-Li-lyf'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+  gitalk.render('gitalk-container')
+</script>
+    
+    
+  
+
+            </div>
           </div>
         </div>
       </div>
@@ -801,6 +881,36 @@ clickEffect();//调用
   // 代码高亮
   hljs.initHighlightingOnLoad();
 
+</script>
+      <div class="light-box" id="light_box"></div>
+<script>
+  let imgs = document.querySelectorAll('.post-body img');
+  let lightBox = document.querySelector('#light_box');
+  lightBox.addEventListener('mousedown', (e) => {
+    e.preventDefault()
+  })
+  lightBox.addEventListener('mousewheel', (e) => {
+    e.preventDefault()
+  })
+  let width = window.innerWidth * 0.8;
+  lightBox.onclick= () => {
+    let img = lightBox.querySelector('img');
+    lightBox.style = '';
+    img && img.remove();
+  }
+  imgs.forEach(item => {
+    item.onclick = function(e) {
+      let lightImg = document.createElement('img');
+      lightImg.src = this.src;
+      lightBox.style = `height: 100%; opacity: 1; background-color: rgba(0, 0, 0, 0.5);cursor: zoom-out;`;
+      lightImg.style = `width: ${width}px; border: 1px solid #fff; border-radius: 2px;`;
+      lightImg.onclick = function() {
+        lightBox.style = '';
+        this.remove();
+      }
+      lightBox.append(lightImg);
+    }
+  })
 </script>
     </div>
   </body>
