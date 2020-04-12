@@ -8,7 +8,7 @@
 <meta name="description" content="临兵斗者，皆阵列在前！">
 <meta name="theme-color" content="#000">
 <title>浅谈线段树 | LewisLi的博客 | I AK IOI</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1586656862257">
+<link rel="shortcut icon" href="/favicon.ico?v=1586689503185">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/gemini.css">
 
@@ -182,7 +182,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">12</span>
+        <span class="site-item-stat-count">13</span>
         <span class="site-item-stat-name">文章</span>
       </a>
     </div>
@@ -535,21 +535,23 @@ window.addEventListener('load', function() {
 本文中<code>k</code>都表示节点编号，<code>l</code>，<code>r</code>代表<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>l</mi><mo separator="true">,</mo><mi>r</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(l,r)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mclose">)</span></span></span></span>。</p>
 <pre><code class="language-cpp">const int maxn = 100010;
 int a[maxn];
-struct node{
-	int l,r;//左区间和右区间
-	int sum,lz;//节点的值和 lazytage，用于区间修改和查询
-}t[maxn*4+2];
-
-void build(int k,int l,int r){
-	t[k].l=l , t[k].r=r;
-	if(l==r){//是叶节点
-		t[k].sum=a[l];
-		return ;
-	}
-	int mid=(l+r)&gt;&gt;1;
-	build(k&lt;&lt;1,l,mid) , build(k&lt;&lt;1|1,mid+1,r);//向两侧递归
-	t[k].sum=t[k&lt;&lt;1].sum+t[k&lt;&lt;1|1].sum;//计算节点的值
-	return ;
+struct node
+{
+    int l, r;    //左区间和右区间
+    int sum, lz; //节点的值和 lazytage，用于区间修改和查询
+} t[maxn * 4 + 2];
+void build(int k, int l, int r)
+{
+    t[k].l = l, t[k].r = r;
+    if (l == r)
+    { //是叶节点
+        t[k].sum = a[l];
+        return;
+    }
+    int mid = (l + r) &gt;&gt; 1;
+    build(k &lt;&lt; 1, l, mid), build(k &lt;&lt; 1 | 1, mid + 1, r); //向两侧递归
+    t[k].sum = t[k &lt;&lt; 1].sum + t[k &lt;&lt; 1 | 1].sum;         //计算节点的值
+    return;
 }
 </code></pre>
 <h1 id="区间修改区间查询">区间修改，区间查询</h1>
@@ -564,43 +566,54 @@ void build(int k,int l,int r){
 我们从 mid 切开，发现 2 个区间就都刚好对应了。分别向 2 个区间递归即可。<br>
 那么我们怎么去修改它们呢？肯定不能像建树那样遍历，所以我们引进一个<strong>新的，高大上</strong>的东西——<strong>lazytage懒标记</strong>。在修改的时候，先对这个区间修改，之后对其子节点打上懒标记。等到需要的时候，再进行修改。<br>
 那么就涉及到一个懒标记下传的问题。这个操作叫做 pushdown。在修改和查询的时候，一定不能忘记。</p>
-<pre><code class="language-cpp">void Pushdown(int k){
-	if(t[k].l==t[k].r){
-		t[k].lz=0;
-		return ;
-	}
-	t[k&lt;&lt;1].sum+=t[k].lz*(t[k&lt;&lt;1].r-t[k&lt;&lt;1].l+1);
-	t[k&lt;&lt;1|1].sum+=t[k].lz*(t[k&lt;&lt;1|1].r-t[k&lt;&lt;1|1].l+1);
-	t[k&lt;&lt;1].lz+=t[k].lz;//下传
-	t[k&lt;&lt;1|1].lz+=t[k].lz;
-	t[k].lz=0;//记得懒标记打完时候清零
-	return ;
+<pre><code class="language-cpp">void Pushdown(int k)
+{
+    if (t[k].l == t[k].r)
+    {
+        t[k].lz = 0;
+        return;
+    }
+    t[k &lt;&lt; 1].sum += t[k].lz * (t[k &lt;&lt; 1].r - t[k &lt;&lt; 1].l + 1);
+    t[k &lt;&lt; 1 | 1].sum += t[k].lz * (t[k &lt;&lt; 1 | 1].r - t[k &lt;&lt; 1 | 1].l + 1);
+    t[k &lt;&lt; 1].lz += t[k].lz; //下传
+    t[k &lt;&lt; 1 | 1].lz += t[k].lz;
+    t[k].lz = 0; //记得懒标记打完时候清零
+    return;
 }
 </code></pre>
-<pre><code class="language-cpp">void update(int k,int l,int r,int x){//x指要增加的值
-	if(l==t[k].l &amp;&amp; r==t[k].r){
-		t[k].sum+=(r-l+1)*x;
-		t[k].lz+=x;//找到匹配区间，打上懒标记
-		return ;
-	}
-	Pushdown(k);//一定不能忘！！！
-	int mid=(t[k].l+t[k].r)&gt;&gt;1;
-	if(r&lt;=mid) update(k&lt;&lt;1,l,r,x);//左儿子
-	else if(l&gt;mid) update(k&lt;&lt;1|1,l,r,x);//右儿子
-	else update(k&lt;&lt;1,l,mid,x),update(k&lt;&lt;1|1,mid+1,r,x);//从中间切开
-	t[k].sum=t[k&lt;&lt;1].sum+t[k&lt;&lt;1|1].sum;//更新
-	return ;
+<pre><code class="language-cpp">void update(int k, int l, int r, int x)
+{ //x指要增加的值
+    if (l == t[k].l &amp;&amp; r == t[k].r)
+    {
+        t[k].sum += (r - l + 1) * x;
+        t[k].lz += x; //找到匹配区间，打上懒标记
+        return;
+    }
+    Pushdown(k); //一定不能忘！！！
+    int mid = (t[k].l + t[k].r) &gt;&gt; 1;
+    if (r &lt;= mid)
+        update(k &lt;&lt; 1, l, r, x); //左儿子
+    else if (l &gt; mid)
+        update(k &lt;&lt; 1 | 1, l, r, x); //右儿子
+    else
+        update(k &lt;&lt; 1, l, mid, x), update(k &lt;&lt; 1 | 1, mid + 1, r, x); //从中间切开
+    t[k].sum = t[k &lt;&lt; 1].sum + t[k &lt;&lt; 1 | 1].sum;                     //更新
+    return;
 }
 </code></pre>
 <p>接下来是查询。<br>
 查询很简单，就是向下搜索。如果找到了刚好匹配的区间，就返回它。如果不是，则继续向下搜索。</p>
-<pre><code class="language-cpp">int query(int k,int l,int r){
-	if(l==t[k].l &amp;&amp; r==t[k].r) return t[k].sum;//匹配区间
-	Pushdown(k);
-	int mid=(t[k].l+t[k].r)&gt;&gt;1;
-	if(r&lt;=mid) return query(k&lt;&lt;1,l,r);//完全处于左儿子
-	if(l&gt;mid) return query(k&lt;&lt;1|1,l,r);//完全处于右儿子
-	return query(k&lt;&lt;1,l,mid)+query(k&lt;&lt;1|1,mid+1,r);//左右都有，分别像两边搜索
+<pre><code class="language-cpp">int query(int k, int l, int r)
+{
+    if (l == t[k].l &amp;&amp; r == t[k].r)
+        return t[k].sum; //匹配区间
+    Pushdown(k);
+    int mid = (t[k].l + t[k].r) &gt;&gt; 1;
+    if (r &lt;= mid)
+        return query(k &lt;&lt; 1, l, r); //完全处于左儿子
+    if (l &gt; mid)
+        return query(k &lt;&lt; 1 | 1, l, r);                           //完全处于右儿子
+    return query(k &lt;&lt; 1, l, mid) + query(k &lt;&lt; 1 | 1, mid + 1, r); //左右都有，分别像两边搜索
 }
 </code></pre>
 

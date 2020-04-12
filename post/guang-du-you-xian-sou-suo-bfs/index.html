@@ -7,7 +7,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="临兵斗者，皆阵列在前！">
 <meta name="theme-color" content="#000">
-<title>转载：CSP | LewisLi的博客 | I AK IOI</title>
+<title>广度优先搜索BFS | LewisLi的博客 | I AK IOI</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1586689503185">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/gemini.css">
@@ -27,8 +27,8 @@
 
 
 
-    <meta name="description" content="转载：CSP" />
-    <meta name="keywords" content="闲谈" />
+    <meta name="description" content="广度优先搜索BFS" />
+    <meta name="keywords" content="C++,算法" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -170,7 +170,8 @@
       <div class="sidebar-body gemini" id="sidebar_body">
         
           
-            
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -208,6 +209,191 @@
 
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number auto" id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li><a href="#%E5%B9%BF%E6%90%9C%E4%BB%8B%E7%BB%8D">广搜介绍</a></li>
+<li><a href="#%E9%80%82%E7%94%A8%E8%8C%83%E5%9B%B4">适用范围</a></li>
+<li><a href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0">代码实现</a></li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+
+let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1; 
+let active = 'active-show', activeClass = 'active-current';
+let tocWrapper = document.querySelector('#toc_wrapper');
+let tocContent = tocWrapper.children[0];
+let autoNumber = tocWrapper&&tocWrapper.classList.contains('auto-number');
+
+function addTocNumber(elem, deep) {
+  if (!elem) {
+    return;
+  }
+  let prop = elem.__proto__;
+
+  if (prop === HTMLUListElement.prototype) {
+    for (let i = 0; i < elem.children.length; i++) {
+      addTocNumber(elem.children[i], deep + (i + 1) + '.');
+    }
+  } else if (prop === HTMLLIElement.prototype) {
+    // 保存li元素
+    if (elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+      lList.push(elem);
+    }
+    for (let i = 0; i < elem.children.length; i++) {
+      let cur = elem.children[i];
+      if (cur.__proto__ === HTMLAnchorElement.prototype) {
+        if (autoNumber) {
+          cur.text =  deep + ' ' + cur.text;
+        }
+      } else if (cur.__proto__ === HTMLUListElement.prototype) {
+        addTocNumber(cur, deep);
+      }
+    }
+  }
+}
+
+function removeParentActiveClass() {
+  let parents = tocContent.querySelectorAll('.'+active)
+  parents.forEach(function(elem) {
+    elem.classList.remove(active);
+  });
+}
+
+function addActiveClass(index) {
+  if (index >= 0 && index < hList.length) {
+    lList[index].classList.add(activeClass);
+  }
+}
+
+function removeActiveClass(index) {
+  if (index >= 0 && index < hList.length) {
+    lList[index].classList.remove(activeClass);
+  }
+}
+
+function addActiveLiElemment(elem, parent) {
+  if (!elem || elem === parent) {
+    return;
+  } else {
+    if (elem.__proto__ === HTMLLIElement.prototype) {
+      elem.classList.add(active);
+    }
+    addActiveLiElemment(elem.parentElement, parent);
+  }
+}
+
+function showToc() {
+  if (tocWrapper) {
+    postBody = document.querySelector('#post_body');
+    for (let i = 0; i < postBody.children.length; i++) {
+      if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+        hList.push(postBody.children[i]);
+      }
+    }
+    if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+    } else if (tocWrapper.classList.contains('no_compress')){
+      tocContent.classList.add('expanded');
+    } else {
+      if (hList.length > 10) {
+        active = 'active-hidden'
+        tocContent.classList.add('closed');
+      } else {
+        tocContent.classList.add('expanded');
+      }
+    }
+  }
+}
+
+(function() {
+  // 处理不是从#一级标题开始目录
+  if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+    let con = tocContent.children[0].children[0];
+    tocContent.innerHTML = con.innerHTML;
+  }
+  let markdownItTOC = document.querySelector('.markdownIt-TOC');
+  let innerHeight = window.innerHeight;
+  markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+  addTocNumber(tocContent, '');
+})();
+
+document.addEventListener('scroll', function(e) {
+  if (lList.length <= 0) {
+    return;
+  }
+  let scrollTop = document.scrollingElement.scrollTop + 10;
+  let dir;
+
+  if (lastTop - scrollTop > 0) {
+    dir = 'up';
+  } else {
+    dir = 'down';
+  }
+
+  lastTop = scrollTop;
+  if (scrollTop <= 0) {
+    if (lastIndex >= 0 && lastIndex < hList.length) {
+      lList[lastIndex].classList.remove(activeClass);
+    }
+    return;
+  }
+
+  let current = 0, hasFind = false;
+  for (let i = 0; i < hList.length; i++) {
+    if (hList[i].offsetTop > scrollTop) {
+      current = i;
+      hasFind = true;
+      break;
+    }
+  }
+  if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+    current = hList.length - 1;
+  } else {
+    current--;
+  }
+  if (dir === 'down') {
+    if (current > lastIndex) {
+      addActiveClass(current);
+      removeActiveClass(lastIndex) 
+      lastIndex = current;
+      removeParentActiveClass();
+      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
+    }
+  } else {
+    if (current < lastIndex) {
+      addActiveClass(current);
+      removeActiveClass(lastIndex);
+      lastIndex = current;
+      removeParentActiveClass();
+      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
+    }
+  }
+});
+
+window.addEventListener('load', function() {
+  showToc();
+  document.querySelector('#sidebar').style='display: block;';
+  tocWrapper.classList.add('toc-active');
+  setTimeout(function() {
+    if ("createEvent" in document) {
+      let evt = document.createEvent("HTMLEvents");
+      evt.initEvent("scroll", false, true);
+      document.dispatchEvent(evt);
+    }
+    else {
+      document.fireEvent("scroll");
+    }
+  }, 500)
+})
+
+</script>
+            </div>
           
         
       </div>
@@ -295,8 +481,8 @@
             <div class="section bg-color post post-page">
               <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://Lewis-Li-lyf.github.io/post/zhuan-zai-csp/">
-      转载：CSP
+    <a class="post-title-link" href="https://Lewis-Li-lyf.github.io/post/guang-du-you-xian-sou-suo-bfs/">
+      广度优先搜索BFS
     </a>
   </h1>
   <div class="post-meta">
@@ -304,7 +490,7 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2020-04-02</span>
+      <span>2020-04-12</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -313,8 +499,14 @@
         <span class="pc-show">分类于</span>
         
           
-            <a href="https://Lewis-Li-lyf.github.io/tag/2W5bJqZQL/">
-              <span>闲谈</span>
+            <a href="https://Lewis-Li-lyf.github.io/tag/1Zvs2DC7H/">
+              <span>C++</span>
+            </a>、
+          
+        
+          
+            <a href="https://Lewis-Li-lyf.github.io/tag/lkI9ZNq5F/">
+              <span>算法</span>
             </a>
           
         
@@ -328,19 +520,68 @@
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>584<span class="pc-show">字数</span></span>
+      <span>653<span class="pc-show">字数</span></span>
     </span>
     
   </div>
 </header>
               <div class="post-body next-md-body" id="post_body">
-                <p>盼望着，盼望着，模拟赛来了，CSP的脚步近了。</p>
-<p>一切都像刚WA的样子，欣欣然重构代码。代码复杂度朗润起来了，时间复杂度涨起来了，CE的标志红起来了。</p>
-<p>毒瘤数据偷偷地从土里钻出来，嫩嫩的，绿绿的。洛谷里，CODE FORCE里，瞧去，一大片一大片满是的。坐着，躺着，写两个for，码几脚while，跑几趟dfs，搜几回暴力。TLE轻悄悄的，MLE软绵绵的。</p>
-<p>POJ、HDU、51nod，你不让我，我不让你，都开满了WA赶趟儿。红的像火，粉的像霞，白的像雪。WA里带着RE；闭了眼，评测界面仿佛已经满是UKE、ERR、OLE。花下成千成百的蜜蜂嗡嗡地闹着，大小的蝴蝶飞来飞去。0分遍地是：杂样儿，DP没初始化的，数学公式写错的，散在评测机里，像眼睛，像星星，还眨呀眨的。</p>
-<p>“吹面不寒AK风”，不错的，像CCF主席的手抚摸着你。风里带来些新翻的AC的气息，混着打表味儿，还有各种骗分的香，都在微微润湿的AK里酝酿。模拟将巢安在长篇文章当中，高兴起来了，呼朋引伴地卖弄超过200行的代码，唱出宛转的AC音乐，与轻风流水应和着。IOI通过的短笛，这时候也成天嘹亮地响着。</p>
-<p>Debug是最寻常的，一调就是三两天。可别恼。看，像无限循环，像scanf不写&amp;，像数组越界，密密地斜织着，人家exe上全笼着一层01串。大佬的评测却AC得发亮，蒟蒻的评测也青蛙得逼你的眼。傍晚时候，上灯了，一点点算法错误的光，烘托出一片贪心错误的夜。在乡下，小路上，石桥边，有撑起伞慢慢走了1e18秒的人。还有地里工作的码农，披着电源戴着黑帽子的。他们的电脑，稀稀疏疏的在调试里静默着。</p>
-<p>天上AKNOI渐渐多了，地上AKIOI也多了。俄国中国，克罗地亚，波罗的海，也赶趟儿似的，一个个都出来了。AKAK CSPJ，AKAK CSPS，各AK各的一份事去。“一年之计在于CSP”，刚起头儿，有的是爆零，有的是RE。</p>
+                <figure data-type="image" tabindex="1"><img src="https://bkimg.cdn.bcebos.com/pic/adaf2edda3cc7cd9d2011b873901213fb80e91bb?x-bce-process=image/resize,m_lfit,w_268,limit_1" alt="自然界的广搜" loading="lazy"></figure>
+<h1 id="广搜介绍">广搜介绍</h1>
+<p>很久很久以前，我们万能的度娘曾经说过：</p>
+<blockquote>
+<p>宽度优先搜索算法（又称广度优先搜索）是最简便的图的搜索算法之一，这一算法也是很多重要的图的算法的原型。Dijkstra单源最短路径算法和Prim最小生成树算法都采用了和宽度优先搜索类似的思想。其别名又叫BFS，属于一种盲目搜寻法，目的是系统地展开并检查图中的所有节点，以找寻结果。换句话说，它并不考虑结果的可能位置，彻底地搜索整张图，直到找到结果为止。</p>
+</blockquote>
+<p>这里以树上BFS为例：（图片来源于网络）<br>
+<img src="https://images2015.cnblogs.com/blog/702268/201510/702268-20151017224747976-1823570842.png" alt="一棵树" loading="lazy"><br>
+直观上来说，就是<strong>一层一层的搜索</strong>。并且，在搜索完第k层节点之前，是<strong>绝对不会</strong>搜索第k+1层的。</p>
+<h1 id="适用范围">适用范围</h1>
+<p>一般来说，BFS适用于那些<strong>边权相等</strong>的图。一个很好的例子便是地图：当你BFS死第一次碰到目标点，则此时你走过的路径一定就是起点到目标点的<strong>最短距离</strong>（BFS最短路）。因为你是一层一层搜的，就相当于是一步一步走的，既然先遇到目标点，那么就一定是最短的。<br>
+对于有边权的图，我们就可以使用那些更高级的最短路算法（比如 <em>Dijkstra</em> ）（Floyd：我不要面子的嘛ヽ(#`Д´)ﾉ）</p>
+<ul>
+<li>BFS求无权图最短路径问题</li>
+<li>BFS染色判断是否为二分图</li>
+<li>寻找图中一个连通分支的所有节点</li>
+</ul>
+<h1 id="代码实现">代码实现</h1>
+<p>首先，我们从起始节点<code>root</code>开始，压入队中。随后，将其所有连接着的点都压入队中。弹出队首。之后再将队首的节点压入队中并按照出队顺序遍历第二层。完成之后，队内剩下的就是第三层的节点。重复上述过程，直到没有节点为止（队空）。</p>
+<pre><code class="language-cpp">struct Edge // 链式前向星大法好
+{
+    int to, next;
+} E[1010]; 
+int head[110], cnt; 
+void addEdge(int u, int v) // 增加一条边
+{
+    E[cnt].to = v;
+    E[cnt].next = head[u];
+    head[u] = cnt++;
+}
+bool vis[110];     // 记录已经走过的点，防止重复访问。
+void BFS(int root) // BFS
+{
+    queue&lt;int&gt; q;
+    memset(vis, 0, sizeof(vis)); // 初始化。
+    vis[root] = 1;
+    q.push(root);
+    int u, len;
+    while (!q.empty())
+    {
+        u = q.front();
+        q.pop();
+        len = E[u].size();
+        for (int i = head[root]; i; i = E[i].next)
+        {
+            int v = E[i].to;
+            if (vis[v] == 0)
+            {
+                vis[v] = 1;
+                q.push(v);
+            }
+        } // 找到和u相连的所有点并入队
+    }
+}
+</code></pre>
+<p>这样就做到了遍历整个图。</p>
 
               </div>
               <div class="post-footer">
@@ -351,7 +592,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://Lewis-Li-lyf.github.io/post/zhuan-zai-csp/" title="转载：CSP">转载：CSP</a>
+      <a href="https://Lewis-Li-lyf.github.io/post/guang-du-you-xian-sou-suo-bfs/" title="广度优先搜索BFS">广度优先搜索BFS</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -360,21 +601,19 @@
   </ul>
   <div class="tags">
     
-      <a href="https://Lewis-Li-lyf.github.io/tag/2W5bJqZQL/"># 闲谈</a>
+      <a href="https://Lewis-Li-lyf.github.io/tag/1Zvs2DC7H/"># C++</a>
+    
+      <a href="https://Lewis-Li-lyf.github.io/tag/lkI9ZNq5F/"># 算法</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="致敬：向那些为抗击疫情而牺牲的烈士" href="https://Lewis-Li-lyf.github.io/post/zhi-jing-xiang-na-xie-wei-kang-ji-yi-qing-er-xi-sheng-de-lie-shi/">致敬：向那些为抗击疫情而牺牲的烈士</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="致敬：向那些为抗击疫情而牺牲的烈士" href="https://Lewis-Li-lyf.github.io/post/zhi-jing-xiang-na-xie-wei-kang-ji-yi-qing-er-xi-sheng-de-lie-shi/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="数据结构：堆" href="https://Lewis-Li-lyf.github.io/post/shu-ju-jie-gou-dui/">数据结构：堆</a>
-        <a class="nav-mobile-next" title="数据结构：堆" href="https://Lewis-Li-lyf.github.io/post/shu-ju-jie-gou-dui/">下一篇</a>
+        <a class="nav-pc-next" title="致敬：向那些为抗击疫情而牺牲的烈士" href="https://Lewis-Li-lyf.github.io/post/zhi-jing-xiang-na-xie-wei-kang-ji-yi-qing-er-xi-sheng-de-lie-shi/">致敬：向那些为抗击疫情而牺牲的烈士</a>
+        <a class="nav-mobile-next" title="致敬：向那些为抗击疫情而牺牲的烈士" href="https://Lewis-Li-lyf.github.io/post/zhi-jing-xiang-na-xie-wei-kang-ji-yi-qing-er-xi-sheng-de-lie-shi/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
