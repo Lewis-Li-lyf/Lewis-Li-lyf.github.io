@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Lewis-Li-lyf.github.io</id>
     <title>LewisLi的博客 | I AK IOI</title>
-    <updated>2020-04-13T02:42:05.051Z</updated>
+    <updated>2020-04-13T08:35:54.399Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Lewis-Li-lyf.github.io"/>
     <link rel="self" href="https://Lewis-Li-lyf.github.io/atom.xml"/>
@@ -10,6 +10,24 @@
     <logo>https://Lewis-Li-lyf.github.io/images/avatar.png</logo>
     <icon>https://Lewis-Li-lyf.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, LewisLi的博客 | I AK IOI</rights>
+    <entry>
+        <title type="html"><![CDATA[使用 Gridea 搭建属于自己的博客]]></title>
+        <id>https://Lewis-Li-lyf.github.io/post/Building-a-Blog/</id>
+        <link href="https://Lewis-Li-lyf.github.io/post/Building-a-Blog/">
+        </link>
+        <updated>2020-04-13T05:53:58.000Z</updated>
+        <content type="html"><![CDATA[<p>如今网络发展迅速，许多人都想拥有一个属于自己的博客。很多网站的UI非常死板。比较好的有你谷博客，博客园等。但是这些终究是基于别的网站的。我们想要一个属于自己的空网站。一个很好的方法就是GitHub pages。</p>
+<h1 id="github-pages-的搭建">GitHub pages 的搭建</h1>
+<p>首先，我们需要有一个 GitHub 账号。<br>
+之后，我们建立一个仓库，仓库名设置成<code>username.github.io</code>。这里username表示你GitHub账号的名字（例如我的<code>lewis-li-lyf</code>）。<br>
+进入仓库的设置界面，下拉看到 GitHubpages 的几个选项，把 source 改成你仓库的分支（一般来说是master）。做完这些之后，你会看到“GitHub pages”下方弹出一个提示，告诉你的 GitHub pages 在哪里。<br>
+之后是两个很重要的步骤！<br>
+进入你主页右上角 settings -&gt; Developer Settings -&gt; Personal access tokens，创建一个 token。创建完成之后<strong>马上保存下来</strong>，否则会消失！<br>
+同样的，去 OAuth Apps 里面 创建一个 OAuth Application。将 Client ID 和 Client Secret 保存下来。<br>
+至此，我们的 GitHub pages 就配置好了。</p>
+<h1 id="配置-gridea">配置 Gridea</h1>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[广度优先搜索BFS]]></title>
         <id>https://Lewis-Li-lyf.github.io/post/BFS/</id>
@@ -533,154 +551,6 @@ int main(){
 </code></pre>
 <p>附：关于树状数组的一篇文章，真的超详细。<br>
 <a href="https://www.cnblogs.com/xenny/p/9739600.html">戳这里</a></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[浅谈 LCA（最近公共祖先）]]></title>
-        <id>https://Lewis-Li-lyf.github.io/post/LCA/</id>
-        <link href="https://Lewis-Li-lyf.github.io/post/LCA/">
-        </link>
-        <updated>2020-03-20T05:56:33.000Z</updated>
-        <content type="html"><![CDATA[<p>关于 LCA 是什么，我就不再叙述了。请出门右转自行百度。<br>
-如果本文介绍的不是很清楚，请移步至<a href="https://blog.csdn.net/Q_M_X_D_D_/article/details/89924963">这篇文章</a>。</p>
-<p><strong>寻找 LCA 的方法：</strong></p>
-<h1 id="朴素算法">朴素算法</h1>
-<p>这是最简单的 LCA 算法，也是学习倍增算法前重要的一环。<br>
-<img src="https://img-blog.csdn.net/20170310105229935?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjkyODMyNA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="来看一下这张图" loading="lazy"><br>
-假如我们现在要求两个点的 LCA，我们可以这样做：<br>
-求 LCA，最直接的就是让他们一步一步向上“爬”，当他们相交时，这个交点便是这两个点的 LCA<s>给爷爪巴</s>。<br>
-但是，在向上爬的时候，我们要保证一件事情，那就是，我们必须让两个点处在同一深度。否则，这两个点永远不会相交。因为，既然他们不在同一深度上，他们在爬的过程中始终有深度差，那怎么会相交呢？<br>
-这种算法很好写也很好理解，只需要进行一次深搜，记录每个点的父节点和它的深度，就可以进行查询了。<br>
-但是有一个问题：<br>
-太慢了！<br>
-于是，我们可以用<strong>倍增</strong>来优化</p>
-<h1 id="倍增算法">倍增算法</h1>
-<h2 id="算法思想">算法思想</h2>
-<p>既然一次跳一步太慢了，我们就一次跳多步。<br>
-跳多少步呢？<br>
-我们可以跳<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>k</mi></msup></mrow><annotation encoding="application/x-tex">2^k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.849108em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span></span></span></span></span></span></span></span>步。<br>
-我们看这个序列：</p>
-<blockquote>
-<p>1,2,4,8,16,32,……</p>
-</blockquote>
-<p>我们可以用这个序列中的数字表示每一个正整数。<br>
-而且，每个数字只用1次。<br>
-这是倍增算法的第一个关键理论。<br>
-第二个关键理论是：</p>
-<blockquote>
-<p>如果c是a和b的LCA，那么c的所有祖先同样也是a和b的公共祖先，但不是最近的。</p>
-</blockquote>
-<p>也就是说，我们可以步步逼近这个 LCA 。如果走这一步重合了，我们就知道这是他们的公共祖先。如果没重合，就往上爬。最后两个点会爬到 LCA 的下一层。他们的父亲节点即是 LCA 。</p>
-<h2 id="算法实现">算法实现</h2>
-<h3 id="dep数组和dp数组">dep数组和dp数组</h3>
-<p>这里有一个很重要的东西，就是我们要知道一个点上<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>k</mi></msup></mrow><annotation encoding="application/x-tex">2^k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.849108em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span></span></span></span></span></span></span></span>层的祖先是谁。这里我们引入一个 DP 数组 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">D</mi><mi mathvariant="normal">P</mi><mo>[</mo><mi mathvariant="normal">i</mi><mo>]</mo><mo>[</mo><mi mathvariant="normal">j</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">\rm{DP[i][j]}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">D</span><span class="mord mathrm">P</span><span class="mopen">[</span><span class="mord mathrm">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathrm">j</span><span class="mclose">]</span></span></span></span></span></span>，表示节点 i 上 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>j</mi></msup></mrow><annotation encoding="application/x-tex">2^j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.824664em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span></span></span></span></span></span></span> 层的祖先，<strong>j 为 0 时即代表它的父亲</strong>。如：DP[F][0]是 D，DP[H][1]是 D，DP[I][2]是 A。当然，在题目中这些字母将替换成数字。<br>
-那么我们怎么求出这个<s>玄学的</s> DP 数组呢？<br>
-我们先 dfs 求出每个节点的父节点，然后，得出以下递推式：</p>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">D</mi><mi mathvariant="normal">P</mi><mo>[</mo><mi mathvariant="normal">i</mi><mo>]</mo><mo>[</mo><mi mathvariant="normal">j</mi><mo>]</mo><mo>=</mo><mi mathvariant="normal">D</mi><mi mathvariant="normal">P</mi><mo>[</mo><mi mathvariant="normal">D</mi><mi mathvariant="normal">P</mi><mo>[</mo><mi mathvariant="normal">i</mi><mo>]</mo><mo>[</mo><mi mathvariant="normal">j</mi><mo>−</mo><mn>1</mn><mo>]</mo><mo>]</mo><mo>[</mo><mi mathvariant="normal">j</mi><mo>−</mo><mn>1</mn><mo>]</mo></mrow><annotation encoding="application/x-tex">\rm{DP[i][j] = DP[DP[i][j-1]][j-1]}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">D</span><span class="mord mathrm">P</span><span class="mopen">[</span><span class="mord mathrm">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathrm">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathrm">D</span><span class="mord mathrm">P</span><span class="mopen">[</span><span class="mord mathrm">D</span><span class="mord mathrm">P</span><span class="mopen">[</span><span class="mord mathrm">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathrm">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathrm">1</span><span class="mclose">]</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathrm">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathrm">1</span><span class="mclose">]</span></span></span></span></span></span></p>
-<p>这个式子不难理解，表示的是 i 节点上<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>j</mi></msup></mrow><annotation encoding="application/x-tex">2^j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.824664em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span></span></span></span></span></span></span>的祖先为 i 节点上<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mrow><mi>j</mi><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">2^{j-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.824664em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span></span>的祖先的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mrow><mi>j</mi><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">2^{j-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.824664em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span></span>的祖先。<s>（真拗口）</s><br>
-结合代码理解一下：</p>
-<pre><code class="language-cpp">void dfs(int x,int pre){//x代表节点，pre代表前驱结点（即父节点）
-    dep[x] = dep[pre] + 1;//确定深度
-    dp[x][0] = pre;//确定父亲
-    for(int i=1;(1&lt;&lt;i)&lt;=dep[x];i++){
-        dp[x][i] = dp[dp[x][i-1]][i-1];//确定DP数组。因为是向下搜索，所以不会出问题。可以直接推一下
-    }
-    for(int i=head[x];i!=-1;i=edge[i].next){//链式前向星存图
-        if(edge[i].to != pre){
-            dfs(edge[i].to,x);
-        }
-    }
-}
-</code></pre>
-<h3 id="查询">查询</h3>
-<p>有了 DP 数组，查询就很容易理解了，与朴素算法差不多，具体在代码中解释：</p>
-<pre><code class="language-cpp">int LCA(int a,int b){
-    if(dep[a] &lt; dep[b]){//保证a的深度大于b的深度，可以理解为“不妨设节点a的深度大于节点b的深度”
-        swap(a,b);
-    }
-    for(int i=20;i&gt;=0;i--){//让两节点处于同一深度
-        if(dep[a] - (1 &lt;&lt; i) &gt;= dep[b])
-            a = dp[a][i];
-    }
-    if(a == b){//如果相同，说明重合了，直接返回
-        return a;
-    }
-    for(int i=20;i&gt;=0;i--){//向上“爬”
-        if(dp[a][i] != dp[b][i]){//如果相等，说明这个节点是他们的公共祖先，只不过不一定是最近的。
-            a = dp[a][i],b = dp[b][i];
-        }
-    }//最后会爬到LCA的下一层，a、b都是LCA的儿子，他们的父亲即是LCA。
-    return dp[a][0];
-}
-</code></pre>
-<p>至此，整个倍增求解 LCA 就完成了。<br>
-放上完整代码：</p>
-<pre><code class="language-cpp">#include&lt;iostream&gt;
-#include&lt;cstdio&gt;
-#include&lt;cstring&gt;
-using namespace std;
-
-const int maxn = 500005;
-int n,m,s;//n个节点，m个询问，根为s
-int dep[maxn],dp[maxn][21];
-//链式前向星
-int head[maxn];
-struct node{
-    int to,next;
-}edge[maxn*2];//无向图，开两倍
-int cnt = 0;
-void add(int from,int t){
-    edge[cnt].to = t;
-    edge[cnt].next = head[from];
-    head[from] = cnt++;
-}
-
-void dfs(int x,int pre){//x代表节点，pre代表前驱结点（即父节点）
-    dep[x] = dep[pre] + 1;//确定深度
-    dp[x][0] = pre;//确定父亲
-    for(int i=1;(1&lt;&lt;i)&lt;=dep[x];i++){
-        dp[x][i] = dp[dp[x][i-1]][i-1];//确定DP数组。因为是向下搜索，所以不会出问题。可以直接推一下
-    }
-    for(int i=head[x];i!=-1;i=edge[i].next){//链式前向星存图
-        if(edge[i].to != pre){
-            dfs(edge[i].to,x);
-        }
-    }
-}
-int LCA(int a,int b){
-    if(dep[a] &lt; dep[b]){//保证a的深度大于b的深度，可以理解为“不妨设节点a的深度大于节点b的深度”
-        swap(a,b);
-    }
-    for(int i=20;i&gt;=0;i--){//让两节点处于同一深度
-        if(dep[a] - (1 &lt;&lt; i) &gt;= dep[b])
-            a = dp[a][i];
-    }
-    if(a == b){//如果相同，说明重合了，直接返回
-        return a;
-    }
-    for(int i=20;i&gt;=0;i--){//向上“爬”
-        if(dp[a][i] != dp[b][i]){//如果相等，说明这个节点是他们的公共祖先，只不过不一定是最近的。
-            a = dp[a][i],b = dp[b][i];
-        }
-    }//最后会爬到LCA的下一层，a、b都是LCA的儿子，他们的父亲即是LCA。
-    return dp[a][0];
-}
-int main(){
-    memset(head,-1,sizeof(head));
-    scanf(&quot;%d%d%d&quot;,&amp;n,&amp;m,&amp;s);
-    for(int i=1;i&lt;n;i++){
-        int x,y;
-        scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
-        add(x,y),add(y,x);//无向图，存两次
-    }
-    dfs(s,0);
-    for(int i=1;i&lt;=m;i++){//查询
-        int x,y;
-        scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
-        printf(&quot;%d\n&quot;,LCA(x,y));
-    }
-    return 0;
-}</code></pre>
 ]]></content>
     </entry>
 </feed>

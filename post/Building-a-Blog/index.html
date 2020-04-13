@@ -7,7 +7,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="临兵斗者，皆阵列在前！">
 <meta name="theme-color" content="#000">
-<title>广度优先搜索BFS | LewisLi的博客 | I AK IOI</title>
+<title>使用 Gridea 搭建属于自己的博客 | LewisLi的博客 | I AK IOI</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1586766875494">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/gemini.css">
@@ -27,8 +27,8 @@
 
 
 
-    <meta name="description" content="广度优先搜索BFS" />
-    <meta name="keywords" content="C++,算法" />
+    <meta name="description" content="使用 Gridea 搭建属于自己的博客" />
+    <meta name="keywords" content="" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -214,9 +214,8 @@
               <div class="toc-box right-motion">
   <div class="toc-wrapper auto-number auto" id="toc_wrapper">
     <ul class="markdownIt-TOC">
-<li><a href="#%E5%B9%BF%E6%90%9C%E4%BB%8B%E7%BB%8D">广搜介绍</a></li>
-<li><a href="#%E9%80%82%E7%94%A8%E8%8C%83%E5%9B%B4">适用范围</a></li>
-<li><a href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0">代码实现</a></li>
+<li><a href="#github-pages-%E7%9A%84%E6%90%AD%E5%BB%BA">GitHub pages 的搭建</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AE-gridea">配置 Gridea</a></li>
 </ul>
 
   </div>
@@ -481,8 +480,8 @@ window.addEventListener('load', function() {
             <div class="section bg-color post post-page">
               <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://Lewis-Li-lyf.github.io/post/BFS/">
-      广度优先搜索BFS
+    <a class="post-title-link" href="https://Lewis-Li-lyf.github.io/post/Building-a-Blog/">
+      使用 Gridea 搭建属于自己的博客
     </a>
   </h1>
   <div class="post-meta">
@@ -490,98 +489,33 @@ window.addEventListener('load', function() {
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2020-04-12</span>
+      <span>2020-04-13</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
-      <span class="meta-item">
-        <i class="fa fa-folder-o"></i>
-        <span class="pc-show">分类于</span>
-        
-          
-            <a href="https://Lewis-Li-lyf.github.io/tag/1Zvs2DC7H/">
-              <span>C++</span>
-            </a>、
-          
-        
-          
-            <a href="https://Lewis-Li-lyf.github.io/tag/lkI9ZNq5F/">
-              <span>算法</span>
-            </a>
-          
-        
-      </span>
-      <span class="post-meta-divider">|</span>
-    
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>3分钟</span>
+      <span>2分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>653<span class="pc-show">字数</span></span>
+      <span>292<span class="pc-show">字数</span></span>
     </span>
     
   </div>
 </header>
               <div class="post-body next-md-body" id="post_body">
-                <figure data-type="image" tabindex="1"><img src="https://bkimg.cdn.bcebos.com/pic/adaf2edda3cc7cd9d2011b873901213fb80e91bb?x-bce-process=image/resize,m_lfit,w_268,limit_1" alt="自然界的广搜" loading="lazy"></figure>
-<h1 id="广搜介绍">广搜介绍</h1>
-<p>很久很久以前，我们万能的度娘曾经说过：</p>
-<blockquote>
-<p>宽度优先搜索算法（又称广度优先搜索）是最简便的图的搜索算法之一，这一算法也是很多重要的图的算法的原型。Dijkstra单源最短路径算法和Prim最小生成树算法都采用了和宽度优先搜索类似的思想。其别名又叫BFS，属于一种盲目搜寻法，目的是系统地展开并检查图中的所有节点，以找寻结果。换句话说，它并不考虑结果的可能位置，彻底地搜索整张图，直到找到结果为止。</p>
-</blockquote>
-<p>这里以树上BFS为例：（图片来源于网络）<br>
-<img src="https://images2015.cnblogs.com/blog/702268/201510/702268-20151017224747976-1823570842.png" alt="一棵树" loading="lazy"><br>
-直观上来说，就是<strong>一层一层的搜索</strong>。并且，在搜索完第k层节点之前，是<strong>绝对不会</strong>搜索第k+1层的。</p>
-<h1 id="适用范围">适用范围</h1>
-<p>一般来说，BFS适用于那些<strong>边权相等</strong>的图。一个很好的例子便是地图：当你BFS死第一次碰到目标点，则此时你走过的路径一定就是起点到目标点的<strong>最短距离</strong>（BFS最短路）。因为你是一层一层搜的，就相当于是一步一步走的，既然先遇到目标点，那么就一定是最短的。<br>
-对于有边权的图，我们就可以使用那些更高级的最短路算法（比如 <em>Dijkstra</em> ）（Floyd：我不要面子的嘛ヽ(#`Д´)ﾉ）</p>
-<ul>
-<li>BFS求无权图最短路径问题</li>
-<li>BFS染色判断是否为二分图</li>
-<li>寻找图中一个连通分支的所有节点</li>
-</ul>
-<h1 id="代码实现">代码实现</h1>
-<p>首先，我们从起始节点<code>root</code>开始，压入队中。随后，将其所有连接着的点都压入队中。弹出队首。之后再将队首的节点压入队中并按照出队顺序遍历第二层。完成之后，队内剩下的就是第三层的节点。重复上述过程，直到没有节点为止（队空）。</p>
-<pre><code class="language-cpp">struct Edge // 链式前向星大法好
-{
-    int to, next;
-} E[1010]; 
-int head[110], cnt; 
-void addEdge(int u, int v) // 增加一条边
-{
-    E[cnt].to = v;
-    E[cnt].next = head[u];
-    head[u] = cnt++;
-}
-bool vis[110];     // 记录已经走过的点，防止重复访问。
-void BFS(int root) // BFS
-{
-    queue&lt;int&gt; q;
-    memset(vis, 0, sizeof(vis)); // 初始化。
-    vis[root] = 1;
-    q.push(root);
-    int u, len;
-    while (!q.empty())
-    {
-        u = q.front();
-        q.pop();
-        len = E[u].size();
-        for (int i = head[root]; i; i = E[i].next)
-        {
-            int v = E[i].to;
-            if (vis[v] == 0)
-            {
-                vis[v] = 1;
-                q.push(v);
-            }
-        } // 找到和u相连的所有点并入队
-    }
-}
-</code></pre>
-<p>这样就做到了遍历整个图。</p>
+                <p>如今网络发展迅速，许多人都想拥有一个属于自己的博客。很多网站的UI非常死板。比较好的有你谷博客，博客园等。但是这些终究是基于别的网站的。我们想要一个属于自己的空网站。一个很好的方法就是GitHub pages。</p>
+<h1 id="github-pages-的搭建">GitHub pages 的搭建</h1>
+<p>首先，我们需要有一个 GitHub 账号。<br>
+之后，我们建立一个仓库，仓库名设置成<code>username.github.io</code>。这里username表示你GitHub账号的名字（例如我的<code>lewis-li-lyf</code>）。<br>
+进入仓库的设置界面，下拉看到 GitHubpages 的几个选项，把 source 改成你仓库的分支（一般来说是master）。做完这些之后，你会看到“GitHub pages”下方弹出一个提示，告诉你的 GitHub pages 在哪里。<br>
+之后是两个很重要的步骤！<br>
+进入你主页右上角 settings -&gt; Developer Settings -&gt; Personal access tokens，创建一个 token。创建完成之后<strong>马上保存下来</strong>，否则会消失！<br>
+同样的，去 OAuth Apps 里面 创建一个 OAuth Application。将 Client ID 和 Client Secret 保存下来。<br>
+至此，我们的 GitHub pages 就配置好了。</p>
+<h1 id="配置-gridea">配置 Gridea</h1>
 
               </div>
               <div class="post-footer">
@@ -592,7 +526,7 @@ void BFS(int root) // BFS
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://Lewis-Li-lyf.github.io/post/BFS/" title="广度优先搜索BFS">广度优先搜索BFS</a>
+      <a href="https://Lewis-Li-lyf.github.io/post/Building-a-Blog/" title="使用 Gridea 搭建属于自己的博客">使用 Gridea 搭建属于自己的博客</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -601,23 +535,15 @@ void BFS(int root) // BFS
   </ul>
   <div class="tags">
     
-      <a href="https://Lewis-Li-lyf.github.io/tag/1Zvs2DC7H/"># C++</a>
-    
-      <a href="https://Lewis-Li-lyf.github.io/tag/lkI9ZNq5F/"># 算法</a>
-    
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="使用 Gridea 搭建属于自己的博客" href="https://Lewis-Li-lyf.github.io/post/Building-a-Blog/">使用 Gridea 搭建属于自己的博客</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="使用 Gridea 搭建属于自己的博客" href="https://Lewis-Li-lyf.github.io/post/Building-a-Blog/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="致敬：向那些为抗击疫情而牺牲的烈士" href="https://Lewis-Li-lyf.github.io/post/COVID-19/">致敬：向那些为抗击疫情而牺牲的烈士</a>
-        <a class="nav-mobile-next" title="致敬：向那些为抗击疫情而牺牲的烈士" href="https://Lewis-Li-lyf.github.io/post/COVID-19/">下一篇</a>
+        <a class="nav-pc-next" title="广度优先搜索BFS" href="https://Lewis-Li-lyf.github.io/post/BFS/">广度优先搜索BFS</a>
+        <a class="nav-mobile-next" title="广度优先搜索BFS" href="https://Lewis-Li-lyf.github.io/post/BFS/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
