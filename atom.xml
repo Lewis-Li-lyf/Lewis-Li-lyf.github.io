@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Lewis-Li-lyf.github.io</id>
     <title>LewisLi的博客 | I AK IOI</title>
-    <updated>2020-04-14T14:20:11.754Z</updated>
+    <updated>2020-04-14T14:22:03.772Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Lewis-Li-lyf.github.io"/>
     <link rel="self" href="https://Lewis-Li-lyf.github.io/atom.xml"/>
@@ -14,22 +14,6 @@
         <title type="html"><![CDATA[浅析 Dijkstra 算法（堆优化）]]></title>
         <id>https://Lewis-Li-lyf.github.io/post/Dijkstra/</id>
         <link href="https://Lewis-Li-lyf.github.io/post/Dijkstra/">
-        </link>
-        <updated>2020-04-14T13:41:43.000Z</updated>
-        <content type="html"><![CDATA[<p>最短路问题是图论中的一个很经典的问题。它分为单源最短路径和多源最短路径两大类。具体内容请自行 BFS。Dijkstra就是一个用来解决单源最短路径问题的很经典的算法。<br>
-首先，我们要记住一句话：</p>
-<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mstyle mathsize="2.074em"><mi mathvariant="normal">关</mi><mi mathvariant="normal">于</mi><mi>S</mi><mi>P</mi><mi>F</mi><mi>A</mi><mi mathvariant="normal">：</mi><mi mathvariant="normal">它</mi><mi mathvariant="normal">死</mi><mi mathvariant="normal">了</mi></mstyle></mrow><annotation encoding="application/x-tex">\huge 关于SPFA：它死了
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.41722642em;vertical-align:0em;"></span><span class="mord cjk_fallback sizing reset-size6 size10">关</span><span class="mord cjk_fallback sizing reset-size6 size10">于</span><span class="mord mathdefault sizing reset-size6 size10" style="margin-right:0.05764em;">S</span><span class="mord mathdefault sizing reset-size6 size10" style="margin-right:0.13889em;">P</span><span class="mord mathdefault sizing reset-size6 size10" style="margin-right:0.13889em;">F</span><span class="mord mathdefault sizing reset-size6 size10">A</span><span class="mord cjk_fallback sizing reset-size6 size10">：</span><span class="mord cjk_fallback sizing reset-size6 size10">它</span><span class="mord cjk_fallback sizing reset-size6 size10">死</span><span class="mord cjk_fallback sizing reset-size6 size10">了</span></span></span></span></span></p>
-<h1 id="dijkstra-思路解析">Dijkstra 思路解析</h1>
-<p>Dijkstra 采用的是 <strong>贪心</strong> 的思想。<br>
-我们定义一个<code>dis</code>数组，<code>dis[i]</code>表示起点<code>s</code>到节点<code>i</code>的最短距离。<br>
-每一次我们从所有未被标记过的点中找到<code>dis[i]</code>最小的那个点<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>，将其标记上。之后枚举其所有的出边<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo separator="true">,</mo><mi>z</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(x,y,z)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mclose">)</span></span></span></span>，如果<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>i</mi><mi>s</mi><mo>[</mo><mi>y</mi><mo>]</mo><mo>&gt;</mo><mi>d</mi><mi>i</mi><mi>s</mi><mo>[</mo><mi>x</mi><mo>]</mo><mo>+</mo><mi>z</mi></mrow><annotation encoding="application/x-tex">dis[y] &gt; dis[x] + z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span><span class="mopen">[</span><span class="mord mathdefault">x</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span></span></span></span>，那么就用<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>i</mi><mi>s</mi><mo>[</mo><mi>x</mi><mo>]</mo><mo>+</mo><mi>z</mi></mrow><annotation encoding="application/x-tex">dis[x]+z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span><span class="mopen">[</span><span class="mord mathdefault">x</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span></span></span></span>来替代<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>i</mi><mi>s</mi><mo>[</mo><mi>y</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">dis[y]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">]</span></span></span></span>。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[浅析 Dijkstra 算法（堆优化）]]></title>
-        <id>https://Lewis-Li-lyf.github.io/post/qian-xi-dijkstra-suan-fa-dui-you-hua/</id>
-        <link href="https://Lewis-Li-lyf.github.io/post/qian-xi-dijkstra-suan-fa-dui-you-hua/">
         </link>
         <updated>2020-04-14T13:41:43.000Z</updated>
         <content type="html"><![CDATA[<p>最短路问题是图论中的一个很经典的问题。它分为单源最短路径和多源最短路径两大类。具体内容请自行 BFS。Dijkstra就是一个用来解决单源最短路径问题的很经典的算法。<br>
@@ -451,6 +435,120 @@ e是小于<span class="katex"><span class="katex-mathml"><math><semantics><mrow>
 }
 </code></pre>
 <p><s>我之前把log2写成了log</s></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[树状数组模版]]></title>
+        <id>https://Lewis-Li-lyf.github.io/post/shu-zhuang-shu-zu-mo-ban/</id>
+        <link href="https://Lewis-Li-lyf.github.io/post/shu-zhuang-shu-zu-mo-ban/">
+        </link>
+        <updated>2020-03-23T07:40:50.000Z</updated>
+        <content type="html"><![CDATA[<p>说白了，这篇文章就是两个模版。</p>
+<p>模版题：<br>
+<a href="https://www.luogu.com.cn/problem/P3374">传送门一</a><br>
+<a href="https://www.luogu.com.cn/problem/P3368">传送门二</a></p>
+<h1 id="lowbit">Lowbit</h1>
+<p>介绍一下lowbit：<br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>o</mi><mi>w</mi><mi>b</mi><mi>i</mi><mi>t</mi><mo>(</mo><mi>i</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">lowbit(i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mord mathdefault">b</span><span class="mord mathdefault">i</span><span class="mord mathdefault">t</span><span class="mopen">(</span><span class="mord mathdefault">i</span><span class="mclose">)</span></span></span></span> 是指 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>k</mi></msup></mrow><annotation encoding="application/x-tex">2^k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.849108em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span></span></span></span></span></span></span></span>，其中 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> 指 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span> 用二进制表示时末尾0的个数，如8（1000）的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>就是3，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>o</mi><mi>w</mi><mi>b</mi><mi>i</mi><mi>t</mi><mo>(</mo><mn>8</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">lowbit(8)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mord mathdefault">b</span><span class="mord mathdefault">i</span><span class="mord mathdefault">t</span><span class="mopen">(</span><span class="mord">8</span><span class="mclose">)</span></span></span></span>就是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>3</mn></msup><mo>=</mo><mn>8</mn></mrow><annotation encoding="application/x-tex">2^3=8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">8</span></span></span></span>。</p>
+<p>对于每一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mo>[</mo><mi>i</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">C[ i ]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span></span></span></span>，与之连接的下一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span></span>为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mo>[</mo><mi>i</mi><mo>+</mo><mi>l</mi><mi>o</mi><mi>w</mi><mi>b</mi><mi>i</mi><mi>t</mi><mo>(</mo><mi>i</mi><mo>)</mo><mo>]</mo></mrow><annotation encoding="application/x-tex">C[ i + lowbit(i) ]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mord mathdefault">b</span><span class="mord mathdefault">i</span><span class="mord mathdefault">t</span><span class="mopen">(</span><span class="mord mathdefault">i</span><span class="mclose">)</span><span class="mclose">]</span></span></span></span>。</p>
+<p>同样，求和公式：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mi>U</mi><mi>M</mi><mi>i</mi><mo>=</mo><mi>C</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>+</mo><mi>C</mi><mo>[</mo><mi>i</mi><mo>−</mo><msup><mn>2</mn><mrow><mi>k</mi><mn>1</mn></mrow></msup><mo>]</mo><mo>+</mo><mi>C</mi><mo>[</mo><mo>(</mo><mi>i</mi><mo>−</mo><msup><mn>2</mn><mrow><mi>k</mi><mn>1</mn></mrow></msup><mo>)</mo><mo>−</mo><msup><mn>2</mn><mrow><mi>k</mi><mn>2</mn></mrow></msup><mo>]</mo><mo>+</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">SUMi = C[i] + C[i-2^{k1}] + C[(i - 2^{k1}) - 2^{k2}] + .....</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault" style="margin-right:0.10903em;">U</span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.099108em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mopen">[</span><span class="mopen">(</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.099108em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.099108em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span><span class="mord mtight">2</span></span></span></span></span></span></span></span></span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.10556em;vertical-align:0em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span></span></span></span></p>
+<p>所以直接上代码吧</p>
+<h1 id="单点修改区间查询">单点修改，区间查询</h1>
+<pre><code class="language-cpp">#include&lt;cstdio&gt;
+using namespace std;
+
+const int N=5*1e5;
+
+int n,m,a[N+1],c[N+1],x,y,z;
+int lowbit(int x){
+	return x &amp; (-x);
+} 
+void add(int pos,int k){
+	while(pos &lt;= n){
+		c[pos] += k;
+		pos += lowbit(pos);
+	}
+	return ;
+}
+int sum(int i){
+	int res = 0;
+	while(i &gt; 0){
+		res += c[i];
+		i -= lowbit(i);
+	}
+	return res;
+}
+int main(){
+	//freopen(&quot;putin.txt&quot;,&quot;r&quot;,stdin);
+	//freopen(&quot;putout.txt&quot;,&quot;w&quot;,stdout);
+	scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+	for(int i=1;i&lt;=n;i++){
+		scanf(&quot;%d&quot;,&amp;a[i]);
+		add(i,a[i]);
+	}
+	for(int i=1;i&lt;=m;i++){
+		scanf(&quot;%d%d%d&quot;,&amp;z,&amp;x,&amp;y);
+		if(z == 1) add(x,y);
+		if(z == 2){
+			printf(&quot;%d\n&quot;,sum(y)-sum(x-1));//前缀和相减
+		}
+	}
+	return 0;
+}
+</code></pre>
+<h1 id="区间修改单点查询">区间修改，单点查询</h1>
+<pre><code class="language-cpp">#include&lt;cstdio&gt;
+using namespace std;
+
+const int N=5*1e5;
+
+int n,m,a[N+1],c[N+1];
+int lowbit(int x){
+	return x &amp; (-x);
+} 
+void add(int pos,int k){
+	while(pos &lt;= n){
+		c[pos] += k;
+		pos += lowbit(pos);
+	}
+	return ;
+}
+int getsum(int i){
+	int res = 0;
+	while(i &gt; 0){
+		res += c[i];
+		i -= lowbit(i);
+	}
+	return res;
+}
+int main(){
+	//freopen(&quot;putin.txt&quot;,&quot;r&quot;,stdin);
+	//freopen(&quot;putout.txt&quot;,&quot;w&quot;,stdout);
+	scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+	for(int i=1;i&lt;=n;i++){
+		scanf(&quot;%d&quot;,&amp;a[i]);
+		add(i,a[i] - a[i-1]);//差分
+	}
+	for(int i=1;i&lt;=m;i++){
+		int z;
+		scanf(&quot;%d&quot;,&amp;z);
+		if(z == 1){
+			int x,y,k;
+			scanf(&quot;%d%d%d&quot;,&amp;x,&amp;y,&amp;k);
+			add(x,k); 
+			add(y+1,-k);//利用差分进行区间修改
+		}
+		if(z == 2){
+			int s;
+			scanf(&quot;%d&quot;,&amp;s);
+			printf(&quot;%d\n&quot;,getsum(s));
+		}
+	}
+	return 0;
+}
+</code></pre>
+<p>附：关于树状数组的一篇文章，真的超详细。<br>
+<a href="https://www.cnblogs.com/xenny/p/9739600.html">戳这里</a></p>
 ]]></content>
     </entry>
 </feed>
