@@ -2109,9 +2109,7 @@ blockquote {
       background: #FFFFFFe5;
     }strong{
   color:red;
-}.bg-img img {
-        filter: blur(1px)
-      }.box-scale > #landlord {
+}.box-scale > #landlord {
       transform: scale(0.5);
     }.box-shadow-wrapper {
       padding: 10px;
