@@ -7,7 +7,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="临兵斗者，皆阵列在前！">
 <meta name="theme-color" content="#000">
-<title>最短路：Floyd算法 | LewisLi的博客 | I AK IOI</title>
+<title>转载：写给 OIer 们的一些话 | LewisLi的博客 | I AK IOI</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1587363840012">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/gemini.css">
@@ -27,8 +27,8 @@
 
 
 
-    <meta name="description" content="最短路：Floyd算法" />
-    <meta name="keywords" content="图论,C++,算法" />
+    <meta name="description" content="转载：写给 OIer 们的一些话" />
+    <meta name="keywords" content="" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -214,8 +214,23 @@
               <div class="toc-box right-motion">
   <div class="toc-wrapper auto-number auto" id="toc_wrapper">
     <ul class="markdownIt-TOC">
-<li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF-floyd">什么是 Floyd ?</a></li>
-<li><a href="#floyd-%E7%9A%84%E6%80%9D%E6%83%B3%E5%8F%8A%E6%80%8E%E6%A0%B7%E5%86%99">Floyd 的思想及怎样写</a></li>
+<li><a href="#%E7%8B%AC%E7%89%B9%E7%9A%84%E6%A8%A1%E5%BC%8F">独特的模式</a>
+<ul>
+<li><a href="#%E7%9F%A5%E8%AF%86%E7%9A%84%E6%9B%B4%E6%96%B0">知识的更新</a></li>
+<li><a href="#%E5%91%BD%E9%A2%98%E7%9A%84%E6%95%85%E4%BA%8B">命题的故事</a></li>
+<li><a href="#%E5%AD%A6%E4%B9%A0%E7%9A%84%E8%BF%87%E7%A8%8B">学习的过程</a></li>
+<li><a href="#%E4%B8%80%E6%9D%A1%E4%BB%8E%E6%9C%AA%E8%B5%B0%E8%BF%87%E7%9A%84%E8%B7%AF">一条从未走过的路</a></li>
+</ul>
+</li>
+<li><a href="#oier%E7%9A%84%E4%BB%B7%E5%80%BC">OIer的价值</a>
+<ul>
+<li><a href="#%E5%BC%80%E6%8B%93%E8%80%85">开拓者</a></li>
+<li><a href="#%E4%B8%8D%E5%8F%AF%E6%88%96%E7%BC%BA%E7%9A%84%E8%A7%92%E8%89%B2">不可或缺的角色</a></li>
+<li><a href="#%E5%8F%A6%E4%B8%80%E7%A7%8D%E4%BB%B7%E5%80%BC">另一种价值</a></li>
+</ul>
+</li>
+<li><a href="#%E6%B8%BA%E5%B0%8F%E8%80%8C%E5%8D%91%E5%BE%AE%E7%9A%84%E5%9D%9A%E6%8C%81">渺小而卑微的坚持</a></li>
+<li><a href="#%E5%90%8E%E8%AE%B0">后记</a></li>
 </ul>
 
   </div>
@@ -480,8 +495,8 @@ window.addEventListener('load', function() {
             <div class="section bg-color post post-page">
               <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://Lewis-Li-lyf.github.io/post/Floyd/">
-      最短路：Floyd算法
+    <a class="post-title-link" href="https://Lewis-Li-lyf.github.io/post/Something-to-tell-the-OIers/">
+      转载：写给 OIer 们的一些话
     </a>
   </h1>
   <div class="post-meta">
@@ -489,76 +504,94 @@ window.addEventListener('load', function() {
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2020-03-23</span>
+      <span>2020-04-20</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
-      <span class="meta-item">
-        <i class="fa fa-folder-o"></i>
-        <span class="pc-show">分类于</span>
-        
-          
-            <a href="https://Lewis-Li-lyf.github.io/tag/noCGY6PkM/">
-              <span>图论</span>
-            </a>、
-          
-        
-          
-            <a href="https://Lewis-Li-lyf.github.io/tag/1Zvs2DC7H/">
-              <span>C++</span>
-            </a>、
-          
-        
-          
-            <a href="https://Lewis-Li-lyf.github.io/tag/lkI9ZNq5F/">
-              <span>算法</span>
-            </a>
-          
-        
-      </span>
-      <span class="post-meta-divider">|</span>
-    
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>2分钟</span>
+      <span>22分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>404<span class="pc-show">字数</span></span>
+      <span>6394<span class="pc-show">字数</span></span>
     </span>
     
   </div>
 </header>
               <div class="post-body next-md-body" id="post_body">
-                <p>在某位奆佬的指导下，我开始啃图论。<br>
-所以我来写一下 <code>Floyd</code> 算法。</p>
-<h1 id="什么是-floyd">什么是 Floyd ?</h1>
+                <p>转载自<a href="https://www.cnblogs.com/mathematician/p/12633276.html"></a><br>
+<a href="https://www.luogu.com.cn/discuss/show/216846"></a></p>
+<p>我是一个高二的OIer，离我正式退役的日子已经不超过一年了。在这个时期，与其写一些回忆性的文字，不如跳出“自我”的范畴，以一种比较全局的角度和大家一起分享一些我对OI的认知和看法。目的是让初三高一的学弟学妹看清眼前的路，让高二高三的人了解自己走过的足迹。</p>
+<h1 id="独特的模式">独特的模式</h1>
+<h2 id="知识的更新">知识的更新</h2>
+<p>我们先从OI的比赛日程谈起。选手获得NOIP一等奖后，可以报名参加WC（时间为1-2月）。而在5月，选手即使没有通过省选进入省队，也可以报名参加CTS(C)。其中WC和CTS(C)不仅是信息集训队的两轮选拔，也是非集训队选手得奖的机会。而每年的WC，都会安排集训队选手和前集训队选手进行授课。每年的CTS(C)，会安排候选队选手（去年是候选队前6）来进行英语自我介绍和论文答辩，这一项的分数是要按一定权重计入集训选拔分数的。对于一个集训队选手来说，他不仅需要完成题目，还必须写一篇关于集训队作业某些题的解题报告，甚至可能需要写命题报告。如果他进入候选队，那么他必须写一篇候选队论文。有时候选队15人会组成小组互相出题给对方做，这被称为候选队互测。</p>
+<p>撇去“收钱”的原因，为什么CCF要这么安排？因为CCF明白<strong>OI的知识范围的更新只能靠水平较高的优秀选手来完成，之后服务OI的主力军也是他们</strong>，而WC和CTS正是新的知识点向各个选手普及的过程。例如：2008年陈丹琪论文中出现了cdq分治，WC2012的陈立杰的《后缀自动机》讲稿，在2013候选队论文《浅谈数据结构的几个非经典解法》中出现的二进制分组的思想，在2015集训队论文出现的多项式求逆、ln、exp等技巧，以及在2019年WC讲授的模拟费用流问题。硬性规定的解题报告、命题报告，是对他们之后出题工作的一个很好的训练。</p>
+<p>那些新潮的知识点会借助互联网的平台逐步往下传。一开始在那些大佬们的博客中出现，然后是一些高层次的比赛的题目（比如WC，CTS），接着是很多强校的模拟赛，最后就是NOI、省选、NOIP的真题了。在传递过程中，这些idea会经历一定时间的考验和衡量。最后我们留下那些能简化代码量的、对某些问题非常适用的、具有考察价值的知识点，在1-5年的时间内成为我们必须要学习的内容。</p>
+<p>这样的安排无疑带来了非常好的效果，给OI的知识体系增添了活力。唯一美中不足的是：缺少能看懂候选队论文的评委。每次答辩的时候，评委总是会问一些质量不高、无关紧要的问题。也许是因为CCF也知道这一点，除了一些极端情况外，候选队论文答辩的分数不影响最终国家队的名单。</p>
+<h2 id="命题的故事">命题的故事</h2>
+<p>那些集训队选手毕业后一部分会加入清华或北大的算法协会，在1-5年后成为比赛出题人。命题的工作需要寻找一个“灵感”，就是这道题的核心想法。在那之后还要经历撰写题面，编写标程，设计部分分，验证数据正确性和强度等一系列步骤才能真正完成一道题目的命制过程。一般而言，为NOI系列赛事命题有数百至上千元的报酬，但这些费用只是一种“辛苦费”。<strong>如果单从功利的角度来说，讲课或者专心学术时更好的选择。他们这么做完全是出自于一种对于OI的情怀</strong>。</p>
+<p>但命题质量和数量的保障，甚至保密性都只能由他们自己来保证。如果在NOI附近正好处于出题人们idea的枯竭期，那么NOI的质量势必不高。如果出题人正好要准备大学的期中考试等事情，那么他很难全副身心地去做出题的工作。就算出题人很用心的出了一道题，但是这道题也有可能因为难度不合适等问题而不适合出现在比赛中。也可能是因为这些原因，OI历史上出现过很多设计不合理的比赛。ZJOI2018的难度过高、区分度过低，CTSC2018的题目出错，NOIP2018的原题现象，CTS2019的知识点分布不合理都是鲜活的例子。</p>
+<p>改进质量的方法，很大程度上仰仗于OIer与命题人的反馈交流，迫使出题人做出调整。你会在知乎上看到“如何评价xxxx（某比赛）”问题，就是出题人与选手的互动。底下这些评论往往表达选手的做题体验和出题人的出题经历，例如 [1]。最近还出现一些选手在自己出模拟赛的过程中探讨出题的准则，比如 [2] 。 出题人了解某道题的得分情况和选手对这道题的评价后，他才能了解选手的普遍水平，才能了解哪些类型的题是对当下选手最具有考察价值的。在2017年某个出题人出过一道名为《挑战》的题，正解是使用底层优化（卡常）使理论复杂度很高的算法通过匪夷所思的范围（O(n^2)O(n<br>
+2<br>
+)跑3e5,O(n)O(n)跑2e8）。这场比赛当天该题被批判的声音就层出不穷了。之后这位出题人出的题，质量就有了很大的改观。</p>
+<h2 id="学习的过程">学习的过程</h2>
+<p>作为一个选手，你最关心的可能是学习OI的过程。在NOIP提高组以下的层面，学习知识点可以通过看书，但是在这以上，尤其是针对较新的知识点的学习，就要依靠网上的博客了。博客一般是由现役的选手来完成的。但博客的质量鱼龙混杂，良莠不齐，你在百度上搜lct，10篇里面有6篇的findroot后没有splay。即使是水平较高的选手，他们写的题解也不一定能让别人容易看懂，很多时候简略到只有一句话。一个普遍的问题是讲解知识点或题目的时候单单着重于结论、算法过程，没有把想到这个结论为什么是正确的、这个算法为什么要想到这两个问题讲清楚。[3] 表达了和我类似的想法。你有时看到题解大呼”太巧妙了”，“太神仙了”，其实是因为没有体会到思考的全过程。为了解决博客质量的问题，我们建立了OI-wiki，shareOI，洛谷的题解拥有严格的审核机制。</p>
+<p>洛谷、LOJ、UOJ上的学习资料是免费的，网上的博客是可以直接搜到的，是面对所有OIer的。在这个资源共享化的时代，你只要肯下功夫学，就有丰富的资料和题目可供学习。这一定程度上拉平了强校与弱校的差距。但是由于我上一段提到的原因，学习不能完全依靠于博客等资料，需要有选手来带，需要有优质的模拟题来增加比赛经验。往往只有强校能请的了上一届的优秀选手来讲课，能拥有不对外公开的模拟题和OJ，所以强校与弱校的差距也将长期存在。</p>
+<p>另一个重要的方面是讲课，这一工作也由高水平选手承担。讲课一种是在机构受聘讲课，另一种是在自己的母校讲课（这种包括现役选手和退役选手）。前者的特点是受惠面积广，能够让更多人学习。后者的特点是学生较少，容易通过调整自己的讲课方式来满足本校学生的需求。相比于前者，后者带有更多的自愿性。前者推动了OI资源的共享，而后者起到推动一个学校发展的作用。这并不是说前者优于后者或后者优于前者，事实上两者都是必不可少的。特别是对我们学校来说，让上一届去带下一届是向外省强校追赶的必不可少的环节。而一个小集体的发展与一个大集体的发展是相互联系的，有时一个学校的优秀选手可以带动一个省的崛起。</p>
+<h2 id="一条从未走过的路">一条从未走过的路</h2>
+<p>OI的知识与我们小学中学所学的东西是无关的，甚至与大学所学的算法和主流的计算机科学界关系都不是很大，它是一个相对独立而封闭的体系。我们缺少完全理解OI知识体系的老师，我们缺少能够长期命题的出题人，我们缺少专业的研究者。我们面临了种种不利的客观条件，这些是其它四大竞赛所没有的困难。</p>
+<p>但我们不曾放弃，我们不曾退缩。我们竭尽全力探索出一种符合OI竞赛特点的模式。这往大里说，是“计算机普及要从娃娃抓起”的践行；往小里说，是为适应时代做出的努力。</p>
+<p>我们终究探索出了一条从未走过的路，那便是<strong>以OIer本身为主导的OI模式</strong>！我们用已经培养出来的OI选手去担任知识引入、命题、授课的工作，用上一届OIer带动下一届OIer，再让下一届带动更下一届。我们借助互联网的平台，发挥它传播信息迅速的优势，把所有的OI选手们连接成一个整体。把而竞赛教练的作用，更多的是去维持这种模式，带动这种模式。</p>
+<p>这样的模式是偏向于“用爱发电”的，它的核心基础是<strong>OIer们对OI本身持久的情怀</strong>。它的优点是让OI界具有很强的活力，给选手学习很大的自由度，也对OI的过度商业化，功利化形成了很好的保护。它也使得”OIer群体“这个概念有了很大的地位。</p>
+<p>不过也容易想到它是脆弱的、不成熟的，在前面你可以看到它的缺陷。一旦OIer们全都由于一些现实上的原因没有继续服务于OI，必然会使这个体系有崩塌的风险。但它具有很强的<strong>不可替代性</strong>，无论是知识引入还是出题、授课，都只有OIer能胜任。这种模式在现实条件下几乎是唯一的解，所以它是很难撼动的。所以我们应该想的是在<strong>方式方法层面上做一些改进</strong>，让OI的未来变得更好。</p>
+<h1 id="oier的价值">OIer的价值</h1>
+<h2 id="开拓者">开拓者</h2>
+<p>你打开OJ，思考一道题目。你满足于OJ页面的精致，你陶醉于算法世界的美妙。你可曾想过这些题目是谁出出来的，你可曾想过OJ的搭建和维护者是谁？他们是某一个特别的OIer的群体。他们中有洛谷的创办者kkksc03，LOJ的创办者menci和UOJ的创办者vfk。</p>
+<p>你可以从 [4]、[5] 和 [6] 中窥探出当年他们创办UOJ、LOJ的一些理念。我们在第一篇文章中截取两段：</p>
+<p>&quot;不得不说今天是个伤感的夜晚。我们此时站在这里，连接过去和未来。曾以为我们的计划会成为我们的未来，却不知道大浪拍击沙滩的力量比飓风更有力。UOJ从哪里来？今晚的UOJ还是一年前发布时的那个UOJ吗？为什么我们慢慢忘了那最虔诚的最初，渐行渐远……于是我意识到，我们应该回去，回头看看那最初的原点。最初我是怀着对OI界题目的不满，最初我和业界毒瘤有很多比较难的脑洞想出给大家玩，最初的最初是那场引发我对OI比赛的思考的NOI2013……我们想建立的是，一个能自由评测各种类型题目的OJ，一个题题高质量的OJ，一个定期举办高质量的比赛的OJ —— 一个能带给OIer思考与收获的OJ。&quot;</p>
+<p>&quot;我想起了我最初的一句'宁缺毋滥'，我想起了激励了我很长时间的洛克菲勒与协和医院的故事：我们要以最高标准建一所医院，成为中国医学界的一座标杆 —— 而我们清楚地知道，论题目的数量，世界上千万万OJ不缺我们UOJ一家，我们要做的就是聚集最优秀最热爱信息学的OIer，建立一个题目质量难以企及的OJ。&quot;</p>
+<p>500多道UOJ题目，上千道LOJ题目，数万个OIer......今天你会看到各个学校的OJ如雨后春笋般增长，就归功于他们用一行行代码缔造的平台。今天你会听到OIer对比赛、对题目的广泛讨论，而那些新潮的想法其实来源于vfk在那几篇博客上阐述的”好题“、“毒瘤题”的定义。今天我们从自己的成长之路向前追朔，也总能够追朔到他们的所创造的资源。</p>
+<p>他们是灯塔，他们是引路人。他们开拓了一条OI资源共享化的道路，他们以数十人之力创造了数万人的价值。在之后的社会上，你很难看到像他们一样完全坚持自己的初心、梦想，无私地奉献自己的一切而不求任何回报的人了。我们希望他们的那些文字能够在OI的历史上熠熠生辉。</p>
+<h2 id="不可或缺的角色">不可或缺的角色</h2>
+<p>诚然，我们很难像他们一样对整个OI界做出很大的贡献，对他们的态度也只是停留在“虽不能至，心向往之”的层面。那么我们的价值又在何处呢？</p>
+<p>很多学校的教练都会在我们还是初三或高一时请高二的学长给我们来讲课。一年过后，我们欢送他们退役，但我们站在他们的肩膀上，经过各种比赛的磨练，使自己变得更强。当我们磨练得差不多时候，我们就成了学长，就被要求给下一届的学弟学妹们讲课。WC2018的两首改编歌词《我的一个OIer朋友》，《退役的你》（详见 [7] 、 [8] ）是这段时光的真实写照。我们从第一首里面截取一段：</p>
 <blockquote>
-<p><em>Floyd算法又称为插点法，是一种利用动态规划的思想寻找给定的加权图中多源点之间最短路径的算法，与Dijkstra算法类似。该算法名称以创始人之一、1978年图灵奖获得者、斯坦福大学计算机科学系教授罗伯特·弗洛伊德命名。 ——某度某科</em></p>
+<p>&quot;他们说的退役太沉重，你在路上追着你的梦。<br>
+前路会与过往不同，但精彩纷呈。<br>
+而我深夜刷题至三更，大赛过后睡眼正惺忪。<br>
+恍然之间终于看懂，当年你笑容，谈何轻松？<br>
+不如将你镌刻在心中，以足迹为路以背影为灯。<br>
+去年今日你的歌声，由我来传承......”</p>
 </blockquote>
-<p><s>跟没说一样</s></p>
-<p>Floyd 是一种用于解决多源最短路径的题，使用的是动态规划的思想。它的时间复杂度是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>3</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></p>
-<h1 id="floyd-的思想及怎样写">Floyd 的思想及怎样写</h1>
-<p>还是看个图：</p>
-<figure data-type="image" tabindex="1"><img src="data:image/png;base64,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" alt="" loading="lazy"></figure>
-<p>Floyd 算法会在图中取一个中间点，然后枚举起点和终点，如果从起点到中间点再到终点的权值 大于 从起点直接去到终点的权值，那么就用前者去替换后者。<br>
-我们令 <code>dis[ i ][ j ]</code> 表示 <code>i</code> 到 <code>j</code> 的最短路径。<br>
-首先将dis全部赋值为极大值，然后输入距离。<br>
-之后3个<code>for</code>循环：</p>
-<pre><code class="language-cpp">for(int k=1;k&lt;=n;k++){//枚举中间点
-   	for(int i=1;i&lt;=n;i++){//起点
-   		for(int j=1;j&lt;=n;j++){//终点
-   			if(dis[i][j] &gt; dis[i][k] + dis[k][j]){//替换距离
-   				dis[i][j] = dis[i][k] + dis[k][j];
-   			}
-   		}
-   	}
-   }
-</code></pre>
-<p>比如图中4-1-3 的 8 大于 4-3 的15，就用 8 去替换15。<br>
-<strong>注意：k 的那一层（枚举中间点）必须放在最外面。</strong><br>
-循环结束后，<code>dis[ i ][ j ]</code> 即为<code>x</code>到<code>y</code>的最短路径，算法结束。</p>
+<p>在这一段OI的旅途中，我们送走了一批人，又迎接了新的一批人。 我们把从学长那里得到的东西，经过自己的再加工、再整理，传递给下一届，然后由知识的接受者变为了知识的传播者。我们成了手握接力棒的人，成了连接过去和未来的人。这段旅途中难免有送别的伤感，但薪火相传的使命与责任，才是主旋律。</p>
+<p>如果我们中出现了一个优秀选手，那么就会产生更大的贡献。一是会吸引更多的OIer来这所学校学习，然后进一步提高下一届选手的水平。比如我在初三时选择进入华二而非上中，是因为看到2017年华二CMO进了5个集训队，而上中只进了一个。二是会使整个省的目标提高，进而带动整个省的水平。在2016年前，可能上海的目标是争取更多银牌选手。但因为像吕时清、何文阳之类的优秀选手出现，特派员开始朝着金牌这个目标努力了。他会亲自那些不错的OIer下发题目，亲自评测、会在NOIP/CSP前安排几次针对全市选手的模拟赛，会请外省的集训队选手来讲课。最终上海在CTS，APIO，NOI上实现了这一目标。</p>
+<p>哪怕你只是初二、初三、高一的OIer，还没有达到给学弟学妹讲课的阶段，你也会不知不觉中影响很多人。在这个资源高度共享的时代，你不经意间说的话，写的东西就可能会被数百人看到，然后数百人传给更多人。就像我博客里面写的“JOISC 2020自闭记”，阅读量已经达到了530人，而我认识的OIer也不过100人。也许这530人还会传给他们的朋友、他们的下一届选手，说不定就有1000人直接或间接地看到了我写的题解了。</p>
+<h2 id="另一种价值">另一种价值</h2>
+<p>由于OI竞赛本身这种独特的模式，OIer群体的概念与个体的概念，拥有同等的地位。所以一个OIer在他的生涯中，不仅存在个人价值（比如拿一等奖，进省队，进集训队），还存在着另一种价值，那便是个人对OIer群体的价值。</p>
+<p>很多时候实现个人价值也是实现这种价值，这种价值是个人价值的延续，因为高水平选手给OI界可能创造的价值越多。但和个人价值不同的是，这种价值所影响的时间更长，所影响的范围更广。也许我们退役过后，我们所获得的奖项，只是OIerdb上那一条条数字了。<strong>个人价值是一个OIer退役后所带走的，但这种价值是一个OIer退役后留下的东西</strong>，它是不会过时的。你为你身边的OIer所做的事情，像是埋下一粒种子，它会在几年之内生根、发芽，长成一棵大树，甚至繁殖出更多的生命。vfk那一代的OIer很难想到他所创办的UOJ能使这么多人受益，王聿中、吕时清、王润泽那一代的OIer也没有想到他们的努力会使上海在NOI2019进入3个集训队。但这一切，都在不久的将来发生了。</p>
+<p>所以我们在学习知识之余，也要想一想我能为我身边的OIer做些什么，我能为整个学校做些什么，我能为整个市做些什么，我能为整个OIer做些什么？知识层面上的贡献有：出题、讲课、写论文等。另一种贡献是文、史、哲层面上的，比如Tangenter写《整型溢出》一书整理2016-2019年的OI历史。即使我们还没有达到为别的OIer做事情的阶段，我们也要了解别人给OI界带来的贡献，我们也要对那些为我们付出过的前辈们怀以感激，怀以敬意。</p>
+<h1 id="渺小而卑微的坚持">渺小而卑微的坚持</h1>
+<p>时间、运气、命运对OIer们来说是残酷的字眼。再强的OIer，也有退役的时刻。再努力的OIer，也难以保证他在省选或NOI一定能够有和他的付出对等的回报。这是很多OIer心知肚明的事实，也是我们无力感的根源。</p>
+<p>也正因为此，有的人选择了把OI当成生命中的过客，没有对它付出过多的精力和情感。但另外一些人仍然把OI当作自己的归宿，甚至当成生活的全部。究其原因，是因为他们给OI这个词赋予了太多的意义和价值。</p>
+<p>他们坚持停课，坚持与班主任老师、甚至家长“对抗”，坚持自己心中的目标。他们舍弃了睡觉时间来打cf，舍弃了文化课来刷模拟赛。有时，他们要面对的是孤独、不理解和对自己前途的恐惧。你可以说，这是坚持、执着、勇往直前，但在命运面前，这是渺小、卑微的。一场考试的结果是难以预料的，一个字符之差就可能是100分与0分之差，一个部分分之差就可能是20多名的差距。最勤奋的人，也不敢说，自己能够掌握自己的未来。</p>
+<p>OIer之外的人对他们有两种极端的态度。一种是以竞赛的风险为理由，劝说（甚至逼迫）他们放弃OI竞赛而去搞高考。这些人否认OI给他们带来的意义，没有看到他们在OI方面的付出。也许从数学期望的角度，这是较优解，我们不必做过多的批判。但这种态度杀灭了他们的纯粹的梦想，给他们的青春留下无法抹去的遗憾，甚至伤痕。另一种是盲目地支持，为了走这条路而断绝他们的一切后路，放弃一切OI之外的事务。人不是机器，过度的、长时间的投入是否会产生和这种投入成正比的收获，是不好说的。即使成功了，它能否补偿他们所失去的东西，也是不好说的。这种态度产生的根源是没有客观地认识到OI的风险，把竞赛和高考的两套评价体系完全地割裂开来，甚至当成对立面。</p>
+<p>我们应有的态度是怎样的呢？应该是一个朋友的角色。我们可以在他们考砸的时候予以安慰，可以在他们考好的时候予以鼓励。我们可以和他们一起讨论题目，一起学习算法，一起打模拟赛，甚至在空闲时刻聊一些游戏、漫画的内容。我们既要提供助力他们成功的实质性帮助，也要想方设法缓解他们的压力感和孤独感。当然，我个人认为，不必对他们的选择做过多的干预，因为我们很难完全理解他们的内心想法，很难影响也不应去影响他们的命运。至于决定他们是选择坚持还是放弃，应该是老师和家长所做的事情。</p>
+<p>如果你觉得他们离你很遥远，<strong>请你不要像某些人一样用好坏利弊简单地评判他们的选择，请你不要抱着“与我无关”的态度</strong>。</p>
+<p><strong>如果你正好就是那些选择孤注一掷的OIer，请你相信有无数的OIer是支持你的，请你相信你的付出终将会在某个时刻回报你，请你相信无论怎样，你在这个过程中成长了、收获了。但也要告诉你，既然有勇气坚持走下去，也要有勇气承担它带来的一切结果。</strong></p>
+<h1 id="后记">后记</h1>
+<p>其实我写这篇博客的想法，可以追溯到北大集训期间LCA给我们讲的一些话。在他的讲话过后，我了解到了OI diary，我了解到了OI survey。我看到了有一位前OIer去主动地查找资料，以一个选手的视角记录前几年OI界发生的事情，甚至有一个人想编撰一部完整的OI史。我发现OIer们做了很多学习知识之外的事情，例如对自身价值的探索，对学习竞赛的意义、乃至生命的意义的探讨。这种东西既体现在某一小群OIer所写的长篇的文章里面，又渗透到了很多OIer博客里的随感。于是我也对OI界的一些现状做了简单的思考，整理成了这篇博客。</p>
+<p>如果从写文章的角度来说，第一、第二节可以构成一个完整的主题，而第三节显得有点画蛇添足。但是在我身边真的有很多选择孤注一掷地搞OI的人，其实在我的学校里就有，而他们面临的环境并不乐观。我特别想为他们说一些话，却不知道何时能说，却不知道从何说起。所以我就在这个机会为他们说出我的心里话。</p>
+<p>最后，感谢你能够读完这篇博客，也希望这份思想的火炬永不熄灭！</p>
+<p>链接： <a href="https://www.zhihu.com/question/333860946/answer/755528534">1</a></p>
+<p><a href="https://www.luogu.com.cn/blog/ouuan/to-be-a-good-problemsetter">2</a></p>
+<p><a href="https://etaoinwu.com/blog/on-teaching-and-learning/">3</a></p>
+<p><a href="http://vfleaking.blog.uoj.ac/blog/909">4</a></p>
+<p><a href="http://vfleaking.blog.uoj.ac/blog/4">5</a></p>
+<p><a href="https://loj.ac/article/45">6</a></p>
+<p><a href="https://www.bilibili.com/video/BV1KW411E7gu?p=1">7</a></p>
+<p><a href="https://www.bilibili.com/video/BV1HW411n7vQ?p=1">8</a></p>
 
               </div>
               <div class="post-footer">
@@ -569,7 +602,7 @@ window.addEventListener('load', function() {
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://Lewis-Li-lyf.github.io/post/Floyd/" title="最短路：Floyd算法">最短路：Floyd算法</a>
+      <a href="https://Lewis-Li-lyf.github.io/post/Something-to-tell-the-OIers/" title="转载：写给 OIer 们的一些话">转载：写给 OIer 们的一些话</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -578,25 +611,15 @@ window.addEventListener('load', function() {
   </ul>
   <div class="tags">
     
-      <a href="https://Lewis-Li-lyf.github.io/tag/noCGY6PkM/"># 图论</a>
-    
-      <a href="https://Lewis-Li-lyf.github.io/tag/1Zvs2DC7H/"># C++</a>
-    
-      <a href="https://Lewis-Li-lyf.github.io/tag/lkI9ZNq5F/"># 算法</a>
-    
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="转载：自由的召唤" href="https://Lewis-Li-lyf.github.io/post/The-Call-of-Freedom/">转载：自由的召唤</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="转载：自由的召唤" href="https://Lewis-Li-lyf.github.io/post/The-Call-of-Freedom/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="浅谈ST表" href="https://Lewis-Li-lyf.github.io/post/RMQ-ST/">浅谈ST表</a>
-        <a class="nav-mobile-next" title="浅谈ST表" href="https://Lewis-Li-lyf.github.io/post/RMQ-ST/">下一篇</a>
+        <a class="nav-pc-next" title="浅析 Dijkstra 算法（堆优化）" href="https://Lewis-Li-lyf.github.io/post/Dijkstra/">浅析 Dijkstra 算法（堆优化）</a>
+        <a class="nav-mobile-next" title="浅析 Dijkstra 算法（堆优化）" href="https://Lewis-Li-lyf.github.io/post/Dijkstra/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
