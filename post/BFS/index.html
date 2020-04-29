@@ -8,7 +8,7 @@
 <meta name="description" content="临兵斗者，皆阵列在前！">
 <meta name="theme-color" content="#000">
 <title>广度优先搜索BFS | LewisLi的博客 | I AK IOI</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1588137605735">
+<link rel="shortcut icon" href="/favicon.ico?v=1588142005393">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/gemini.css">
 
@@ -944,6 +944,56 @@ clickEffect();//调用
     </div>
   
   
+  
+    
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+  <div class="aplayer" id="aplayer"></div>
+  <input hidden id="player_cover" value="" />
+  <div class="music-list">
+  
+    
+    <input hidden value="Sold Out,Hawl Nelson,https://lewis-li-lyf.github.io/music/Hawk%20Nelson-Sold%20Out.mp3," />
+  
+    
+    <input hidden value="Come Back Down(Original Remix),Mediks,https://lewis-li-lyf.github.io/music/Mediks%20-%20Come%20Back%20Down%20(Original%20Mix).mp3," />
+  
+    
+    <input hidden value="涅槃,英雄联盟,https://lewis-li-lyf.github.io/music/英雄联盟%20-%20涅槃%20(Phoenix).mp3," />
+  
+    
+    <input hidden value="Star Sky,Two Steps From Hell,https://lewis-li-lyf.github.io/music/Two%20Steps%20From%20Hell-Star%20Sky%20(饭制版)(标清).mp3," />
+  
+    
+    <input hidden value="Legends Never Die,英雄联盟,https://lewis-li-lyf.github.io/music/英雄联盟%20_%20Against%20the%20Current%20-%20Legends%20Never%20Die.mp3," />
+  
+  </div>
+  <script>
+  let musics = document.querySelector('.music-list').children;
+  let mediaMusic = [];
+  let cover = document.querySelector('#player_cover').value;
+  for (let i = 0; i < musics.length; i++) {
+    let item = musics[i];
+    let splits = item.value.split(',');
+    mediaMusic.push({
+      name: splits[0],
+      artist: splits[1],
+      url: splits[2],
+      lrc: splits[3],
+      cover: cover
+    });
+  }
+  const ap = new APlayer({
+      container: document.getElementById('aplayer'),
+      fixed: true,
+      lrcType: 3,
+      listFolded: false,
+      listMaxHeight: 90,
+      audio: mediaMusic
+  });
+  </script>
+
+
   
 </div>
 <script>
