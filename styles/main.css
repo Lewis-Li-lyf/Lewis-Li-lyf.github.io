@@ -2109,12 +2109,7 @@ blockquote {
       background: #FFFFFFcc;
     }strong{
 color:Red;
-}
-body {
-cursor: url(http://www.xgboke.com/wp-content/uploads/2018/03/2018031606171178.png), default;
-}
-/** 链接指针样式**/
-a:hover{cursor:url(http://www.xgboke.com/wp-content/uploads/2018/03/2018031606171010.png), pointer;}.bg-img img {
+}.bg-img img {
         filter: blur(1px)
       }.box-shadow-wrapper {
       padding: 10px;
