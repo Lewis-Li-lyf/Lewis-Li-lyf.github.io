@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://Lewis-Li-lyf.github.io</id>
+    <id>https://lewis-li-lyf.github.io</id>
     <title>LewisLi的博客 | I AK IOI</title>
-    <updated>2020-04-29T05:10:11.692Z</updated>
+    <updated>2020-04-29T05:12:28.596Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://Lewis-Li-lyf.github.io"/>
-    <link rel="self" href="https://Lewis-Li-lyf.github.io/atom.xml"/>
+    <link rel="alternate" href="https://lewis-li-lyf.github.io"/>
+    <link rel="self" href="https://lewis-li-lyf.github.io/atom.xml"/>
     <subtitle>临兵斗者，皆阵列在前！</subtitle>
-    <logo>https://Lewis-Li-lyf.github.io/images/avatar.png</logo>
-    <icon>https://Lewis-Li-lyf.github.io/favicon.ico</icon>
+    <logo>https://lewis-li-lyf.github.io/images/avatar.png</logo>
+    <icon>https://lewis-li-lyf.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, LewisLi的博客 | I AK IOI</rights>
     <entry>
         <title type="html"><![CDATA[转载：写给 OIer 们的一些话]]></title>
-        <id>https://Lewis-Li-lyf.github.io/post/Something-to-tell-the-OIers/</id>
-        <link href="https://Lewis-Li-lyf.github.io/post/Something-to-tell-the-OIers/">
+        <id>https://lewis-li-lyf.github.io/post/Something-to-tell-the-OIers/</id>
+        <link href="https://lewis-li-lyf.github.io/post/Something-to-tell-the-OIers/">
         </link>
         <updated>2020-04-20T06:07:57.000Z</updated>
         <content type="html"><![CDATA[<p>转载自<a href="https://www.cnblogs.com/mathematician/p/12633276.html"></a><br>
@@ -91,8 +91,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[浅析 Dijkstra 算法（堆优化）]]></title>
-        <id>https://Lewis-Li-lyf.github.io/post/Dijkstra/</id>
-        <link href="https://Lewis-Li-lyf.github.io/post/Dijkstra/">
+        <id>https://lewis-li-lyf.github.io/post/Dijkstra/</id>
+        <link href="https://lewis-li-lyf.github.io/post/Dijkstra/">
         </link>
         <updated>2020-04-14T13:41:43.000Z</updated>
         <content type="html"><![CDATA[<p>最短路问题是图论中的一个很经典的问题。它分为单源最短路径和多源最短路径两大类。具体内容请自行 BFS。Dijkstra就是一个用来解决单源最短路径问题的很经典的算法。<br>
@@ -178,8 +178,8 @@ int main()
     </entry>
     <entry>
         <title type="html"><![CDATA[广度优先搜索BFS]]></title>
-        <id>https://Lewis-Li-lyf.github.io/post/BFS/</id>
-        <link href="https://Lewis-Li-lyf.github.io/post/BFS/">
+        <id>https://lewis-li-lyf.github.io/post/BFS/</id>
+        <link href="https://lewis-li-lyf.github.io/post/BFS/">
         </link>
         <updated>2020-04-12T10:08:23.000Z</updated>
         <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://bkimg.cdn.bcebos.com/pic/adaf2edda3cc7cd9d2011b873901213fb80e91bb?x-bce-process=image/resize,m_lfit,w_268,limit_1" alt="自然界的广搜" loading="lazy"></figure>
@@ -242,8 +242,8 @@ void BFS(int root) // BFS
     </entry>
     <entry>
         <title type="html"><![CDATA[致敬：向那些为抗击疫情而牺牲的烈士]]></title>
-        <id>https://Lewis-Li-lyf.github.io/post/COVID-19/</id>
-        <link href="https://Lewis-Li-lyf.github.io/post/COVID-19/">
+        <id>https://lewis-li-lyf.github.io/post/COVID-19/</id>
+        <link href="https://lewis-li-lyf.github.io/post/COVID-19/">
         </link>
         <updated>2020-04-04T01:48:20.000Z</updated>
         <content type="html"><![CDATA[<p>我相信，这个冬天给了我们太多。可能是悲伤的记忆，可能是告别亲人的不舍，可能是千千万万前线战士带给我们的感动，也可能是坚定抗争中生命的顽强与不屈。</p>
@@ -262,8 +262,8 @@ void BFS(int root) // BFS
     </entry>
     <entry>
         <title type="html"><![CDATA[转载：CSP]]></title>
-        <id>https://Lewis-Li-lyf.github.io/post/zhuan-zai-csp/</id>
-        <link href="https://Lewis-Li-lyf.github.io/post/zhuan-zai-csp/">
+        <id>https://lewis-li-lyf.github.io/post/zhuan-zai-csp/</id>
+        <link href="https://lewis-li-lyf.github.io/post/zhuan-zai-csp/">
         </link>
         <updated>2020-04-02T14:49:58.000Z</updated>
         <content type="html"><![CDATA[<p>盼望着，盼望着，模拟赛来了，CSP的脚步近了。</p>
@@ -277,8 +277,8 @@ void BFS(int root) // BFS
     </entry>
     <entry>
         <title type="html"><![CDATA[数据结构：堆]]></title>
-        <id>https://Lewis-Li-lyf.github.io/post/heap/</id>
-        <link href="https://Lewis-Li-lyf.github.io/post/heap/">
+        <id>https://lewis-li-lyf.github.io/post/heap/</id>
+        <link href="https://lewis-li-lyf.github.io/post/heap/">
         </link>
         <updated>2020-04-02T04:05:58.000Z</updated>
         <content type="html"><![CDATA[<p>在众多数据结构中，有一种数据结构很强大。它的时间复杂度很小，使他能够高效地进行运算。它就是——堆。</p>
@@ -368,8 +368,8 @@ q.size()//查询堆内元素数量
     </entry>
     <entry>
         <title type="html"><![CDATA[Trie 树]]></title>
-        <id>https://Lewis-Li-lyf.github.io/post/Trie/</id>
-        <link href="https://Lewis-Li-lyf.github.io/post/Trie/">
+        <id>https://lewis-li-lyf.github.io/post/Trie/</id>
+        <link href="https://lewis-li-lyf.github.io/post/Trie/">
         </link>
         <updated>2020-03-27T06:09:12.000Z</updated>
         <content type="html"><![CDATA[<p>好久没写博客了呢~</p>
@@ -443,8 +443,8 @@ void insert(string s){
     </entry>
     <entry>
         <title type="html"><![CDATA[转载：自由的召唤]]></title>
-        <id>https://Lewis-Li-lyf.github.io/post/The-Call-of-Freedom/</id>
-        <link href="https://Lewis-Li-lyf.github.io/post/The-Call-of-Freedom/">
+        <id>https://lewis-li-lyf.github.io/post/The-Call-of-Freedom/</id>
+        <link href="https://lewis-li-lyf.github.io/post/The-Call-of-Freedom/">
         </link>
         <updated>2020-03-24T14:06:56.000Z</updated>
         <content type="html"><![CDATA[<p>镜头前，一个男人在舞蹈着。</p>
@@ -508,8 +508,8 @@ void insert(string s){
     </entry>
     <entry>
         <title type="html"><![CDATA[最短路：Floyd算法]]></title>
-        <id>https://Lewis-Li-lyf.github.io/post/Floyd/</id>
-        <link href="https://Lewis-Li-lyf.github.io/post/Floyd/">
+        <id>https://lewis-li-lyf.github.io/post/Floyd/</id>
+        <link href="https://lewis-li-lyf.github.io/post/Floyd/">
         </link>
         <updated>2020-03-23T07:45:45.000Z</updated>
         <content type="html"><![CDATA[<p>在某位奆佬的指导下，我开始啃图论。<br>
@@ -544,8 +544,8 @@ void insert(string s){
     </entry>
     <entry>
         <title type="html"><![CDATA[浅谈ST表]]></title>
-        <id>https://Lewis-Li-lyf.github.io/post/RMQ-ST/</id>
-        <link href="https://Lewis-Li-lyf.github.io/post/RMQ-ST/">
+        <id>https://lewis-li-lyf.github.io/post/RMQ-ST/</id>
+        <link href="https://lewis-li-lyf.github.io/post/RMQ-ST/">
         </link>
         <updated>2020-03-23T07:42:52.000Z</updated>
         <content type="html"><![CDATA[<p>ST表类似树状数组，线段树这两种算法，是一种用于解决RMQ(Range Minimum/Maximum Query,即区间最值查询)问题的离线算法<br>
