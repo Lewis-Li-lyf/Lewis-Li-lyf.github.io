@@ -2203,7 +2203,7 @@ color:Red;
 }.bg-img img {
         filter: blur(1px)
       }.box-scale > #landlord {
-      transform: scale(0.8);
+      transform: scale(1);
     }.box-shadow-wrapper {
       box-shadow: none !important;
     }body {
