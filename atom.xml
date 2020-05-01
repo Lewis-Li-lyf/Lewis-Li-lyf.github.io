@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://lewis-li-lyf.github.io</id>
+    <id>http://localhost:4000</id>
     <title>LewisLi的博客 | I AK IOI</title>
-    <updated>2020-05-01T16:28:16.908Z</updated>
+    <updated>2020-05-01T16:34:21.123Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://lewis-li-lyf.github.io"/>
-    <link rel="self" href="https://lewis-li-lyf.github.io/atom.xml"/>
+    <link rel="alternate" href="http://localhost:4000"/>
+    <link rel="self" href="http://localhost:4000/atom.xml"/>
     <subtitle>临兵斗者，皆阵列在前！</subtitle>
-    <logo>https://lewis-li-lyf.github.io/images/avatar.png</logo>
-    <icon>https://lewis-li-lyf.github.io/favicon.ico</icon>
+    <logo>http://localhost:4000/images/avatar.png</logo>
+    <icon>http://localhost:4000/favicon.ico</icon>
     <rights>All rights reserved 2020, LewisLi的博客 | I AK IOI</rights>
     <entry>
         <title type="html"><![CDATA[NOI Online 游记]]></title>
-        <id>https://lewis-li-lyf.github.io/post/noi-online2/</id>
-        <link href="https://lewis-li-lyf.github.io/post/noi-online2/">
+        <id>http://localhost:4000/post/noi-online2/</id>
+        <link href="http://localhost:4000/post/noi-online2/">
         </link>
         <updated>2020-05-01T04:14:02.000Z</updated>
         <content type="html"><![CDATA[<p>2点兴致勃勃的打开电脑</p>
@@ -28,8 +28,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[转载：写给 OIer 们的一些话]]></title>
-        <id>https://lewis-li-lyf.github.io/post/Something-to-tell-the-OIers/</id>
-        <link href="https://lewis-li-lyf.github.io/post/Something-to-tell-the-OIers/">
+        <id>http://localhost:4000/post/Something-to-tell-the-OIers/</id>
+        <link href="http://localhost:4000/post/Something-to-tell-the-OIers/">
         </link>
         <updated>2020-04-20T06:07:57.000Z</updated>
         <content type="html"><![CDATA[<p>转载自<a href="https://www.cnblogs.com/mathematician/p/12633276.html"></a><br>
@@ -107,8 +107,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[浅析 Dijkstra 算法（堆优化）]]></title>
-        <id>https://lewis-li-lyf.github.io/post/Dijkstra/</id>
-        <link href="https://lewis-li-lyf.github.io/post/Dijkstra/">
+        <id>http://localhost:4000/post/Dijkstra/</id>
+        <link href="http://localhost:4000/post/Dijkstra/">
         </link>
         <updated>2020-04-14T13:41:43.000Z</updated>
         <content type="html"><![CDATA[<p>最短路问题是图论中的一个很经典的问题。它分为单源最短路径和多源最短路径两大类。具体内容请自行 BFS。Dijkstra就是一个用来解决单源最短路径问题的很经典的算法。<br>
@@ -194,8 +194,8 @@ int main()
     </entry>
     <entry>
         <title type="html"><![CDATA[广度优先搜索BFS]]></title>
-        <id>https://lewis-li-lyf.github.io/post/BFS/</id>
-        <link href="https://lewis-li-lyf.github.io/post/BFS/">
+        <id>http://localhost:4000/post/BFS/</id>
+        <link href="http://localhost:4000/post/BFS/">
         </link>
         <updated>2020-04-12T10:08:23.000Z</updated>
         <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://bkimg.cdn.bcebos.com/pic/adaf2edda3cc7cd9d2011b873901213fb80e91bb?x-bce-process=image/resize,m_lfit,w_268,limit_1" alt="自然界的广搜" loading="lazy"></figure>
@@ -258,8 +258,8 @@ void BFS(int root) // BFS
     </entry>
     <entry>
         <title type="html"><![CDATA[致敬：向那些为抗击疫情而牺牲的烈士]]></title>
-        <id>https://lewis-li-lyf.github.io/post/COVID-19/</id>
-        <link href="https://lewis-li-lyf.github.io/post/COVID-19/">
+        <id>http://localhost:4000/post/COVID-19/</id>
+        <link href="http://localhost:4000/post/COVID-19/">
         </link>
         <updated>2020-04-04T01:48:20.000Z</updated>
         <content type="html"><![CDATA[<p>我相信，这个冬天给了我们太多。可能是悲伤的记忆，可能是告别亲人的不舍，可能是千千万万前线战士带给我们的感动，也可能是坚定抗争中生命的顽强与不屈。</p>
@@ -278,8 +278,8 @@ void BFS(int root) // BFS
     </entry>
     <entry>
         <title type="html"><![CDATA[转载：CSP]]></title>
-        <id>https://lewis-li-lyf.github.io/post/zhuan-zai-csp/</id>
-        <link href="https://lewis-li-lyf.github.io/post/zhuan-zai-csp/">
+        <id>http://localhost:4000/post/zhuan-zai-csp/</id>
+        <link href="http://localhost:4000/post/zhuan-zai-csp/">
         </link>
         <updated>2020-04-02T14:49:58.000Z</updated>
         <content type="html"><![CDATA[<p>盼望着，盼望着，模拟赛来了，CSP的脚步近了。</p>
@@ -293,8 +293,8 @@ void BFS(int root) // BFS
     </entry>
     <entry>
         <title type="html"><![CDATA[数据结构：堆]]></title>
-        <id>https://lewis-li-lyf.github.io/post/heap/</id>
-        <link href="https://lewis-li-lyf.github.io/post/heap/">
+        <id>http://localhost:4000/post/heap/</id>
+        <link href="http://localhost:4000/post/heap/">
         </link>
         <updated>2020-04-02T04:05:58.000Z</updated>
         <content type="html"><![CDATA[<p>在众多数据结构中，有一种数据结构很强大。它的时间复杂度很小，使他能够高效地进行运算。它就是——堆。</p>
@@ -384,8 +384,8 @@ q.size()//查询堆内元素数量
     </entry>
     <entry>
         <title type="html"><![CDATA[Trie 树]]></title>
-        <id>https://lewis-li-lyf.github.io/post/Trie/</id>
-        <link href="https://lewis-li-lyf.github.io/post/Trie/">
+        <id>http://localhost:4000/post/Trie/</id>
+        <link href="http://localhost:4000/post/Trie/">
         </link>
         <updated>2020-03-27T06:09:12.000Z</updated>
         <content type="html"><![CDATA[<p>好久没写博客了呢~</p>
@@ -459,8 +459,8 @@ void insert(string s){
     </entry>
     <entry>
         <title type="html"><![CDATA[转载：自由的召唤]]></title>
-        <id>https://lewis-li-lyf.github.io/post/The-Call-of-Freedom/</id>
-        <link href="https://lewis-li-lyf.github.io/post/The-Call-of-Freedom/">
+        <id>http://localhost:4000/post/The-Call-of-Freedom/</id>
+        <link href="http://localhost:4000/post/The-Call-of-Freedom/">
         </link>
         <updated>2020-03-24T14:06:56.000Z</updated>
         <content type="html"><![CDATA[<p>镜头前，一个男人在舞蹈着。</p>
@@ -524,8 +524,8 @@ void insert(string s){
     </entry>
     <entry>
         <title type="html"><![CDATA[最短路：Floyd算法]]></title>
-        <id>https://lewis-li-lyf.github.io/post/Floyd/</id>
-        <link href="https://lewis-li-lyf.github.io/post/Floyd/">
+        <id>http://localhost:4000/post/Floyd/</id>
+        <link href="http://localhost:4000/post/Floyd/">
         </link>
         <updated>2020-03-23T07:45:45.000Z</updated>
         <content type="html"><![CDATA[<p>在某位奆佬的指导下，我开始啃图论。<br>
