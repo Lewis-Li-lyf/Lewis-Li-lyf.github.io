@@ -2074,12 +2074,12 @@ pre > span.copy-code:hover {
     .nav-toggle .line {
       background-color: #eee !important;
     }.header {
-        width: 80%;
+        width: 960px;
         margin: 0 auto;
       }
 
       .main-continer {
-        width: 80%;
+        width: 960px;
         margin: 0 auto;
       }
     body {
