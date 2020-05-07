@@ -2254,7 +2254,7 @@ color:Red;
     }.box-shadow-wrapper {
       box-shadow: none !important;
     }body {
-      cursor: url('/media/curs/\Alternate Select.cur.cur'), default;
+      cursor: default;
     }a {
       cursor: pointer;
     }input, textarea, code {
