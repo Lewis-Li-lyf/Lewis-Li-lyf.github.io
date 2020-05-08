@@ -1,0 +1,59 @@
+; "GANT Cursors Pack (M)" installation file
+; Blue Colorful 24x24
+; by pkuwyc (pkuwyc@gmail.com)
+; pkuwyc's Home: http://spaces.msn.com/members/wangyinchao/
+; pkuwyc's webpage on DA: http://pkuwyc.deviantart.com/
+; Released on January 26th, 2006
+; Happy the Spring Festival!!
+
+[Version]
+signature="$CHICAGO$"
+
+[DefaultInstall]
+CopyFiles = Scheme.Cur, Scheme.Txt
+AddReg    = Scheme.Reg
+
+[DestinationDirs]
+Scheme.Cur = 10,"%CUR_DIR%"
+Scheme.Txt = 10,"%CUR_DIR%"
+
+[Scheme.Reg]
+HKCU,"Control Panel\Cursors\Schemes","%SCHEME_NAME%",,"%10%\%CUR_DIR%\%pointer%,%10%\%CUR_DIR%\%help%,%10%\%CUR_DIR%\%work%,%10%\%CUR_DIR%\%busy%,%10%\%CUR_DIR%\%Cross%,%10%\%CUR_DIR%\%Text%,%10%\%CUR_DIR%\%Hand%,%10%\%CUR_DIR%\%Unavailiable%,%10%\%CUR_DIR%\%Vert%,%10%\%CUR_DIR%\%Horz%,%10%\%CUR_DIR%\%Dgn1%,%10%\%CUR_DIR%\%Dgn2%,%10%\%CUR_DIR%\%move%,%10%\%CUR_DIR%\%alternate%,%10%\%CUR_DIR%\%link%"
+
+; -- Common Information
+
+[Scheme.Cur]
+"Normal Select.cur"
+"Help Select.ani"
+"Work in Background.ani"
+"Wait.ani"
+"Precision Select.cur"
+"Text Select.cur"
+"Handwriting.cur"
+"Unavailable.ani"
+"Vertical Resize.ani"
+"Horizontal Resize.ani"
+"Diagonal Resize 1.ani"
+"Diagonal Resize 2.ani"
+"Move.ani"
+"Alternate Select.cur"
+"Link Select.cur"
+
+[Strings]
+CUR_DIR         = "Cursors\pkuwyc\GANT_Blue_Colorful_24x24"
+SCHEME_NAME     = "GANT Blue Colorful 24x24"
+pointer		= "Normal Select.cur"
+help		= "Help Select.ani"
+work		= "Work in Background.ani"
+busy		= "Wait.ani"
+cross		= "Precision Select.cur"
+text		= "Text Select.cur"
+hand		= "Handwriting.cur"
+unavailiable	= "Unavailable.ani"
+vert		= "Vertical Resize.ani"
+horz		= "Horizontal Resize.ani"
+dgn1		= "Diagonal Resize 1.ani"
+dgn2		= "Diagonal Resize 2.ani"
+move		= "Move.ani"
+alternate	= "Alternate Select.cur"
+link		= "Link Select.cur"
