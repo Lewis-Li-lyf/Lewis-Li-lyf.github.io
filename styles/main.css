@@ -2129,6 +2129,10 @@ pre > span.copy-code:hover {
         width: 960px;
         margin: 0 auto;
       }
+    
+    .post-body {
+      font-size: 16px !important
+    }
     body {
       color: #555;
     }
@@ -2250,7 +2254,7 @@ color:Red;
 }.bg-img img {
         filter: blur(1px)
       }.box-scale > #landlord {
-      transform: scale(0.8);
+      transform: scale(0.7);
     }.box-shadow-wrapper {
       box-shadow: none !important;
     }body {
