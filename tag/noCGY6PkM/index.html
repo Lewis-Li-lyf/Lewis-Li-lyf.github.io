@@ -9,10 +9,8 @@
 <meta name="description" content="临兵斗者，皆阵列在前！">
 <meta name="theme-color" content="#000">
 <title>LewisLi的博客 | I AK IOI</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1589986396237">
-<link rel="stylesheet" href="/styles/main.css">
+<link rel="shortcut icon" href="/favicon.ico?v=1590033722833">
 <link rel="stylesheet" href="/media/css/gemini.css">
-
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
   href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"
@@ -20,6 +18,8 @@
 
 <link href="/media/hljs/styles/tomorrow.css"
   rel="stylesheet">
+
+<link rel="stylesheet" href="/styles/main.css">
 
 <script src="/media/hljs/highlight.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.min.js"></script>
@@ -33,6 +33,7 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
   integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
   onload="renderMathInElement(document.body);"></script>
+
 
 
 
@@ -131,11 +132,13 @@
               </li>
             
           
-          <li id="fa_search" class="nav-item">
-            <a href="javascript:void(0);">
-              <i class="fa fa-search"></i> 搜索
-            </a>
-          </li>
+          
+            <li id="fa_search" class="nav-item">
+              <a href="javascript:void(0);">
+                <i class="fa fa-search"></i> <span class="language" data-lan="search">搜索</span>
+              </a>
+            </li>
+          
         </ul>
       </nav>
     </div>
@@ -191,19 +194,19 @@
       <a href="/archives/">
         
         <span class="site-item-stat-count">18</span>
-        <span class="site-item-stat-name">文章</span>
+        <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="">
         <span class="site-item-stat-count">9</span>
-        <span class="site-item-stat-name">分类</span>
+        <span class="site-item-stat-name language" data-lan="category">分类</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="/tags/">
         <span class="site-item-stat-count">9</span>
-        <span class="site-item-stat-name">标签</span>
+        <span class="site-item-stat-name language" data-lan="tag">标签</span>
       </a>
     </div>
   </div>
@@ -257,7 +260,7 @@
       <div class="tag-timeline-title">
         <h2>
           图论
-          <small>标签</small>
+          <small class="language" data-lan="tag">标签</small>
         </h2>
       </div>
       
@@ -972,8 +975,8 @@ setInterval("createtime()",250);
 				AIimgSrc.push(message_Path + "model/histoire/histoire.1024/texture_03.png");
 			} else if (chooseLive2d === 'rem') {
 				AIimgSrc.push(message_Path + "model/rem/remu2048/texture_00.png");
-			} else if (chooseLive2d === 'Aoba') {
-				AIimgSrc.push(message_Path + "model/Aoba/textures/texture_00.png");
+			} else if (chooseLive2d === 'aoba') {
+				AIimgSrc.push(message_Path + "model/aoba/textures/texture_00.png");
 			} else if (chooseLive2d === 'hijiki') {
 				AIimgSrc.push(message_Path + "model/hijiki/moc/hijiki.2048/texture_00.png");
 			} else if (chooseLive2d === 'tororo') {
@@ -1003,8 +1006,8 @@ setInterval("createtime()",250);
 							model = message_Path + "model/histoire/model.json";
 						} else if (chooseLive2d === 'rem') {
 							model = message_Path + "model/rem/model.json";
-						} else if (chooseLive2d === 'Aoba') {
-							model = message_Path + "model/Aoba/model.json";
+						} else if (chooseLive2d === 'aoba') {
+							model = message_Path + "model/aoba/model.json";
 						} else if (chooseLive2d === 'hijiki') {
 							model = message_Path + "model/hijiki/hijiki.model.json";
 						} else if (chooseLive2d === 'tororo') {
@@ -1028,7 +1031,7 @@ setInterval("createtime()",250);
   <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
   <div class="aplayer" id="aplayer"></div>
   <script>
-  let musics = JSON.parse('[{"author":"Hawl Nelson","lrc":"","musicLink":"https://lewis-li-lyf.github.io/myaudios/Hawk%20Nelson-Sold%20Out.mp3","musicName":"Sold Out"},{"author":"Mediks","lrc":"","musicLink":"https://lewis-li-lyf.github.io/myaudios/Mediks%20-%20Come%20Back%20Down%20(Original%20Mix).mp3","musicName":"Come Back Down(Original Remix)"},{"author":"英雄联盟","lrc":"","musicLink":"https://lewis-li-lyf.github.io/myaudios/英雄联盟%20-%20涅槃%20(Phoenix).mp3","musicName":"涅槃"},{"author":"Two Steps From Hell","lrc":"","musicLink":"https://lewis-li-lyf.github.io/myaudios/Two%20Steps%20From%20Hell-Star%20Sky%20(饭制版)(标清).mp3","musicName":"Star Sky"},{"author":"英雄联盟","lrc":"","musicLink":"https://lewis-li-lyf.github.io/myaudios/英雄联盟%20_%20Against%20the%20Current%20-%20Legends%20Never%20Die.mp3","musicName":"Legends Never Die"},{"author":"Voodoo","lrc":"","musicLink":"https://lewis-li-lyf.github.io/myaudios/Voodoo%20_%20Mellen%20Gi%20_%20Tommee%20Profitt%20-%20In%20The%20End%20(Mellen%20Gi%20Remix).mp3","musicName":"In The End (Mellen Gi Remix)"},{"author":"泠鸢yousa","cover":"","lrc":"","musicLink":"https://lewis-li-lyf.github.io/myaudios/泠鸢yousa%20-%20勾指起誓.mp3","musicName":"勾指起誓"},{"author":"","cover":"","lrc":"","musicLink":"https://lewis-li-lyf.github.io/myaudios/Herobrine's%20Life%20-%20MINECRAFT%20PARODY%20OF%20SOMETHING%20JUST%20LIKE%20THIS.mp3","musicName":"Herobrine's Life - MINECRAFT PARODY OF SOMETHING JUST LIKE THIS"},{"author":"Coldplay/The Chainsmokers","cover":"","lrc":"","musicLink":"https://lewis-li-lyf.github.io/myaudios/Coldplay-The%20Chainsmokers-Something%20Just%20Like%20This%20(歌词版)(标清).mp3","musicName":"Something Just Like This"},{"author":"Jiaye/Tony Igy","cover":"","lrc":"","musicLink":"https://lewis-li-lyf.github.io/myaudios/Jiaye%20-%20Tony%20Igy%20-%20Astronomia%20(Jiaye%20Bootleg).mp3","musicName":"Astronomia (Jiaye Bootleg)"},{"author":"艾辰","cover":"","lrc":"","musicLink":"https://lewis-li-lyf.github.io/myaudios/艾辰%20-%20出山.mp3","musicName":"出山"}]');
+  let musics = JSON.parse('[{"author":"Hawl Nelson","lrc":"","musicLink":"https://lewis-li-lyf.github.io/myaudios/Hawk%20Nelson-Sold%20Out.mp3","musicName":"Sold Out"},{"author":"Mediks","lrc":"","musicLink":"https://lewis-li-lyf.github.io/myaudios/Mediks%20-%20Come%20Back%20Down%20(Original%20Mix).mp3","musicName":"Come Back Down(Original Remix)"},{"author":"英雄联盟","lrc":"","musicLink":"https://lewis-li-lyf.github.io/myaudios/英雄联盟%20-%20涅槃%20(Phoenix).mp3","musicName":"涅槃"},{"author":"Two Steps From Hell","lrc":"","musicLink":"https://lewis-li-lyf.github.io/myaudios/Two%20Steps%20From%20Hell-Star%20Sky%20(饭制版)(标清).mp3","musicName":"Star Sky"},{"author":"英雄联盟","lrc":"","musicLink":"https://lewis-li-lyf.github.io/myaudios/英雄联盟%20_%20Against%20the%20Current%20-%20Legends%20Never%20Die.mp3","musicName":"Legends Never Die"},{"author":"Voodoo","lrc":"","musicLink":"https://lewis-li-lyf.github.io/myaudios/Voodoo%20_%20Mellen%20Gi%20_%20Tommee%20Profitt%20-%20In%20The%20End%20(Mellen%20Gi%20Remix).mp3","musicName":"In The End (Mellen Gi Remix)"},{"author":"泠鸢yousa","cover":"","lrc":"","musicLink":"https://lewis-li-lyf.github.io/myaudios/泠鸢yousa%20-%20勾指起誓.mp3","musicName":"勾指起誓"},{"author":"","cover":"","lrc":"","musicLink":"https://lewis-li-lyf.github.io/myaudios/Herobrines%20Life.mp3","musicName":"Herobrines Life"},{"author":"Coldplay/The Chainsmokers","cover":"","lrc":"","musicLink":"https://lewis-li-lyf.github.io/myaudios/Coldplay-The%20Chainsmokers-Something%20Just%20Like%20This%20(歌词版)(标清).mp3","musicName":"Something Just Like This"},{"author":"Jiaye/Tony Igy","cover":"","lrc":"","musicLink":"https://lewis-li-lyf.github.io/myaudios/Jiaye%20-%20Tony%20Igy%20-%20Astronomia%20(Jiaye%20Bootleg).mp3","musicName":"Astronomia (Jiaye Bootleg)"},{"author":"艾辰","cover":"","lrc":"","musicLink":"https://lewis-li-lyf.github.io/myaudios/艾辰%20-%20出山.mp3","musicName":"出山"}]');
   let mediaMusic = [];
   for (let i = 0; i < musics.length; i++) {
     let item = musics[i];
@@ -1218,108 +1221,18 @@ setInterval("createtime()",250);
 </script>
   </div>
 </body>
-<input hidden id="copy" />
-<script>
-  //拿来主义(真香)^_^，Clipboard 实现摘自掘金 https://juejin.im/post/5aefeb6e6fb9a07aa43c20af
-  window.Clipboard = (function (window, document, navigator) {
-    var textArea,
-      copy;
 
-    // 判断是不是ios端
-    function isOS() {
-      return navigator.userAgent.match(/ipad|iphone/i);
-    }
-    //创建文本元素
-    function createTextArea(text) {
-      textArea = document.createElement('textArea');
-      textArea.value = text;
-      textArea.style.width = 0;
-      textArea.style.height = 0;
-      textArea.clientHeight = 0;
-      textArea.clientWidth = 0;
-      document.body.appendChild(textArea);
-    }
-    //选择内容
-    function selectText() {
-      var range,
-        selection;
-
-      if (isOS()) {
-        range = document.createRange();
-        range.selectNodeContents(textArea);
-        selection = window.getSelection();
-        selection.removeAllRanges();
-        selection.addRange(range);
-        textArea.setSelectionRange(0, 999999);
-      } else {
-        textArea.select();
-      }
-    }
-
-    //复制到剪贴板
-    function copyToClipboard() {
-      try {
-        document.execCommand("Copy")
-      } catch (err) {
-        alert("复制错误！请手动复制！")
-      }
-      document.body.removeChild(textArea);
-    }
-
-    copy = function (text) {
-      createTextArea(text);
-      selectText();
-      copyToClipboard();
-    };
-
-    return {
-      copy: copy
-    };
-  })(window, document, navigator);
-
-  function copyCode(e) {
-    if (e.srcElement.tagName === 'SPAN' && e.srcElement.classList.contains('copy-code')) {
-      let code = e.currentTarget.querySelector('code');
-      var text = code.innerText;
-      if (e.srcElement.textContent === '复制成功') {
-        console.log('复制操作频率过高');
-        return;
-      }
-      e.srcElement.textContent = '复制成功';
-      (function (elem) {
-        setTimeout(() => {
-          if (elem.textContent === '复制成功') {
-            elem.textContent = '复制代码'
-          }
-        }, 1000);
-      })(e.srcElement)
-      Clipboard.copy(text);
-    }
-  }
-
-  let pres = document.querySelectorAll('pre');
-  pres.forEach(pre => {
-    let code = pre.querySelector('code');
-    let copyElem = document.createElement('span');
-    copyElem.classList.add('copy-code');
-    copyElem.textContent = '复制代码';
-    pre.appendChild(copyElem);
-    pre.onclick = copyCode
-  })
-</script>
-<script src="/media/js/motion.js"></script>
-
-<div class="search-mask" id="search_mask" style="display: none;">
+  <div class="search-mask" id="search_mask" style="display: none;">
   <div class="search-box">
     <div class="search-title">
       <i class="fa fa-search"></i>
       <div class="input-box">
-        <input id="search" type="text" placeholder="搜索">
+        <input id="search" type="text" class="language" data-lan="search" placeholder="搜索">
       </div>
       <i id="close" class="fa fa-times-circle"></i>
     </div>
     <div class="stat-box">
-      <span id="stat_count">0</span>条相关条目，使用了<span id="stat_times">0</span>毫秒
+      <span id="stat_count">0</span><span class="language" data-lan="stat">条相关条目，使用了</span><span id="stat_times">0</span><span class="language" data-lan="stat-time">毫秒</span>
       <hr>
     </div>
     <div class="result" id="result">
@@ -2548,6 +2461,147 @@ void build(int k, int l, int r)
     searchBox.addEventListener('input', search(200));
   }()
 </script>
+
+<input hidden id="copy" />
+<script>
+  let language = '';
+  if (language !== '') {
+    let map = new Map();
+    if (language === 'en') {
+      map.set('search', 'Search');
+      map.set('category', 'Categories');
+      map.set('article', 'Articles');
+      map.set('tag', 'Tags');
+      map.set('top', 'Top');
+      map.set('publish', 'published');
+      map.set('minute', ' minutes');
+      map.set('read-more', 'Read More');
+      map.set('view', 'View');
+      map.set('words', ' words');
+      map.set('category-in', 'category in');
+      map.set('preview', 'Meta');
+      map.set('index', 'Toc');
+      map.set('no-archives', "You haven't created yet");
+      map.set('archives', " articles in total");
+      map.set('cloud-tags', " tags in total");
+      map.set('copyright', "Copyright: ");
+      map.set('author', "Author: ");
+      map.set('link', "Link: ");
+      map.set('leave-message', "Leave a message");
+      map.set('format', "Links Format");
+      map.set('site-name', "Name: ");
+      map.set('site-link', "Link: ");
+      map.set('site-desc', "Desc: ");
+      map.set('stat', " related results, taking ");
+      map.set('stat-time', " ms");
+      map.set('site-img', "Image: ");
+    }
+
+    if (map.size > 0) {
+      let lanElems = document.querySelectorAll('.language');
+      lanElems.forEach(elem => {
+        let lan = elem.dataset.lan, text = map.get(lan);
+        if (elem.__proto__ === HTMLInputElement.prototype) {
+          elem.placeholder = text
+        } else {
+          if (elem.dataset.count) {
+            text = elem.dataset.count + text;
+          }
+          elem.textContent = text;
+        }
+      })
+    }
+  }
+  //拿来主义(真香)^_^，Clipboard 实现摘自掘金 https://juejin.im/post/5aefeb6e6fb9a07aa43c20af
+  window.Clipboard = (function (window, document, navigator) {
+    var textArea,
+      copy;
+
+    // 判断是不是ios端
+    function isOS() {
+      return navigator.userAgent.match(/ipad|iphone/i);
+    }
+    //创建文本元素
+    function createTextArea(text) {
+      textArea = document.createElement('textArea');
+      textArea.value = text;
+      textArea.style.width = 0;
+      textArea.style.height = 0;
+      textArea.clientHeight = 0;
+      textArea.clientWidth = 0;
+      document.body.appendChild(textArea);
+    }
+    //选择内容
+    function selectText() {
+      var range,
+        selection;
+
+      if (isOS()) {
+        range = document.createRange();
+        range.selectNodeContents(textArea);
+        selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        textArea.setSelectionRange(0, 999999);
+      } else {
+        textArea.select();
+      }
+    }
+
+    //复制到剪贴板
+    function copyToClipboard() {
+      try {
+        document.execCommand("Copy")
+      } catch (err) {
+        alert("复制错误！请手动复制！")
+      }
+      document.body.removeChild(textArea);
+    }
+
+    copy = function (text) {
+      createTextArea(text);
+      selectText();
+      copyToClipboard();
+    };
+
+    return {
+      copy: copy
+    };
+  })(window, document, navigator);
+
+  function copyCode(e) {
+    if (e.srcElement.tagName === 'SPAN' && e.srcElement.classList.contains('copy-code')) {
+      let code = e.currentTarget.querySelector('code');
+      var text = code.innerText;
+      if (e.srcElement.textContent === '复制成功') {
+        console.log('复制操作频率过高');
+        return;
+      }
+      e.srcElement.textContent = '复制成功';
+      (function (elem) {
+        setTimeout(() => {
+          if (elem.textContent === '复制成功') {
+            elem.textContent = '复制代码'
+          }
+        }, 1000);
+      })(e.srcElement)
+      Clipboard.copy(text);
+    }
+  }
+
+  let pres = document.querySelectorAll('pre');
+  pres.forEach(pre => {
+    let code = pre.querySelector('code');
+    let copyElem = document.createElement('span');
+    copyElem.classList.add('copy-code');
+    copyElem.textContent = '复制代码';
+    pre.appendChild(copyElem);
+    pre.onclick = copyCode
+  })
+
+</script>
+<script src="/media/js/motion.js"></script>
+
 
 <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
 <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
