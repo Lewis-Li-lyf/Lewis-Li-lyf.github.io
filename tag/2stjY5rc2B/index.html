@@ -9,7 +9,7 @@
 <meta name="description" content="临兵斗者，皆阵列在前！">
 <meta name="theme-color" content="#000">
 <title>LewisLi的博客 | I AK IOI</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1592538502247">
+<link rel="shortcut icon" href="/favicon.ico?v=1594137514300">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -234,6 +234,7 @@
       </div>
     </div>
   
+
 
 
 </div>
@@ -1229,7 +1230,7 @@ setInterval("createtime()",250);
   hljs.initHighlightingOnLoad();
   
   // 离开当前页title变化
-  var leaveTitle = '';
+  var leaveTitle = "";
   if (leaveTitle) {
     document.addEventListener('visibilitychange', function () {
       if (document.visibilityState == 'hidden') {
@@ -1245,7 +1246,7 @@ setInterval("createtime()",250);
   </div>
 </body>
 
-  <div class="search-mask" id="search_mask" style="display: none;">
+<div class="search-mask" id="search_mask" style="display: none;">
   <div class="search-box">
     <div class="search-title">
       <i class="fa fa-search"></i>
@@ -2487,6 +2488,28 @@ void build(int k, int l, int r)
 
 <input hidden id="copy" />
 <script>
+  !function () {
+    let times = document.querySelectorAll('.publish-time');
+    for (let i = 0; i < times.length; i++) {
+      let date = times[i].dataset.t;
+      let time = Math.floor((new Date().getTime() - new Date(date).getTime()) / 1000);
+      if (time < 60) {
+        str = time + '秒之前';
+      } else if (time < 3600) {
+        str = Math.floor(time / 60) + '分钟之前';
+      } else if (time >= 3600 && time < 86400) {
+        str = Math.floor(time / 3600) + '小时之前';
+      } else if (time >= 86400 && time < 259200) {
+        str = Math.floor(time / 86400) + '天之前';
+      } else {
+        str = times[i].textContent;
+      }
+      times[i].textContent = str;
+    }
+  }();
+</script>
+
+<script>
   let language = '';
   if (language !== '') {
     let map = new Map();
@@ -2597,7 +2620,6 @@ void build(int k, int l, int r)
       let code = e.currentTarget.querySelector('code');
       var text = code.innerText;
       if (e.srcElement.textContent === '复制成功') {
-        console.log('复制操作频率过高');
         return;
       }
       e.srcElement.textContent = '复制成功';
@@ -2629,6 +2651,8 @@ void build(int k, int l, int r)
 <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
 <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
 <script type="text/javascript" src="/media/js/mouse/fireworks.js"></script>
+
+
 
 
 

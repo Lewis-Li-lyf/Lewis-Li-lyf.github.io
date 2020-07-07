@@ -9,7 +9,7 @@
 <meta name="description" content="临兵斗者，皆阵列在前！">
 <meta name="theme-color" content="#000">
 <title>致敬：向那些为抗击疫情而牺牲的烈士 | LewisLi的博客 | I AK IOI</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1592538502247">
+<link rel="shortcut icon" href="/favicon.ico?v=1594137514300">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -253,6 +253,7 @@
   
 
 
+
 </div>
           
         
@@ -339,7 +340,7 @@
 </script>
         <div class="section-box box-shadow-wrapper">
           <div class="section bg-color post post-page">
-            <header class="post-header">
+            <section class="post-header">
   <h1 class="post-title">
     <a class="post-title-link" href="https://lewis-li-lyf.github.io/post/COVID-19/">
       致敬：向那些为抗击疫情而牺牲的烈士
@@ -350,7 +351,7 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span>2020-04-04</span>
+      <span class="publish-time" data-t="2020-04-04 09:48:20">2020-04-04</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -365,7 +366,7 @@
     </span>
     
   </div>
-</header>
+</section>
             <div class="post-body next-md-body" id="post_body">
               <p>我相信，这个冬天给了我们太多。可能是悲伤的记忆，可能是告别亲人的不舍，可能是千千万万前线战士带给我们的感动，也可能是坚定抗争中生命的顽强与不屈。</p>
 <p>一个个逝去的生命，他们带着我们的目光，他们带着千千万万人民的悲伤，轻轻的离开了我们。在白衣战士面前，在全国十三亿人民面前，在全世界七十亿的朋友面前，他们没有多言，带着一个无怨无艾的笑，离开。</p>
@@ -1238,7 +1239,7 @@ setInterval("createtime()",250);
   hljs.initHighlightingOnLoad();
   
   // 离开当前页title变化
-  var leaveTitle = '';
+  var leaveTitle = "";
   if (leaveTitle) {
     document.addEventListener('visibilitychange', function () {
       if (document.visibilityState == 'hidden') {
@@ -1272,7 +1273,7 @@ setInterval("createtime()",250);
       let lightImg = document.createElement('img');
       lightImg.src = this.src;
       lightBox.style = `height: 100%; opacity: 1; background-color: rgba(0, 0, 0, 0.5);cursor: zoom-out;`;
-      lightImg.style = `width: ${width}px; border: 1px solid #fff; border-radius: 2px;`;
+      lightImg.style = `width: ${width}px;border-radius: 2px;`;
       lightImg.onclick = function () {
         lightBox.style = '';
         this.remove();
@@ -1497,10 +1498,11 @@ setInterval("createtime()",250);
     })
   }()
 </script>
+
   </div>
 </body>
 
-  <div class="search-mask" id="search_mask" style="display: none;">
+<div class="search-mask" id="search_mask" style="display: none;">
   <div class="search-box">
     <div class="search-title">
       <i class="fa fa-search"></i>
@@ -2742,6 +2744,28 @@ void build(int k, int l, int r)
 
 <input hidden id="copy" />
 <script>
+  !function () {
+    let times = document.querySelectorAll('.publish-time');
+    for (let i = 0; i < times.length; i++) {
+      let date = times[i].dataset.t;
+      let time = Math.floor((new Date().getTime() - new Date(date).getTime()) / 1000);
+      if (time < 60) {
+        str = time + '秒之前';
+      } else if (time < 3600) {
+        str = Math.floor(time / 60) + '分钟之前';
+      } else if (time >= 3600 && time < 86400) {
+        str = Math.floor(time / 3600) + '小时之前';
+      } else if (time >= 86400 && time < 259200) {
+        str = Math.floor(time / 86400) + '天之前';
+      } else {
+        str = times[i].textContent;
+      }
+      times[i].textContent = str;
+    }
+  }();
+</script>
+
+<script>
   let language = '';
   if (language !== '') {
     let map = new Map();
@@ -2852,7 +2876,6 @@ void build(int k, int l, int r)
       let code = e.currentTarget.querySelector('code');
       var text = code.innerText;
       if (e.srcElement.textContent === '复制成功') {
-        console.log('复制操作频率过高');
         return;
       }
       e.srcElement.textContent = '复制成功';
@@ -2884,6 +2907,8 @@ void build(int k, int l, int r)
 <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
 <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
 <script type="text/javascript" src="/media/js/mouse/fireworks.js"></script>
+
+
 
 
 </html>

@@ -9,7 +9,7 @@
 <meta name="description" content="临兵斗者，皆阵列在前！">
 <meta name="theme-color" content="#000">
 <title>转载：iostream 输入输出流 | LewisLi的博客 | I AK IOI</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1592538502247">
+<link rel="shortcut icon" href="/favicon.ico?v=1594137514300">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -253,6 +253,7 @@
   
 
 
+
 </div>
           
         
@@ -339,7 +340,7 @@
 </script>
         <div class="section-box box-shadow-wrapper">
           <div class="section bg-color post post-page">
-            <header class="post-header">
+            <section class="post-header">
   <h1 class="post-title">
     <a class="post-title-link" href="https://lewis-li-lyf.github.io/post/iostream/">
       转载：iostream 输入输出流
@@ -350,7 +351,7 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span>2020-03-07</span>
+      <span class="publish-time" data-t="2020-03-07 17:40:25">2020-03-07</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -384,7 +385,7 @@
     </span>
     
   </div>
-</header>
+</section>
             <div class="post-body next-md-body" id="post_body">
               <p>如果26个英文字母： <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mi>B</mi><mi>C</mi><mi>D</mi><mi>E</mi><mi>F</mi><mi>G</mi><mi>H</mi><mi>I</mi><mi>J</mi><mi>K</mi><mi>L</mi><mi>M</mi><mi>N</mi><mi>O</mi><mi>P</mi><mi>Q</mi><mi>R</mi><mi>S</mi><mi>T</mi><mi>U</mi><mi>V</mi><mi>W</mi><mi>X</mi><mi>Y</mi><mi>Z</mi></mrow><annotation encoding="application/x-tex">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault">G</span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="mord mathdefault" style="margin-right:0.09618em;">J</span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mord mathdefault">L</span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault">Q</span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault" style="margin-right:0.10903em;">U</span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span><span class="mord mathdefault" style="margin-right:0.07153em;">Z</span></span></span></span></p>
 <p>分别等于: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26。 那么：</p>
@@ -1265,7 +1266,7 @@ setInterval("createtime()",250);
   hljs.initHighlightingOnLoad();
   
   // 离开当前页title变化
-  var leaveTitle = '';
+  var leaveTitle = "";
   if (leaveTitle) {
     document.addEventListener('visibilitychange', function () {
       if (document.visibilityState == 'hidden') {
@@ -1299,7 +1300,7 @@ setInterval("createtime()",250);
       let lightImg = document.createElement('img');
       lightImg.src = this.src;
       lightBox.style = `height: 100%; opacity: 1; background-color: rgba(0, 0, 0, 0.5);cursor: zoom-out;`;
-      lightImg.style = `width: ${width}px; border: 1px solid #fff; border-radius: 2px;`;
+      lightImg.style = `width: ${width}px;border-radius: 2px;`;
       lightImg.onclick = function () {
         lightBox.style = '';
         this.remove();
@@ -1524,10 +1525,11 @@ setInterval("createtime()",250);
     })
   }()
 </script>
+
   </div>
 </body>
 
-  <div class="search-mask" id="search_mask" style="display: none;">
+<div class="search-mask" id="search_mask" style="display: none;">
   <div class="search-box">
     <div class="search-title">
       <i class="fa fa-search"></i>
@@ -2769,6 +2771,28 @@ void build(int k, int l, int r)
 
 <input hidden id="copy" />
 <script>
+  !function () {
+    let times = document.querySelectorAll('.publish-time');
+    for (let i = 0; i < times.length; i++) {
+      let date = times[i].dataset.t;
+      let time = Math.floor((new Date().getTime() - new Date(date).getTime()) / 1000);
+      if (time < 60) {
+        str = time + '秒之前';
+      } else if (time < 3600) {
+        str = Math.floor(time / 60) + '分钟之前';
+      } else if (time >= 3600 && time < 86400) {
+        str = Math.floor(time / 3600) + '小时之前';
+      } else if (time >= 86400 && time < 259200) {
+        str = Math.floor(time / 86400) + '天之前';
+      } else {
+        str = times[i].textContent;
+      }
+      times[i].textContent = str;
+    }
+  }();
+</script>
+
+<script>
   let language = '';
   if (language !== '') {
     let map = new Map();
@@ -2879,7 +2903,6 @@ void build(int k, int l, int r)
       let code = e.currentTarget.querySelector('code');
       var text = code.innerText;
       if (e.srcElement.textContent === '复制成功') {
-        console.log('复制操作频率过高');
         return;
       }
       e.srcElement.textContent = '复制成功';
@@ -2911,6 +2934,8 @@ void build(int k, int l, int r)
 <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
 <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
 <script type="text/javascript" src="/media/js/mouse/fireworks.js"></script>
+
+
 
 
 </html>
