@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://lewis-li-lyf.github.io</id>
     <title>LewisLi的博客 | I AK IOI</title>
-    <updated>2020-11-16T12:01:21.384Z</updated>
+    <updated>2020-11-16T12:38:24.686Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://lewis-li-lyf.github.io"/>
     <link rel="self" href="https://lewis-li-lyf.github.io/atom.xml"/>
@@ -10,6 +10,65 @@
     <logo>https://lewis-li-lyf.github.io/images/avatar.png</logo>
     <icon>https://lewis-li-lyf.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, LewisLi的博客 | I AK IOI</rights>
+    <entry>
+        <title type="html"><![CDATA[CSP 2020 游记]]></title>
+        <id>https://lewis-li-lyf.github.io/post/csp-2020-you-ji/</id>
+        <link href="https://lewis-li-lyf.github.io/post/csp-2020-you-ji/">
+        </link>
+        <updated>2020-11-16T12:37:50.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="round-1">Round 1</h1>
+<h2 id="day-0">Day 0</h2>
+<p>考试前一周摸鱼了，结果考试前两天的时候感觉很危，恶补了一下补全程序。</p>
+<p>但是阅读程序完全靠蒙，实际上也确实是这样。</p>
+<p>我提早睡觉，结果晚上有一点失眠，不过问题不大。</p>
+<h2 id="day-1">Day 1</h2>
+<p>tg的选择感觉还可以，不是很难，就是有两道题我脑抽了，还好我之前了解过香农。</p>
+<p>阅读程序完全乱糊，压根读不懂。</p>
+<p>99行代码题我直接问候出题人全家。</p>
+<p>补全程序还好，至少比我预期要好一些。</p>
+<p>但是下午pj直接爬了，中午没休息好，又轻视了，结果pj的阅读考的一塌糊涂。</p>
+<p>（不过我如果连pj都没过就有点过分</p>
+<p>在这里 % AK pj 初赛的神仙 @namelessgugugu</p>
+<p>tg考的还不错，跟我预期差不多。pj同学都90+就我79爬了爬了。</p>
+<h1 id="round-2">Round 2</h1>
+<h2 id="day-0-2">Day 0</h2>
+<p>下午两节自习课直接和 NaOH_Frog 一起咕掉，针不戳。</p>
+<p>年级只有 NaOH_Frog 和我们不在同一个酒店，去了个更高级的，看来是我太蒻被神仙鄙视了（悲</p>
+<p>晚上鸽子和其他人终于来了，和鸽子与 @A_Pikachu 一起音游、原神（颓废带师</p>
+<p><s>此时的神蛙已经一遍 A 圆方树了 Orz</s></p>
+<p>晚上睡得还不错，但是半夜不知道怎么回事就爬起来了。</p>
+<h2 id="day-1-2">Day 1</h2>
+<p>pjT1没啥好说的，直接二进制拆分。</p>
+<p>T2我竟然想了半小时的对顶堆，还写挂了，后来去想后面的时候突然想起来可以开桶，就直接 600 - i + 1桶排了。</p>
+<p>T3表达式树，没想到，爬了。</p>
+<p>T4是DP，但是没时间想了，结果出考场5min就有了正解，<strong>我是什么垃圾</strong></p>
+<p>tg的 T1 直接大模拟？？？写了1h，结果是k的查询，T飞，而且忘记ll。<strong>见祖宗 x 1</strong></p>
+<p>T2一眼正解，不懂为什么是绿，后来又用了10min验证正确性，直接写了。</p>
+<p>但是我忘记ull了，而且ull也要特判。<strong>见祖宗 x 2</strong></p>
+<p>结果似乎全挂（？</p>
+<p>怎么€€£总是要出这种精度坑啊。</p>
+<p>T3看不出做法，直接跳过。</p>
+<p>T4我看了一下，是贪心？然后就打了个贪心上去，结果第二个样例没过。没搞懂第二个样例什么意思？？？</p>
+<p>此时只剩半小时了，我还留一些时间检查文件，于是花15min打了个T3假的暴力尝试骗个0分。</p>
+<p>后来听说T3拓扑排序……不知道是怎么想到的。</p>
+<h2 id="总结">总结</h2>
+<p>1年OI一场空，T1T2见祖宗。</p>
+<p>现有格雷后有zoo，不考DP考精度。</p>
+<p>T1暴力大模拟，O(k)枚举直接T。</p>
+<p>拓扑贪心不会做，CSP爆零针不戳。</p>
+<h1 id="赛后">赛后</h1>
+<p>感觉pj发挥是真的失常了，T4应该写出来的。</p>
+<p>T1写挂了……</p>
+<p>当时真的想打死自己，毕竟tg没把握pj又不可能有勾。</p>
+<p>至于tg感觉比我真实水平差一些。T1早知道花10min写二分了。</p>
+<p>T2莫名只有60pts，似乎是策略上的小问题。</p>
+<p>T3T4全挂，结果T3加乘线段树都有很多分，T4贪心都能70pts，这些分我为什么不拿……</p>
+<p>如果我T1T2都写对，T3T4把分骗了的话应该能300+。</p>
+<p>哎，只能说技不如人。</p>
+<p>暂时 AFO，12月重新冲刺CSP2021。</p>
+<h1 id="csp-2021-rp-score">CSP 2021 RP++ SCORE++</h1>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[转载：我是一个OIer]]></title>
         <id>https://lewis-li-lyf.github.io/post/I-was-a-OIer/</id>
@@ -503,81 +562,6 @@ q.empty()//查询堆是否为空，为空则返回1否则返回0
 q.size()//查询堆内元素数量
 </code></pre>
 <p>综合来看，STL版本的堆完爆手写堆，毕竟难度差距不是一般的大。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Trie 树]]></title>
-        <id>https://lewis-li-lyf.github.io/post/Trie/</id>
-        <link href="https://lewis-li-lyf.github.io/post/Trie/">
-        </link>
-        <updated>2020-03-27T06:09:12.000Z</updated>
-        <content type="html"><![CDATA[<p>好久没写博客了呢~</p>
-<p>所以，<br>
-我这个蒟蒻终于啃掉了AC自动机——</p>
-<p>但我要讲的是</p>
-<h1 id="trie-树">Trie 树</h1>
-<p><s>踹树</s><br>
-那么 <s>踹树</s> Trie 树是什么？</p>
-<blockquote>
-<p><em>字典树，又称单词查找树，Trie树，是一种树形结构，是一种哈希树的变种。典型应用是用于统计，排序和保存大量的字符串（但不仅限于字符串），所以经常被搜索引擎系统用于文本词频统计。它的优点是：利用字符串的公共前缀来减少查询时间，最大限度地减少无谓的字符串比较，查询效率比哈希树高。</em> —— <em>某度某科</em><br>
-<em>在计算机科学中，Trie，又称前缀树或字典树，是一种有序树，用于保存关联数组，其中的键通常是字符串。与二叉查找树不同，键不是直接保存在节点中，而是由节点在树中的位置决定。一个节点的所有子孙都有相同的前缀，也就是这个节点对应的字符串，而根节点对应空字符串。一般情况下，不是所有的节点都有对应的值，只有叶子节点和部分内部节点所对应的键才有相关的值。  —— 维基百科</em></p>
-</blockquote>
-<p><s>从上面可以看出，Trie 树是用来做字符串查找题的</s></p>
-<p>Trie 树是一种典型的<br>
-<strong>用空间换时间的算法</strong><br>
-它快，是因为单词之间拥有<strong>公共前缀</strong>。</p>
-<p>来看一张我画的图：<br>
-<img src="https://cdn.luogu.com.cn/upload/image_hosting/8xrb9nip.png" alt="" loading="lazy"></p>
-<p>从根节点开始，每个节点都最多 有26个分支，也就是说，Trie 树是一个26叉树。<br>
-那么图中有几个单词呢？ ——4个，分别是ab,b,zc,zd。<br>
-标红点代表有一个单词。</p>
-<h1 id="怎样插入单词呢">怎样插入单词呢？</h1>
-<p>我们要插入一个单词，需要逐位分析。</p>
-<p>比如插入单词 bc。<br>
-从根节点出发，发现当前有第一个字母b，继续找<br>
-第二个字母 c，发现当前没有 c，于是新建一条。<br>
-因为这是单词末尾，所以打上标记 =&gt; 红色。</p>
-<p>于是，我们就可以踹树了（手动滑稽）</p>
-<p>建立：</p>
-<pre><code class="language-cpp">struct node{
-	int ch[26];
-	bool have;
-}t[800000];
-</code></pre>
-<p>插入</p>
-<pre><code class="language-cpp">int num = 0;
-void insert(string s){
-	int u=0,len=s.size();
-	for(int i=0;i&lt;len;i++){
-		int v=s[i]-'a';//统一大小写
-		if(!t[u].ch[v]){
-			t[u].ch[v]=++num;
-		}
-		u=t[u].ch[v];
-	}
-	t[u].have=true;//打标记
-	return ;
-}
-</code></pre>
-<h1 id="查询">查询</h1>
-<p>再放一下图</p>
-<figure data-type="image" tabindex="1"><img src="https://cdn.luogu.com.cn/upload/image_hosting/8xrb9nip.png" alt="" loading="lazy"></figure>
-<p>假如我们现在要查 zc 这个单词。<br>
-从根出发，有节点 z，那么顺着这条向下走。<br>
-有节点 c 。因为 c 是最后一位，所以查看这里的标记——有标记。说明有 zc 这个单词。<br>
-而查询 bc 的时候，b 下面没有 c，所以没有 bc 。</p>
-<pre><code class="language-cpp">int query(string s){
-	int u=0,len=s.size();
-	for(int i=0;i&lt;len;i++){
-		int v=s[i]-'a';
-		if(!t[u].ch[v]) return false;//没有单词，直接返回false
-		u=t[u].ch[v];
-	}
-	return t[u].have;//如果有标记，返回true，否则false；
-}
-</code></pre>
-<p><s>踹树真好</s></p>
-<p>Trie 树在字符串方面运用的很广泛，一般来说，主要运用于字符串的储存。AC自动机就是使用 Trie 树来储存的。</p>
 ]]></content>
     </entry>
 </feed>
